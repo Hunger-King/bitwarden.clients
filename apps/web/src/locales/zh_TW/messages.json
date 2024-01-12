@@ -1165,7 +1165,7 @@
         "message": "特殊字元 (!@#$%^&*)"
     },
     "numWords": {
-        "message": "單字數量"
+        "message": "字元位數"
     },
     "wordSeparator": {
         "message": "單字分隔字元"
@@ -3648,7 +3648,7 @@
         "message": "篩選器"
     },
     "vaultTimeout": {
-        "message": "密碼庫逾時時間"
+        "message": "密碼庫逾時"
     },
     "vaultTimeoutDesc": {
         "message": "選擇密碼庫何時執行密碼庫逾時動作。"
