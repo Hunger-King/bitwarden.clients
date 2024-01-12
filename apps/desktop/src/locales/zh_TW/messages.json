@@ -416,7 +416,7 @@
         "message": "特殊字元 (!@#$%^&*)"
     },
     "numWords": {
-        "message": "單字數量"
+        "message": "字元位數"
     },
     "wordSeparator": {
         "message": "單字分隔字元"
@@ -818,13 +818,13 @@
         "message": "同步失敗"
     },
     "yourVaultIsLocked": {
-        "message": "您的密碼庫已鎖定。請驗證身分以繼續。"
+        "message": "您的密碼庫已鎖定，請先驗證身分才能繼續。"
     },
     "unlock": {
         "message": "解鎖"
     },
     "loggedInAsOn": {
-        "message": "已經在 $HOSTNAME$ 使用 $EMAIL$ 身份登入。",
+        "message": "已在 $HOSTNAME$ 以 $EMAIL$ 身份登入。",
         "placeholders": {
             "email": {
                 "content": "$1",
@@ -846,7 +846,7 @@
         "message": "兩步驟登入"
     },
     "vaultTimeout": {
-        "message": "密碼庫逾時時間"
+        "message": "密碼庫逾時"
     },
     "vaultTimeoutDesc": {
         "message": "選擇密碼庫何時執行密碼庫逾時動作。"
@@ -891,7 +891,7 @@
         "message": "系統睡眠時"
     },
     "onLocked": {
-        "message": "系統鎖定時"
+        "message": "於系統鎖定時"
     },
     "onRestart": {
         "message": "重新啟動時"
@@ -1493,7 +1493,7 @@
         "message": "需要重新驗證才能再次存取密碼庫。"
     },
     "unlockMethodNeededToChangeTimeoutActionDesc": {
-        "message": "設定解鎖方法來變更您的密碼庫逾時動作。"
+        "message": "設定一個解鎖方式來變更您的密碼庫逾時動作。"
     },
     "lock": {
         "message": "鎖定",
