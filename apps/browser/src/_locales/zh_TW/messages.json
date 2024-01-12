@@ -245,7 +245,7 @@
         "description": "Short for 'Password Generator'."
     },
     "passGenInfo": {
-        "message": "自動產生安全、唯一的登入密碼。"
+        "message": "自動產生安全且獨特的登入密碼。"
     },
     "bitWebVault": {
         "message": "Bitwarden 網頁版密碼庫"
@@ -281,7 +281,7 @@
         "message": "特殊字元 (!@#$%^&*)"
     },
     "numWords": {
-        "message": "單字數量"
+        "message": "字元位數"
     },
     "wordSeparator": {
         "message": "單字分隔字元"
@@ -372,13 +372,13 @@
         "message": "請給予我們好評！"
     },
     "browserNotSupportClipboard": {
-        "message": "您的瀏覽器不支援剪貼簿簡單複製，請手動複製。"
+        "message": "您的瀏覽器不支援剪貼簿簡易複製功能，請手動複製。"
     },
     "verifyIdentity": {
         "message": "驗證身份"
     },
     "yourVaultIsLocked": {
-        "message": "您的密碼庫已鎖定。請驗證身分以繼續。"
+        "message": "您的密碼庫已鎖定，請先驗證身分才能繼續。"
     },
     "unlock": {
         "message": "解鎖"
@@ -400,7 +400,7 @@
         "message": "無效的主密碼"
     },
     "vaultTimeout": {
-        "message": "密碼庫逾時時間"
+        "message": "密碼庫逾時"
     },
     "lockNow": {
         "message": "立即鎖定"
