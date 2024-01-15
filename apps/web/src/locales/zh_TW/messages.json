@@ -43,19 +43,19 @@
         "message": "持卡人姓名"
     },
     "number": {
-        "message": "號碼"
+        "message": "卡號"
     },
     "brand": {
-        "message": "發卡組織"
+        "message": "發卡銀行"
     },
     "expiration": {
-        "message": "逾期"
+        "message": "到期"
     },
     "securityCode": {
         "message": "安全碼 (CVV)"
     },
     "identityName": {
-        "message": "身分名稱"
+        "message": "身份名稱"
     },
     "company": {
         "message": "公司"
@@ -67,7 +67,7 @@
         "message": "護照號碼"
     },
     "licenseNumber": {
-        "message": "許可證號碼"
+        "message": "駕照號碼"
     },
     "email": {
         "message": "電子郵件"
@@ -112,7 +112,7 @@
         "message": "十二月"
     },
     "title": {
-        "message": "稱呼"
+        "message": "稱謂"
     },
     "mr": {
         "message": "Mr"
@@ -130,10 +130,10 @@
         "message": "Dr"
     },
     "expirationMonth": {
-        "message": "逾期月份"
+        "message": "到期月份"
     },
     "expirationYear": {
-        "message": "逾期年份"
+        "message": "到期年份"
     },
     "authenticatorKeyTotp": {
         "message": "驗證器金鑰 (TOTP)"
@@ -180,7 +180,7 @@
         "message": "編輯資料夾"
     },
     "baseDomain": {
-        "message": "基底網域",
+        "message": "基礎網域",
         "description": "Domain name. Example: website.com"
     },
     "domainName": {
@@ -202,11 +202,11 @@
         "description": "A programming term, also known as 'RegEx'."
     },
     "matchDetection": {
-        "message": "一致性偵測",
+        "message": "對比",
         "description": "URI match detection for auto-fill."
     },
     "defaultMatchDetection": {
-        "message": "預設一致性偵測",
+        "message": "預設對比",
         "description": "Default URI match detection for auto-fill."
     },
     "never": {
@@ -226,7 +226,7 @@
         "message": "檢查密碼是否已暴露。"
     },
     "passwordExposed": {
-        "message": "此密碼在資料外洩事件中被暴露了 $VALUE$ 次，應立即變更它。",
+        "message": "此密碼在資料外洩事件中被暴露了 $VALUE$ 次，應立即變更。",
         "placeholders": {
             "value": {
                 "content": "$1",
@@ -235,7 +235,7 @@
         }
     },
     "passwordSafe": {
-        "message": "任何已知的外洩密碼資料庫中都沒有此密碼，它目前是安全的。"
+        "message": "此密碼未出現在任何已知的外洩資料中，因此目前是安全的。"
     },
     "save": {
         "message": "儲存"
@@ -262,7 +262,7 @@
         "message": "編輯"
     },
     "searchCollection": {
-        "message": "搜尋集合"
+        "message": "搜尋分類"
     },
     "searchFolder": {
         "message": "搜尋資料夾"
@@ -314,7 +314,7 @@
         "message": "登入"
     },
     "typeCard": {
-        "message": "支付卡"
+        "message": "信用卡"
     },
     "typeIdentity": {
         "message": "身分"
@@ -353,13 +353,13 @@
         "message": "全名"
     },
     "address1": {
-        "message": "地址 1"
+        "message": "第一行地址"
     },
     "address2": {
-        "message": "地址 2"
+        "message": "第二行地址"
     },
     "address3": {
-        "message": "地址 3"
+        "message": "第三行地址"
     },
     "cityTown": {
         "message": "市/鎮"
@@ -415,7 +415,7 @@
         "message": "移動至組織"
     },
     "valueCopied": {
-        "message": "$VALUE$ 已複製",
+        "message": "已複製 $VALUE$",
         "description": "Value has been copied to the clipboard.",
         "placeholders": {
             "value": {
@@ -494,7 +494,7 @@
         "message": "附件已刪除"
     },
     "deleteAttachmentConfirmation": {
-        "message": "確定要刪除此附件嗎？"
+        "message": "確定要刪除此附件？"
     },
     "attachmentSaved": {
         "message": "附件已儲存"
@@ -546,7 +546,7 @@
         "message": "刪除附件"
     },
     "deleteItemConfirmation": {
-        "message": "確定要刪除此項目嗎?"
+        "message": "確定要刪除此項目嗎？"
     },
     "deletedItem": {
         "message": "項目已移至垃圾桶"
@@ -564,7 +564,7 @@
         "message": "資料夾已儲存"
     },
     "addedFolder": {
-        "message": "資料夾已新增"
+        "message": "已新增資料夾"
     },
     "deleteFolderConfirmation": {
         "message": "您確定要刪除此資料夾嗎？"
@@ -582,7 +582,7 @@
         "message": "已登出"
     },
     "loginExpired": {
-        "message": "您的登入工作階段已逾期。"
+        "message": "您的登入階段已過期。"
     },
     "logOutConfirmation": {
         "message": "您確定要登出嗎？"
@@ -774,13 +774,13 @@
         "message": "無效的電子郵件地址。"
     },
     "masterPasswordRequired": {
-        "message": "必須填寫主密碼。"
+        "message": "必須填入主密碼。"
     },
     "confirmMasterPasswordRequired": {
         "message": "必須再次輸入主密碼。"
     },
     "masterPasswordMinlength": {
-        "message": "主密碼必須至少 $VALUE$ 個字元。",
+        "message": "主密碼需要至少 $VALUE$ 個字元。",
         "description": "The Master Password must be at least a specific number of characters long.",
         "placeholders": {
             "value": {
@@ -799,7 +799,7 @@
         "message": "帳戶建立成功。"
     },
     "masterPassSent": {
-        "message": "已傳送包含您主密碼提示的電子郵件。"
+        "message": "已寄出包含您主密碼提示的電子郵件。"
     },
     "unexpectedError": {
         "message": "發生了未預期的錯誤。"
@@ -848,7 +848,7 @@
         "message": "您沒有檢視此集合中所有項目的權限。"
     },
     "noCollectionsInList": {
-        "message": "沒有可列出的集合。"
+        "message": "沒有可顯示的分類。"
     },
     "noGroupsInList": {
         "message": "沒有可列出的群組。"
@@ -866,7 +866,7 @@
         "message": "新增組織"
     },
     "noOrganizationsList": {
-        "message": "您沒有加入任何組織。組織允許您與其他使用者安全地共用項目。"
+        "message": "您沒有加入任何組織。一旦加入組織，您就可與其他使用者安全地共用項目。"
     },
     "notificationSentDevice": {
         "message": "通知已傳送至您的裝置。"
@@ -905,25 +905,25 @@
         "message": "記住我"
     },
     "sendVerificationCodeEmailAgain": {
-        "message": "再次傳送​​包含驗證碼的電子郵件"
+        "message": "再次傳送包含驗證碼的電子郵件"
     },
     "useAnotherTwoStepMethod": {
         "message": "使用另一種兩步驟登入方法"
     },
     "insertYubiKey": {
-        "message": "將您的 YubiKey 插入電腦的 USB 連接埠，然後觸摸其按鈕。"
+        "message": "將您的 YubiKey 插入電腦的 USB 連接埠，然後按一下它的按鈕。"
     },
     "insertU2f": {
-        "message": "將您的安全鑰匙插入電腦的 USB 連接埠，然後觸摸其按鈕（如有的話）。"
+        "message": "將您的安全鑰匙插入電腦的 USB 連接埠，然後觸摸其按鈕（若有）。"
     },
     "loginUnavailable": {
         "message": "登入無法使用"
     },
     "noTwoStepProviders": {
-        "message": "此帳戶已啟用兩步驟登入，但是本瀏覽器不支援已設定的兩步驟登入方法。"
+        "message": "此帳戶已設定兩步驟登入，但是本瀏覽器不支援已設定的任一兩步驟提供程式。"
     },
     "noTwoStepProviders2": {
-        "message": "請使用受支援的瀏覽器（例如 Chrome），及/或新增可以更好地支援跨瀏覽器的提供程式（例如驗證器應用程式）。"
+        "message": "請使用支援的瀏覽器（例如 Chrome），及/或新增可以更好地支援跨瀏覽器的提供程式（例如驗證器應用程式）。"
     },
     "twoStepOptions": {
         "message": "兩步驟登入選項"
@@ -932,7 +932,7 @@
         "message": "無法使用任何兩步驟登入方式嗎？請使用您的復原碼停用所有兩步驟登入方式。"
     },
     "recoveryCodeTitle": {
-        "message": "復原碼"
+        "message": "復原代碼"
     },
     "authenticatorAppTitle": {
         "message": "驗證器應用程式"
@@ -948,11 +948,11 @@
         "message": "使用 YubiKey 存取您的帳戶。支援 YubiKey 4 系列、5 系列以及 NEO 裝置。"
     },
     "duoDesc": {
-        "message": "使用 Duo Security 的 Duo Mobile 程式、SMS 、撥打電話或 U2F 安全鑰匙進行驗證。",
+        "message": "使用 Duo Security 的 Duo Mobile 程式、SMS 、撥打電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "duoOrganizationDesc": {
-        "message": "為您的組織使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全鑰匙進行驗證。",
+        "message": "為您的組織使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "u2fDesc": {
@@ -965,7 +965,7 @@
         "message": "FIDO2 WebAuthn"
     },
     "webAuthnDesc": {
-        "message": "使用任何具有 WebAuthn 功能的安全鑰匙來存取您的帳戶。"
+        "message": "使用任何與 WebAuthn 相容的安全金鑰來存取您的帳戶。"
     },
     "webAuthnMigrated": {
         "message": "（遷移自 FIDO）"
@@ -974,7 +974,7 @@
         "message": "電子郵件"
     },
     "emailDesc": {
-        "message": "使用電子郵件傳送驗證碼給您。"
+        "message": "驗證碼將透過電子郵件寄送給您。"
     },
     "continue": {
         "message": "繼續"
@@ -1060,7 +1060,7 @@
         "message": "確認匯出機密"
     },
     "exportWarningDesc": {
-        "message": "此次匯出的密碼庫檔案為未加密格式。您不應將它存放或經由不安全的方式（例如電子郵件）傳送。用完後請立即將它刪除。"
+        "message": "此次匯出的密碼庫資料為未加密格式。您不應將它存放或經由不安全的方式（例如電子郵件）傳送。使用完畢後請立即刪除。"
     },
     "exportSecretsWarningDesc": {
         "message": "此匯出包含未加密格式的機密資料。您不應透過不安全的方式（例如電子郵件）儲存或傳送已匯出的檔案。用完後請立即將它刪除。"
@@ -1230,7 +1230,7 @@
         "message": "主密碼已儲存"
     },
     "currentMasterPass": {
-        "message": "目前主密碼"
+        "message": "目前的主密碼"
     },
     "newMasterPass": {
         "message": "新的主密碼"
@@ -2042,7 +2042,7 @@
         "message": "未來會有更多進階功能，敬請期待！"
     },
     "premiumPrice": {
-        "message": "每年只需 $PRICE$ ！",
+        "message": "每年只需 $PRICE$！",
         "placeholders": {
             "price": {
                 "content": "$1",
@@ -3633,7 +3633,7 @@
         "message": "您未選取任何内容。"
     },
     "acceptPolicies": {
-        "message": "選中此選取框，即表示您同意下列條款："
+        "message": "勾選此核取方塊，即表示您同意下列條款："
     },
     "acceptPoliciesRequired": {
         "message": "尚未接受服務條款與隱私權政策。"
@@ -3727,7 +3727,7 @@
         "description": "ex. A strong password. Scale: Very Weak -> Weak -> Good -> Strong"
     },
     "good": {
-        "message": "好",
+        "message": "良好",
         "description": "ex. A good password. Scale: Very Weak -> Weak -> Good -> Strong"
     },
     "weak": {
@@ -3817,7 +3817,7 @@
         "message": "輪換 API 金鑰"
     },
     "selectOneCollection": {
-        "message": "您必須至少選擇一個集合。"
+        "message": "您必須至少選擇一個分類。"
     },
     "couldNotChargeCardPayInvoice": {
         "message": "我們無法從您的支付卡扣款。請檢視並支付以下尚未付清的款項。"
@@ -3835,7 +3835,7 @@
         "message": "最小長度"
     },
     "clone": {
-        "message": "克隆"
+        "message": "複製"
     },
     "masterPassPolicyTitle": {
         "message": "主密碼要求"
@@ -3859,10 +3859,10 @@
         "message": "設定密碼產生器要求。"
     },
     "passwordGeneratorPolicyInEffect": {
-        "message": "一個或多個組織原則正影響密碼產生器設定。"
+        "message": "一個或多個組織政策正影響密碼產生器設定。"
     },
     "masterPasswordPolicyInEffect": {
-        "message": "一個或多個組織原則要求您的主密碼須符合下列條件："
+        "message": "一個或多個組織政策規定您的主密碼須符合下列條件："
     },
     "policyInEffectMinComplexity": {
         "message": "最小複雜度為 $SCORE$",
@@ -3901,7 +3901,7 @@
         }
     },
     "masterPasswordPolicyRequirementsNotMet": {
-        "message": "新的主密碼不符合原則要求。"
+        "message": "您新的主密碼不符合政策規定。"
     },
     "minimumNumberOfWords": {
         "message": "最少單字個數"
@@ -3990,7 +3990,7 @@
         }
     },
     "vaultTimeoutLogOutConfirmation": {
-        "message": "選擇登出將會在密碼庫逾時後移除對密碼庫的所有存取權限，若要重新驗證則需連線網路。確定要使用此設定嗎？"
+        "message": "一旦登出，在密碼庫逾時後您將失去對密碼庫的所有存取權限，若要重新驗證則需連線網路。確定要使用此設定嗎？"
     },
     "vaultTimeoutLogOutConfirmationTitle": {
         "message": "逾時動作確認"
@@ -5093,7 +5093,7 @@
         "message": "為所有現有的和新的成員啓用瀏覽器擴充套件上的頁面載入時自動填入設定。"
     },
     "experimentalFeature": {
-        "message": "被入侵或不可信任的網站可以利用網頁載入時的自動填入功能。"
+        "message": "被入侵或不被信任的網站，可能會濫用頁面載入時的自動填入功能。"
     },
     "learnMoreAboutAutofill": {
         "message": "進一步瞭解「自動填入」功能"
