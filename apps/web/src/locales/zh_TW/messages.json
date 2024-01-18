@@ -216,7 +216,7 @@
         "message": "切換可見性"
     },
     "toggleCollapse": {
-        "message": "切換折疊",
+        "message": "切換至折疊狀態",
         "description": "Toggling an expand/collapse state."
     },
     "generatePassword": {
@@ -338,7 +338,7 @@
         "message": "資料夾"
     },
     "collections": {
-        "message": "集合"
+        "message": "分類"
     },
     "firstName": {
         "message": "名"
@@ -485,7 +485,7 @@
         "message": "取消全選"
     },
     "launch": {
-        "message": "前往"
+        "message": "啟動"
     },
     "newAttachment": {
         "message": "新增附件"
@@ -711,7 +711,7 @@
         "message": "建立帳戶"
     },
     "newAroundHere": {
-        "message": "第一次使用？"
+        "message": "初次使用？"
     },
     "startTrial": {
         "message": "立即試用"
@@ -869,7 +869,7 @@
         "message": "您沒有加入任何組織。一旦加入組織，您就可與其他使用者安全地共用項目。"
     },
     "notificationSentDevice": {
-        "message": "通知已傳送至您的裝置。"
+        "message": "已傳送通知至您的裝置。"
     },
     "versionNumber": {
         "message": "版本 $VERSION_NUMBER$",
@@ -986,7 +986,7 @@
         "message": "組織"
     },
     "moveToOrgDesc": {
-        "message": "選擇您希望將這個項目移動至哪個組織。項目的擁有權將會轉移至該組織。轉移之後，您將不再是此項目的直接擁有者。"
+        "message": "選擇您希望將這個項目移動至的哪個組織。該項目擁有權將因此轉移至該組織。轉移之後，您將不再是此項目的直接擁有者。"
     },
     "moveManyToOrgDesc": {
         "message": "選擇您希望將這些項目移動至哪個組織。項目的擁有權將會轉移至該組織。轉移之後，您將不再是這些項目的直接擁有者。"
@@ -1351,13 +1351,13 @@
         "message": "匯入時發生錯誤"
     },
     "importErrorDesc": {
-        "message": "您嘗試匯入的資料有問題，請處理下方列出的來源檔案中的錯誤然後再試一次。"
+        "message": "您嘗試匯入的資料有問題，請處理下列來源檔案中的錯誤然後再試一次。"
     },
     "importSuccess": {
         "message": "資料匯入成功"
     },
     "importSuccessNumberOfItems": {
-        "message": "一共匯入了 $AMOUNT$ 個項目。",
+        "message": "一共匯入 $AMOUNT$ 個項目。",
         "placeholders": {
             "amount": {
                 "content": "$1",
@@ -1378,10 +1378,10 @@
         }
     },
     "importFormatError": {
-        "message": "資料格式不正確。請檢查您匯入的檔案後再試一次。"
+        "message": "資料格式不正確。請檢查匯入檔案後再試一次。"
     },
     "importNothingError": {
-        "message": "沒有匯入任何內容。"
+        "message": "未匯入任何內容。"
     },
     "importEncKeyError": {
         "message": "解密匯出的檔案時發生錯誤，您的加密金鑰與匯出資料時使用的金鑰不同。"
@@ -1396,10 +1396,10 @@
         "message": "選擇一個資料夾"
     },
     "selectImportCollection": {
-        "message": "選擇一個集合"
+        "message": "選擇一個分類"
     },
     "importTargetHint": {
-        "message": "如果您要將匯入檔案的内容移動到 $DESTINATION$，請選擇此選項",
+        "message": "如果您要將匯入檔案的內容移動到 $DESTINATION$，請選擇此選項",
         "description": "Located as a hint under the import target. Will be appended by either folder or collection, depending if the user is importing into an individual or an organizational vault.",
         "placeholders": {
             "destination": {
@@ -1409,7 +1409,7 @@
         }
     },
     "importUnassignedItemsError": {
-        "message": "檔案包含未指派的項目。"
+        "message": "檔案包含未指派項目。"
     },
     "selectFormat": {
         "message": "選擇匯入檔案的格式"
@@ -4153,7 +4153,7 @@
         "message": "逾期日期"
     },
     "expirationDateDesc": {
-        "message": "如果設定此選項，對此 Send 的存取將在指定的日期和時間後逾期。",
+        "message": "如果設定此選項，此 Send 的存取將在指定的日期和時間逾期。",
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "maxAccessCount": {
@@ -4167,7 +4167,7 @@
         "message": "目前存取次數"
     },
     "sendPasswordDesc": {
-        "message": "選用。使用者需提供密碼才能存取此 Send。",
+        "message": "選用功能：使用者需提供密碼才能存取此 Send。",
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "sendNotesDesc": {
@@ -4192,7 +4192,7 @@
         "message": "移除密碼"
     },
     "removedPassword": {
-        "message": "密碼已移除"
+        "message": "已移除密碼"
     },
     "removePasswordConfirmation": {
         "message": "您確定要移除此密碼嗎？"
@@ -4208,7 +4208,7 @@
         "message": "所有 Send"
     },
     "maxAccessCountReached": {
-        "message": "已達最大存取次數",
+        "message": "已達存取次數上限",
         "description": "This text will be displayed after a Send has been accessed the maximum amount of times."
     },
     "pendingDeletion": {
@@ -4548,10 +4548,10 @@
         }
     },
     "personalOwnershipPolicyInEffect": {
-        "message": "某個組織原則正在影響您的擁有權選項。"
+        "message": "組織政策影響您的擁有權選項。"
     },
     "personalOwnershipPolicyInEffectImports": {
-        "message": "某個組織原則已禁止您將項目匯入至您的個人密碼庫。"
+        "message": "某個組織政策已禁止您將項目匯入至您的個人密碼庫。"
     },
     "personalOwnershipCheckboxDesc": {
         "message": "停用組織使用者的個人擁有權"
@@ -4644,10 +4644,10 @@
         "message": "指定的刪除日期無效。"
     },
     "expirationDateAndTimeRequired": {
-        "message": "必須指定逾期日期和時間。"
+        "message": "需要指定逾期日期和時間。"
     },
     "deletionDateAndTimeRequired": {
-        "message": "要求指定刪除日期和時間。"
+        "message": "需要指定刪除日期和時間。"
     },
     "dateParsingError": {
         "message": "儲存刪除日期和逾期日期時發生錯誤。"
@@ -4785,13 +4785,13 @@
         "message": "垃圾桶中超過一定時間的項目將會被自動刪除。"
     },
     "passwordPrompt": {
-        "message": "重新詢問主密碼"
+        "message": "重新要求主密碼"
     },
     "passwordConfirmation": {
         "message": "確認主密碼"
     },
     "passwordConfirmationDesc": {
-        "message": "此動作受到保護。若要繼續，請重新輸入您的主密碼以驗證您的身份。"
+        "message": "此動作受到保護。若要繼續，請重新輸入您的主密碼以驗證身份。"
     },
     "reinviteSelected": {
         "message": "重新傳送邀請"
@@ -5003,7 +5003,7 @@
         "message": "您的主密碼不符合此組織原則的要求。您必須現在更新主密碼才可以加入此組織。繼續操作會登出您目前的工作階段，並要求您重新登入帳戶。其他裝置上的活動工作階段最多會保持一個小時。"
     },
     "updateWeakMasterPasswordWarning": {
-        "message": "您的主密碼不符合一個或多個組織原則要求。您必須立即更新您的主密碼才能存取密碼庫。進行此動作將登出您目前的工作階段，需要您重新登入。其他裝置上的工作階段可能繼續長達一小時。"
+        "message": "您的主密碼不符合一個或多個組織政策規定。您必須立即更新您的主密碼才能存取密碼庫。進行此動作將登出您目前的工作階段，需要您重新登入。其他裝置上的工作階段可能繼續長達一小時。"
     },
     "maximumVaultTimeout": {
         "message": "密碼庫逾時時間"
@@ -5024,7 +5024,7 @@
         "message": "分鐘"
     },
     "vaultTimeoutPolicyInEffect": {
-        "message": "您的組織原則正在影響您的密碼庫逾時時間。密碼庫逾時時間最多可以設定到 $HOURS$ 小時 $MINUTES$ 分鐘。",
+        "message": "您的組織政策正影響您的密碼庫逾時時間。密碼庫逾時時間最高可以設定到 $HOURS$ 小時 $MINUTES$ 分鐘。",
         "placeholders": {
             "hours": {
                 "content": "$1",
@@ -5037,7 +5037,7 @@
         }
     },
     "vaultTimeoutPolicyWithActionInEffect": {
-        "message": "您的組織原則正在影響您的密碼庫逾時時間。密碼庫逾時時間最多可以設定到 $HOURS$ 小時 $MINUTES$ 分鐘。您密碼庫的逾時動作被設定為 $ACTION$。",
+        "message": "您的組織政策正影響您的密碼庫逾時時間。密碼庫逾時時間最高可以設定到 $HOURS$ 小時 $MINUTES$ 分鐘。您密碼庫的逾時動作被設定為 $ACTION$。",
         "placeholders": {
             "hours": {
                 "content": "$1",
@@ -5054,7 +5054,7 @@
         }
     },
     "vaultTimeoutActionPolicyInEffect": {
-        "message": "您的組織原則已將密碼庫逾時動作設定為 $ACTION$。",
+        "message": "您的組織政策已將密碼庫逾時動作設定為 $ACTION$。",
         "placeholders": {
             "action": {
                 "content": "$1",
@@ -5084,7 +5084,7 @@
         "message": "已停用密碼庫匯出"
     },
     "personalVaultExportPolicyInEffect": {
-        "message": "一個或多個組織原則禁止您匯出個人密碼庫。"
+        "message": "一或多個組織政策禁止您匯出個人密碼庫。"
     },
     "activateAutofill": {
         "message": "啓用自動填入"
@@ -5354,7 +5354,7 @@
         "message": "無效的驗證碼"
     },
     "convertOrganizationEncryptionDesc": {
-        "message": "$ORGANIZATION$ 使用自我裝載金鑰伺服器 SSO。此組織的成員登入時將不再需要主密碼。",
+        "message": "$ORGANIZATION$ 採用自架金鑰伺服器的 SSO 功能，因此該組織成員不再需要主密碼來登入。",
         "placeholders": {
             "organization": {
                 "content": "$1",
@@ -5595,7 +5595,7 @@
         "message": "正匯出組織密碼庫"
     },
     "exportingIndividualVaultDescription": {
-        "message": "僅匯出與 $EMAIL$ 關聯的個人密碼庫項目。組織密碼庫項目將不包括在內。僅匯出密碼庫項目資訊，不包括關聯的附件。",
+        "message": "僅匯出與 $EMAIL$ 相關的個人密碼庫項目。組織密碼庫項目將不包括在內。僅匯出密碼庫項目資訊，不包括相關附件。",
         "placeholders": {
             "email": {
                 "content": "$1",
@@ -5668,11 +5668,11 @@
         "message": "使用者名稱類型"
     },
     "plusAddressedEmail": {
-        "message": "加號地址電子郵件",
+        "message": "採用子地址的電子郵件",
         "description": "Username generator option that appends a random sub-address to the username. For example: address+subaddress@email.com"
     },
     "plusAddressedEmailDesc": {
-        "message": "使用您的電子郵件提供者的子地址功能。"
+        "message": "使用您電子郵件供應商的子地址功能。"
     },
     "catchallEmail": {
         "message": "Catch-all 電子郵件"
@@ -5744,7 +5744,7 @@
         "description": "This text is displayed if an organization's billing is managed by a Provider. It tells the user to contact the Provider for assistance."
     },
     "forwardedEmail": {
-        "message": "轉寄的電子郵件別名"
+        "message": "轉寄的電子郵件地址別名"
     },
     "forwardedEmailDesc": {
         "message": "使用外部轉寄服務產生一個電子郵件別名。"
@@ -5778,7 +5778,7 @@
         }
     },
     "premiumSubcriptionRequired": {
-        "message": "需要進階版訂閲"
+        "message": "需要訂閱進階會員"
     },
     "scim": {
         "message": "SCIM 佈建",
@@ -5886,7 +5886,7 @@
         }
     },
     "multipleInputEmails": {
-        "message": "一個或多個電子郵件無效"
+        "message": "一或多個電子郵件無效"
     },
     "tooManyEmails": {
         "message": "您一次最多只能送出 $COUNT$ 個電子郵件",
@@ -5925,10 +5925,10 @@
         "message": "使用者數量"
     },
     "loggingInAs": {
-        "message": "正登入為"
+        "message": "正在使用以下身份登入："
     },
     "notYou": {
-        "message": "不是您嗎？"
+        "message": "這不是您嗎？"
     },
     "pickAnAvatarColor": {
         "message": "選擇頭像顏色"
@@ -6400,7 +6400,7 @@
         "message": "更新"
     },
     "plusNMore": {
-        "message": "+ $QUANTITY$ more",
+        "message": "再加上 $QUANTITY$ 個",
         "placeholders": {
             "quantity": {
                 "content": "$1",
@@ -6436,7 +6436,7 @@
         "message": "移除成員"
     },
     "collection": {
-        "message": "集合"
+        "message": "分類"
     },
     "noCollection": {
         "message": "沒有集合"
@@ -6845,7 +6845,7 @@
         "message": "請解決下面的錯誤然後再試一次。"
     },
     "description": {
-        "message": "描述"
+        "message": "說明"
     },
     "errorReadingImportFile": {
         "message": "嘗試讀取匯入檔案時發生錯誤"
@@ -6947,22 +6947,22 @@
         "message": "移除存取權限"
     },
     "checkForBreaches": {
-        "message": "檢查外洩密碼資料庫中是否有此密碼"
+        "message": "檢查外洩的密碼資料庫中是否包含此密碼"
     },
     "exposedMasterPassword": {
         "message": "已暴露的主密碼"
     },
     "exposedMasterPasswordDesc": {
-        "message": "在資料外洩事件中找到了密碼。我們建議您使用一個獨特的密碼來保護您的帳戶，您確定要使用已暴露的密碼嗎？"
+        "message": "該密碼已被外洩。建議您使用一個獨特的密碼來保護您的帳戶，您確定要使用已暴露的密碼嗎？"
     },
     "weakAndExposedMasterPassword": {
         "message": "強度不足且已暴露的主密碼"
     },
     "weakAndBreachedMasterPasswordDesc": {
-        "message": "密碼強度不足，且在資料外洩事件中找到了這個密碼。使用一個強度足夠和獨特的密碼來保護您的帳戶。您確定要使用這個密碼嗎？"
+        "message": "密碼強度不足，且該密碼已經外洩。請使用一個強度足夠和獨特的密碼來保護您的帳戶。您確定要使用這個密碼嗎？"
     },
     "characterMinimum": {
-        "message": "$LENGTH$ 個字元以上",
+        "message": "最少 $LENGTH$ 個字元以上",
         "placeholders": {
             "length": {
                 "content": "$1",
@@ -6980,7 +6980,7 @@
         }
     },
     "inputTrimValidator": {
-        "message": "輸入不得僅包含空格。",
+        "message": "輸入內容不得只有空格。",
         "description": "Notification to inform the user that a form's input can't contain only whitespace."
     },
     "dismiss": {
@@ -7014,25 +7014,25 @@
         "message": "更新 KDF 設定"
     },
     "loginInitiated": {
-        "message": "登入已發起"
+        "message": "已啟動登入"
     },
     "deviceApprovalRequired": {
-        "message": "裝置核准已要求。請在下面選擇一個核准選項："
+        "message": "裝置需要取得核准。請在下面選擇一個核准選項："
     },
     "rememberThisDevice": {
         "message": "記住這個裝置"
     },
     "uncheckIfPublicDevice": {
-        "message": "若使用公用裝置，请勿選中"
+        "message": "若使用公用裝置，請勿勾選"
     },
     "approveFromYourOtherDevice": {
-        "message": "從其他裝置核准"
+        "message": "使用其他裝置核准"
     },
     "requestAdminApproval": {
         "message": "要求管理員核准"
     },
     "approveWithMasterPassword": {
-        "message": "使用主密碼核准"
+        "message": "使用主密碼批准"
     },
     "trustedDeviceEncryption": {
         "message": "可信任的裝置加密"
@@ -7069,11 +7069,11 @@
         "description": "This will be used as part of a larger sentence, broken up to include links. The full sentence will read 'Once authenticated, members will decrypt vault data using a key stored on their device. The single organization policy, SSO required policy, and account recovery administration policy with automatic enrollment will turn on when this option is used.'"
     },
     "orgPermissionsUpdatedMustSetPassword": {
-        "message": "您的組織權限已更新，要求您設定一個主密碼。",
+        "message": "您的組織權限已更新，因此您需要設定主密碼。",
         "description": "Used as a card title description on the set password page to explain why the user is there"
     },
     "orgRequiresYouToSetPassword": {
-        "message": "您的組織要求您設定一個主密碼。",
+        "message": "您的組織要求您設定主密碼。",
         "description": "Used as a card title description on the set password page to explain why the user is there"
     },
     "notFound": {
@@ -7209,7 +7209,7 @@
         "message": "已要求管理員核准"
     },
     "adminApprovalRequestSentToAdmins": {
-        "message": "您的要求已傳送給您的管理員"
+        "message": "您的要求已傳送給您的管理員。"
     },
     "youWillBeNotifiedOnceApproved": {
         "message": "核准後將通知您。"
@@ -7404,7 +7404,7 @@
         "message": "密碼金鑰不會被複製"
     },
     "passkeyNotCopiedAlert": {
-        "message": "密碼金鑰不會被複製到克隆的項目。您想繼續克隆該項目嗎？"
+        "message": "密碼金鑰不會被複製到已複製項目。 您想繼續複製該項目嗎？"
     },
     "modifiedCollectionManagement": {
         "message": "Modified collection management setting $ID$.",
@@ -7416,7 +7416,7 @@
         }
     },
     "seeDetailedInstructions": {
-        "message": "請參閱我們的幫助網站上的詳細說明：",
+        "message": "請參閱我們說明網站上的詳細說明：",
         "description": "This is followed a by a hyperlink to the help website."
     },
     "projectAccessUpdated": {
