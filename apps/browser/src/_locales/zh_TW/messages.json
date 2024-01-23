@@ -41,7 +41,7 @@
         "message": "主密碼是用於存取密碼庫的密碼。它非常重要，請您不要忘記它。若您忘記了主密碼，沒有任何方法能將其復原。"
     },
     "masterPassHintDesc": {
-        "message": "主密碼提示可以在您忘記主密碼時幫助您回憶主密碼。"
+        "message": "主密碼提示可以在您忘記主密碼時幫助您想起主密碼。"
     },
     "reTypeMasterPass": {
         "message": "再次輸入主密碼"
@@ -77,7 +77,7 @@
         "message": "複製備註"
     },
     "copyUri": {
-        "message": "複製 URI"
+        "message": "複製網址"
     },
     "copyUsername": {
         "message": "複製使用者名稱"
@@ -143,7 +143,7 @@
         "message": "密碼提示"
     },
     "enterEmailToGetHint": {
-        "message": "請輸入您的帳户電子郵件地址，即可接收主密碼提示。"
+        "message": "請輸入您的帳户電子郵件地址以接收主密碼提示。"
     },
     "getMasterPasswordHint": {
         "message": "取得主密碼提示"
@@ -534,7 +534,7 @@
         "message": "您可以在 bitwarden.com 網頁版密碼庫變更主密碼。現在要前往嗎？"
     },
     "twoStepLoginConfirmation": {
-        "message": "兩步驟登入需要您從其他裝置（例如安全鑰匙、驗證器程式、SMS、手機或電子郵件）來驗證您的登入，這使您的帳戶更加安全。兩步驟登入可以在 bitwarden.com 網頁版密碼庫啟用。現在要前往嗎？"
+        "message": "兩步驟登入需要您從其他裝置（例如安全金鑰、驗證器程式、SMS、手機或電子郵件）來驗證您的登入，這使您的帳戶更加安全。兩步驟登入可以在 bitwarden.com 網頁版密碼庫啟用。現在要前往嗎？"
     },
     "editedFolder": {
         "message": "資料夾已儲存"
@@ -561,10 +561,10 @@
         "message": "已複製密碼"
     },
     "uri": {
-        "message": "URI"
+        "message": "網址"
     },
     "uriPosition": {
-        "message": "URI $POSITION$",
+        "message": "$POSITION$ 網址",
         "description": "A listing of URIs. Ex: URI 1, URI 2, URI 3, etc.",
         "placeholders": {
             "position": {
@@ -574,7 +574,7 @@
         }
     },
     "newUri": {
-        "message": "新增 URI"
+        "message": "新增網址"
     },
     "addedItem": {
         "message": "項目已新增"
@@ -695,10 +695,10 @@
         "message": "主題"
     },
     "themeDesc": {
-        "message": "變更應用程式的主題色彩。"
+        "message": "變更應用程式的色彩主題。"
     },
     "themeDescAlt": {
-        "message": "變更應用程式的主題色彩。適用於所有已登入的帳戶。"
+        "message": "變更應用程式的色彩主題。適用於所有已登入的帳戶。"
     },
     "dark": {
         "message": "深色",
@@ -769,7 +769,7 @@
         "message": "選擇您希望將這個項目移動至的哪個組織。該項目擁有權將因此轉移至該組織。轉移之後，您將不再是此項目的直接擁有者。"
     },
     "learnMore": {
-        "message": "深入了解"
+        "message": "深入瞭解"
     },
     "authenticatorKeyTotp": {
         "message": "驗證器金鑰 (TOTP)"
@@ -922,10 +922,10 @@
         "message": "使用另一種兩步驟登入方法"
     },
     "insertYubiKey": {
-        "message": "將您的 YubiKey 插入電腦的 USB 連接埠，然後按一下它的按鈕。"
+        "message": "將您的 YubiKey 插入電腦的 USB 連接埠，然後按下按鈕。"
     },
     "insertU2f": {
-        "message": "將您的安全鑰匙插入電腦的 USB 連接埠，然後觸摸其按鈕（若有）。"
+        "message": "將您的安全金鑰插入電腦的 USB 連接埠，然後按下其按鈕（若有）。"
     },
     "webAuthnNewTab": {
         "message": "要開始 WebAuthn 2FA 驗證，請點選下面的按鈕開啟一個新分頁，並依照新分頁中提供的說明操作。"
@@ -991,34 +991,34 @@
         "message": "自架環境"
     },
     "selfHostedEnvironmentFooter": {
-        "message": "指定您內部架設的 Bitwarden 安裝之基礎 URL。"
+        "message": "指定您內部架設的 Bitwarden 安裝之基礎網址。"
     },
     "customEnvironment": {
         "message": "自訂環境"
     },
     "customEnvironmentFooter": {
-        "message": "進階使用者可單獨指定各個服務的基礎 URL。"
+        "message": "進階使用者可單獨指定各個服務的基礎網址。"
     },
     "baseUrl": {
-        "message": "伺服器 URL"
+        "message": "伺服器網址"
     },
     "apiUrl": {
         "message": "API 伺服器網址"
     },
     "webVaultUrl": {
-        "message": "網頁版密碼庫伺服器 URL"
+        "message": "網頁版密碼庫伺服器網址"
     },
     "identityUrl": {
-        "message": "身分伺服器 URL"
+        "message": "身分伺服器網址"
     },
     "notificationsUrl": {
-        "message": "通知伺服器 URL"
+        "message": "通知伺服器網址"
     },
     "iconsUrl": {
-        "message": "圖示伺服器 URL"
+        "message": "圖示伺服器網址"
     },
     "environmentSaved": {
-        "message": "環境 URL 已儲存"
+        "message": "已儲存環境網址"
     },
     "showAutoFillMenuOnFormFields": {
         "message": "在表單欄位上顯示自動填入選單",
@@ -1046,7 +1046,7 @@
         "message": "網頁載入時如果偵測到登入表單，則執行自動填入。"
     },
     "experimentalFeature": {
-        "message": "被入侵或不被信任的網站，可能會濫用頁面載入時的自動填入功能。"
+        "message": "被入侵或不被信任的網站，可能會濫用頁面載入的自動填入功能。"
     },
     "learnMoreAboutAutofill": {
         "message": "進一步瞭解「自動填入」功能"
@@ -1325,10 +1325,10 @@
         "description": "To clear something out. example: To clear browser history."
     },
     "checkPassword": {
-        "message": "檢查密碼是否已暴露。"
+        "message": "檢查密碼是否已洩露。"
     },
     "passwordExposed": {
-        "message": "此密碼在資料外洩事件中被暴露了 $VALUE$ 次，應立即變更。",
+        "message": "此密碼在資料外洩事件中被洩露了 $VALUE$ 次，應立即變更。",
         "placeholders": {
             "value": {
                 "content": "$1",
@@ -1452,7 +1452,7 @@
         "message": "使用 PIN 碼解鎖"
     },
     "setYourPinCode": {
-        "message": "設定您用來解鎖 Bitwarden 的 PIN 碼。您的 PIN 設定將在您完全登出本應用程式時重設。"
+        "message": "設定您用來解鎖 Bitwarden 的 PIN 碼。您的 PIN 碼設定將在您完全登出本應用程式時重設。"
     },
     "pinRequired": {
         "message": "必須填入 PIN 碼。"
@@ -1482,7 +1482,7 @@
         "message": "複製"
     },
     "passwordGeneratorPolicyInEffect": {
-        "message": "一個或多個組織政策正影響密碼產生器設定。"
+        "message": "一或多個組織政策正影響密碼產生器設定。"
     },
     "vaultTimeoutAction": {
         "message": "密碼庫逾時動作"
@@ -1559,7 +1559,7 @@
         "message": "確認新的主密碼"
     },
     "masterPasswordPolicyInEffect": {
-        "message": "一個或多個組織政策規定您的主密碼須符合下列條件："
+        "message": "一或多個組織政策規定您的主密碼須符合下列條件："
     },
     "policyInEffectMinComplexity": {
         "message": "最小複雜度為 $SCORE$",
@@ -1800,7 +1800,7 @@
         "message": "刪除日期"
     },
     "deletionDateDesc": {
-        "message": "此 Send 將在指定的日期和時間後被永久刪除。",
+        "message": "此 Send 將在指定的日期和時間被永久刪除。",
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "expirationDate": {
@@ -1924,7 +1924,7 @@
         "message": "對收件人隱藏我的電子郵件地址。"
     },
     "sendOptionsPolicyInEffect": {
-        "message": "一個或多個組織政策正影響您的 Send 選項。"
+        "message": "一或多個組織政策正影響您的 Send 選項。"
     },
     "passwordPrompt": {
         "message": "重新要求主密碼"
@@ -1948,10 +1948,10 @@
         "message": "更新主密碼"
     },
     "updateMasterPasswordWarning": {
-        "message": "您的主密碼最近被您的組織管理員變更。若要存取密碼庫，您必須立即更新主密碼。繼續操作會登出目前的登入階段，並要求您重新登入。其他裝置上的活動登入階段最多會保持一個小時。"
+        "message": "您的主密碼最近被您的組織管理員變更。若要存取密碼庫，您必須立即更新主密碼。繼續操作會登出目前的登入階段，並要求您重新登入。其他裝置上的活動登入階段最多會持續一個小時。"
     },
     "updateWeakMasterPasswordWarning": {
-        "message": "您的主密碼不符合一個或多個組織政策規定。您必須立即更新您的主密碼才能存取密碼庫。進行此動作將登出您目前的工作階段，需要您重新登入。其他裝置上的工作階段可能繼續長達一小時。"
+        "message": "您的主密碼不符合一個或多個組織政策規定。您必須立即更新您的主密碼才能存取密碼庫。進行此動作將登出您目前的工作階段，需要您重新登入。其他裝置上的工作階段可能持續長達一小時。"
     },
     "resetPasswordPolicyAutoEnroll": {
         "message": "自動註冊"
@@ -2228,16 +2228,16 @@
         "message": "已啟動登入"
     },
     "exposedMasterPassword": {
-        "message": "已暴露的主密碼"
+        "message": "已洩露的主密碼"
     },
     "exposedMasterPasswordDesc": {
-        "message": "該密碼已被外洩。建議您使用一個獨特的密碼來保護您的帳戶，您確定要使用已暴露的密碼嗎？"
+        "message": "該密碼已被洩露。建議您使用一個獨特的密碼來保護您的帳戶，您確定要使用已洩露的密碼嗎？"
     },
     "weakAndExposedMasterPassword": {
-        "message": "強度不足且已暴露的主密碼"
+        "message": "強度不足且已洩露的主密碼"
     },
     "weakAndBreachedMasterPasswordDesc": {
-        "message": "密碼強度不足，且該密碼已經外洩。請使用一個強度足夠和獨特的密碼來保護您的帳戶。您確定要使用這個密碼嗎？"
+        "message": "密碼強度不足，且該密碼已經洩露。請使用一個強度足夠和獨特的密碼來保護您的帳戶。您確定要使用這個密碼嗎？"
     },
     "checkForBreaches": {
         "message": "檢查外洩的密碼資料庫中是否包含此密碼"
@@ -2327,7 +2327,7 @@
         "message": "要求管理員核准"
     },
     "approveWithMasterPassword": {
-        "message": "使用主密碼批准"
+        "message": "使用主密碼核准"
     },
     "ssoIdentifierRequired": {
         "message": "需要組織 SSO 識別碼。"
@@ -2728,7 +2728,7 @@
         "message": "尚未支援此功能"
     },
     "yourPasskeyIsLocked": {
-        "message": "使用密碼金鑰需要身分驗證。請驗證您的身份以繼續。"
+        "message": "使用密碼金鑰需要身分驗證。請先驗證身分才能繼續。"
     },
     "useBrowserName": {
         "message": "使用瀏覽器"
