@@ -744,7 +744,7 @@
         "message": "如果您忘記主密碼，沒有復原的方法！"
     },
     "masterPassHintDesc": {
-        "message": "主密碼提示可以在您忘記主密碼時幫助您回憶主密碼。"
+        "message": "主密碼提示可以在您忘記主密碼時幫助您想起主密碼。"
     },
     "reTypeMasterPass": {
         "message": "再次輸入主密碼"
@@ -762,7 +762,7 @@
         "message": "密碼提示"
     },
     "enterEmailToGetHint": {
-        "message": "請輸入您的帳户電子郵件地址，即可接收主密碼提示。"
+        "message": "請輸入您的帳户電子郵件地址以接收主密碼提示。"
     },
     "getMasterPasswordHint": {
         "message": "取得主密碼提示"
@@ -911,10 +911,10 @@
         "message": "使用另一種兩步驟登入方法"
     },
     "insertYubiKey": {
-        "message": "將您的 YubiKey 插入電腦的 USB 連接埠，然後按一下它的按鈕。"
+        "message": "將您的 YubiKey 插入電腦的 USB 連接埠，然後按下按鈕。"
     },
     "insertU2f": {
-        "message": "將您的安全鑰匙插入電腦的 USB 連接埠，然後觸摸其按鈕（若有）。"
+        "message": "將您的安全金鑰插入電腦的 USB 連接埠，然後按下其按鈕（若有）。"
     },
     "loginUnavailable": {
         "message": "登入無法使用"
@@ -942,7 +942,7 @@
         "description": "'Authy' and 'Google Authenticator' are product names and should not be translated."
     },
     "yubiKeyTitle": {
-        "message": "YubiKey OTP 安全鑰匙"
+        "message": "YubiKey OTP 安全金鑰"
     },
     "yubiKeyDesc": {
         "message": "使用 YubiKey 存取您的帳戶。支援 YubiKey 4 系列、5 系列以及 NEO 裝置。"
@@ -3327,7 +3327,7 @@
         "message": "兩步驟登入已在您的帳戶中停用。"
     },
     "learnMore": {
-        "message": "深入了解"
+        "message": "深入瞭解"
     },
     "deleteRecoverDesc": {
         "message": "請在下方輸入您的電子郵件地址以復原及刪除您的帳戶。"
@@ -7380,7 +7380,7 @@
         "message": "編輯了集合"
     },
     "baseUrl": {
-        "message": "伺服器 URL"
+        "message": "伺服器網址"
     },
     "aliasDomain": {
         "message": "別名網域"
