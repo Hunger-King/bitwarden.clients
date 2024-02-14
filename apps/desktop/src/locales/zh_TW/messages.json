@@ -230,13 +230,13 @@
         "message": "稱謂"
     },
     "mr": {
-        "message": "Mr"
+        "message": "先生"
     },
     "mrs": {
-        "message": "Mrs"
+        "message": "女士（已婚）"
     },
     "ms": {
-        "message": "Ms"
+        "message": "女士（未婚）"
     },
     "mx": {
         "message": "Mx"
