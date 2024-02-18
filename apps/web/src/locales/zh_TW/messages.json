@@ -6,10 +6,10 @@
         "message": "名稱"
     },
     "uri": {
-        "message": "網址"
+        "message": "統一資源標識符（URI）"
     },
     "uriPosition": {
-        "message": "$POSITION$ 網址",
+        "message": "$POSITION$ 統一資源標識符（URI）",
         "description": "A listing of URIs. Ex: URI 1, URI 2, URI 3, etc.",
         "placeholders": {
             "position": {
@@ -19,7 +19,7 @@
         }
     },
     "newUri": {
-        "message": "新增網址"
+        "message": "新增統一資源標識符（URI）"
     },
     "username": {
         "message": "使用者名稱"
@@ -52,7 +52,7 @@
         "message": "到期"
     },
     "securityCode": {
-        "message": "安全碼 (CVV)"
+        "message": "安全碼（CVV）"
     },
     "identityName": {
         "message": "身份名稱"
@@ -124,10 +124,10 @@
         "message": "女士（未婚）"
     },
     "mx": {
-        "message": "Mx"
+        "message": "非二元"
     },
     "dr": {
-        "message": "Dr"
+        "message": "博士"
     },
     "expirationMonth": {
         "message": "到期月份"
@@ -136,7 +136,7 @@
         "message": "到期年份"
     },
     "authenticatorKeyTotp": {
-        "message": "驗證器金鑰 (TOTP)"
+        "message": "驗證器金鑰（TOTP）"
     },
     "folder": {
         "message": "資料夾"
@@ -202,11 +202,11 @@
         "description": "A programming term, also known as 'RegEx'."
     },
     "matchDetection": {
-        "message": "對比",
+        "message": "比對偵測",
         "description": "URI match detection for auto-fill."
     },
     "defaultMatchDetection": {
-        "message": "預設對比",
+        "message": "預設比對偵測",
         "description": "Default URI match detection for auto-fill."
     },
     "never": {
@@ -235,7 +235,7 @@
         }
     },
     "passwordSafe": {
-        "message": "此密碼未出現在任何已知的外洩資料中，因此目前是安全的。"
+        "message": "此密碼未出現在任何已知的外洩資料中，目前可放心使用。"
     },
     "save": {
         "message": "儲存"
@@ -445,7 +445,7 @@
         "description": "Copy credit card security code (CVV)"
     },
     "copyUri": {
-        "message": "複製網址",
+        "message": "複製統一資源標識符（URI）",
         "description": "Copy URI to clipboard"
     },
     "me": {
@@ -564,7 +564,7 @@
         "message": "資料夾已儲存"
     },
     "addedFolder": {
-        "message": "已新增資料夾"
+        "message": "資料夾已新增"
     },
     "deleteFolderConfirmation": {
         "message": "您確定要刪除此資料夾嗎？"
@@ -845,7 +845,7 @@
         "message": "沒有可列出的項目。"
     },
     "noPermissionToViewAllCollectionItems": {
-        "message": "您沒有檢視此集合中所有項目的權限。"
+        "message": "您沒有檢視此分類中所有項目的權限。"
     },
     "noCollectionsInList": {
         "message": "沒有可顯示的分類。"
@@ -914,7 +914,7 @@
         "message": "將您的 YubiKey 插入電腦的 USB 連接埠，然後按下按鈕。"
     },
     "insertU2f": {
-        "message": "將您的安全金鑰插入電腦的 USB 連接埠，然後按下其按鈕（若有）。"
+        "message": "將您的安全金鑰插入電腦的 USB 連接埠，若有按鈕，請按下。"
     },
     "loginUnavailable": {
         "message": "登入無法使用"
@@ -938,7 +938,7 @@
         "message": "驗證器應用程式"
     },
     "authenticatorAppDesc": {
-        "message": "使用驗證器應用程式 （如 Authy 或 Google Authenticator） 產生基於時間的驗證碼。",
+        "message": "使用驗證器應用程式（如 Authy 或 Google Authenticator）產生基於時間的驗證碼。",
         "description": "'Authy' and 'Google Authenticator' are product names and should not be translated."
     },
     "yubiKeyTitle": {
@@ -948,7 +948,7 @@
         "message": "使用 YubiKey 存取您的帳戶。支援 YubiKey 4 系列、5 系列以及 NEO 裝置。"
     },
     "duoDesc": {
-        "message": "使用 Duo Security 的 Duo Mobile 程式、SMS 、撥打電話或 U2F 安全金鑰進行驗證。",
+        "message": "使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "duoOrganizationDesc": {
@@ -986,10 +986,10 @@
         "message": "組織"
     },
     "moveToOrgDesc": {
-        "message": "選擇您希望將這個項目移動至的哪個組織。該項目擁有權將因此轉移至該組織。轉移之後，您將不再是此項目的直接擁有者。"
+        "message": "選擇您希望將這個項目移動至哪個組織。該項目所有權將因此轉移至該組織。轉移之後，您將不再是此項目的直接擁有者。"
     },
     "moveManyToOrgDesc": {
-        "message": "選擇您希望將這些項目移動至的組織。項目的擁有權將會轉移至該組織。轉移之後，您將不再是這些項目的直接擁有者。"
+        "message": "選擇您希望將這些項目移動至的組織。項目的所有權將會轉移至該組織。轉移之後，您將不再是這些項目的直接擁有者。"
     },
     "collectionsDesc": {
         "message": "編輯與此項目共享的分類。只有具有這些分類存取權的組織使用者才能夠看到此項目。"
@@ -1004,7 +1004,7 @@
         }
     },
     "deleteSelectedCollectionsDesc": {
-        "message": "$COUNT$ 個集合將被永久刪除。",
+        "message": "$COUNT$ 個分類將被永久刪除。",
         "placeholders": {
             "count": {
                 "content": "$1",
@@ -1042,7 +1042,7 @@
         }
     },
     "verificationCodeTotp": {
-        "message": "驗證碼 (TOTP)"
+        "message": "驗證碼（TOTP）"
     },
     "copyVerificationCode": {
         "message": "複製驗證碼"
@@ -1069,7 +1069,7 @@
         "message": "將使用您帳戶的加密金鑰來加密匯出的資料，若您更新了帳戶的加密金鑰，請重新匯出，否則將無法解密匯出的檔案。"
     },
     "encExportAccountWarningDesc": {
-        "message": "每個 Bitwarden 使用者帳戶的帳戶加密金鑰都不相同，因此無法將已加密匯出的檔案匯入至不同帳戶中。"
+        "message": "每個 Bitwarden 使用者帳戶的加密金鑰都不相同，因此無法將已加密匯出的檔案匯入至不同帳戶中。"
     },
     "export": {
         "message": "匯出"
@@ -1126,7 +1126,7 @@
         "message": "此檔案受密碼保護，請輸入檔案密碼以匯入資料。"
     },
     "exportSuccess": {
-        "message": "已匯出密碼庫資料"
+        "message": "密碼庫資料已匯出"
     },
     "passwordGenerator": {
         "message": "密碼產生器"
@@ -1151,18 +1151,18 @@
         "message": "長度"
     },
     "uppercase": {
-        "message": "大寫 (A-Z)",
+        "message": "大寫（A-Z）",
         "description": "Include uppercase letters in the password generator."
     },
     "lowercase": {
-        "message": "小寫 (a-z)",
+        "message": "小寫（a-z）",
         "description": "Include lowercase letters in the password generator."
     },
     "numbers": {
-        "message": "數字 (0-9)"
+        "message": "數字（0-9）"
     },
     "specialCharacters": {
-        "message": "特殊字元 (!@#$%^&*)"
+        "message": "特殊字元（!@#$%^&*）"
     },
     "numWords": {
         "message": "字元位數"
@@ -1351,7 +1351,7 @@
         "message": "匯入時發生錯誤"
     },
     "importErrorDesc": {
-        "message": "您嘗試匯入的資料有問題，請處理下列來源檔案中的錯誤然後再試一次。"
+        "message": "您嘗試匯入的資料有問題，請解決下列來源檔案中的錯誤然後再試一次。"
     },
     "importSuccess": {
         "message": "資料匯入成功"
@@ -1597,7 +1597,7 @@
         "message": "下載兩步驟驗證器應用程式"
     },
     "twoStepAuthenticatorNeedApp": {
-        "message": "需要驗證器應用程式嗎？您可以下載以下應用程式："
+        "message": "需要驗證器應用程式嗎？您可以下載以下應用程式"
     },
     "iosDevices": {
         "message": "iOS 裝置"
@@ -1630,7 +1630,7 @@
         "message": "已停用兩步驟登入方式。"
     },
     "twoFactorYubikeyAdd": {
-        "message": "新增 YubiKey 至您的帳戶。"
+        "message": "新增 YubiKey 至您的帳戶"
     },
     "twoFactorYubikeyPlugIn": {
         "message": "將 YubiKey 插入電腦的 USB 連接埠。"
@@ -1642,7 +1642,7 @@
         "message": "觸摸 YubiKey 的按鈕。"
     },
     "twoFactorYubikeySaveForm": {
-        "message": "儲存表單"
+        "message": "儲存表單。"
     },
     "twoFactorYubikeyWarning": {
         "message": "由於平台限制，無法於所有 Bitwarden 應用程式中使用 YubiKey。請開啟另一套兩步驟登入方式，以確保可在 YubiKey 無法使用時還能存取您的帳戶。支援的平台有："
@@ -1744,7 +1744,7 @@
         "message": "如果安全金鑰有按鈕，請觸摸它。"
     },
     "twoFactorU2fSaveForm": {
-        "message": "儲存表單"
+        "message": "儲存表單。"
     },
     "twoFactorU2fWarning": {
         "message": "由於平台限制，無法於所有 Bitwarden 應用程式中使用 FIDO U2F。請開啟另一套兩步驟登入方式，以確保 FIDO U2F 無法使用時還能存取您的帳戶。支援的平台有："
@@ -1867,16 +1867,16 @@
         }
     },
     "weakPasswordsReport": {
-        "message": "弱式密碼"
+        "message": "弱密碼"
     },
     "weakPasswordsReportDesc": {
         "message": "弱密碼很容易被攻擊者猜到。使用密碼產生器將這些密碼變更為安全性更高的密碼。"
     },
     "weakPasswordsFound": {
-        "message": "發現弱式密碼"
+        "message": "發現弱密碼"
     },
     "weakPasswordsFoundDesc": {
-        "message": "我們在您的密碼庫中找到了 $COUNT$ 個使用弱式密碼的項目。您應該將它們變更為更強的密碼。",
+        "message": "我們在您的密碼庫中找到了 $COUNT$ 個使用弱密碼的項目。您應該將它們變更為更強的密碼。",
         "placeholders": {
             "count": {
                 "content": "$1",
@@ -1885,7 +1885,7 @@
         }
     },
     "noWeakPasswords": {
-        "message": "您的密碼庫中沒有項目具有弱式密碼。"
+        "message": "您的密碼庫中沒有項目具有弱密碼。"
     },
     "reusedPasswordsReport": {
         "message": "重複使用密碼"
@@ -1939,7 +1939,7 @@
         }
     },
     "goodNews": {
-        "message": "好消息！",
+        "message": "好消息",
         "description": "ex. Good News, No Breached Accounts Found!"
     },
     "breachUsernameFound": {
@@ -1974,7 +1974,7 @@
         "message": "外洩回報於"
     },
     "reportError": {
-        "message": "嘗試載入報告時發生錯誤。請再試一次。"
+        "message": "嘗試載入報告時發生錯誤。請再試一次"
     },
     "billing": {
         "message": "計費"
@@ -2033,10 +2033,10 @@
         "message": "密碼健康度檢查、提供帳戶體檢以及資料外洩報告，以保障您的密碼庫安全。"
     },
     "premiumSignUpTotp": {
-        "message": "用於您的密碼庫中登入項目的 TOTP 驗證碼 (2FA) 產生器。"
+        "message": "用於您的密碼庫中登入項目的 TOTP 驗證碼（2FA）產生器。"
     },
     "premiumSignUpSupport": {
-        "message": "優先客戶支援。"
+        "message": "優先客服。"
     },
     "premiumSignUpFuture": {
         "message": "未來會增加更多進階功能，敬請期待！"
@@ -2167,7 +2167,7 @@
         "message": "訂閱到期時間"
     },
     "subscriptionCanceled": {
-        "message": "已取消訂閱"
+        "message": "已取消訂閱。"
     },
     "pendingCancellation": {
         "message": "待取消"
@@ -2240,7 +2240,7 @@
         "message": "付款方式"
     },
     "noPaymentMethod": {
-        "message": "尚未選擇付款方式"
+        "message": "尚未選擇付款方式。"
     },
     "addPaymentMethod": {
         "message": "新增付款方式"
@@ -2259,7 +2259,7 @@
         "description": "Past tense status of an invoice. ex. Paid or unpaid."
     },
     "unpaid": {
-        "message": "待付款",
+        "message": "未付款",
         "description": "Past tense status of an invoice. ex. Paid or unpaid."
     },
     "transactions": {
@@ -2308,10 +2308,10 @@
         }
     },
     "contactSupport": {
-        "message": "聯絡客戶支援部門"
+        "message": "聯絡客服"
     },
     "contactSupportShort": {
-        "message": "聯絡支援部門"
+        "message": "聯絡客服"
     },
     "updatedPaymentMethod": {
         "message": "已更新付款方式。"
@@ -2481,7 +2481,7 @@
         "message": "建立無限個分類"
     },
     "gbEncryptedFileStorage": {
-        "message": "$SIZE$ 加密檔案儲存空間。",
+        "message": "$SIZE$ 加密檔案儲存空間",
         "placeholders": {
             "size": {
                 "content": "$1",
@@ -2508,7 +2508,7 @@
         "message": "強制使用 Duo 2FA"
     },
     "priorityCustomerSupport": {
-        "message": "優先客戶支援"
+        "message": "優先客服"
     },
     "xDayFreeTrial": {
         "message": "$COUNT$ 天免費試用，隨時可取消",
@@ -2613,7 +2613,7 @@
         "message": "您確定要刪除這個群組？"
     },
     "deleteMultipleGroupsConfirmation": {
-        "message": "您確定要刪除如下 $QUANTITY$ 個群組嗎?",
+        "message": "您確定要刪除以下 $QUANTITY$ 個群組嗎?",
         "placeholders": {
             "quantity": {
                 "content": "$1",
@@ -2724,19 +2724,19 @@
         "message": "管理組織的所有方面，包括計費和訂閱"
     },
     "clientOwnerDesc": {
-        "message": "此使用者應獨立於提供者。若提供者與該組織解除關係，此使用者將繼續保留組織的擁有權。"
+        "message": "此使用者應獨立於提供者。若提供者與該組織解除關係，此使用者將繼續保留組織的所有權。"
     },
     "admin": {
         "message": "管理員"
     },
     "adminDesc": {
-        "message": "管理組織存取權限、所有集合、成員、報表與安全性設定"
+        "message": "管理組織存取權限、所有分類、成員、報表與安全性設定"
     },
     "user": {
         "message": "使用者"
     },
     "userDesc": {
-        "message": "存取和新增項目到已指派的集合中"
+        "message": "存取和新增項目到已指派的分類中"
     },
     "manager": {
         "message": "管理員"
@@ -2781,10 +2781,10 @@
         "message": "CLI"
     },
     "bitWebVault": {
-        "message": "Bitwarden 網頁密碼庫"
+        "message": "Bitwarden 網頁版密碼庫"
     },
     "bitSecretsManager": {
-        "message": "Bitwarden Secrets Manager"
+        "message": "Bitwarden 機密管理員"
     },
     "loggedIn": {
         "message": "已登入"
@@ -2799,7 +2799,7 @@
         "message": "兩步驟登入已停用"
     },
     "recovered2fa": {
-        "message": "已透過兩步驟登入復原帳戶"
+        "message": "已透過兩步驟登入復原帳戶。"
     },
     "failedLogin": {
         "message": "嘗試登入失敗，密碼錯誤。"
@@ -2811,13 +2811,13 @@
         "message": "密碼不正確"
     },
     "incorrectCode": {
-        "message": "不正確的代碼"
+        "message": "代碼不正確"
     },
     "exportedVault": {
-        "message": "已匯出密碼庫"
+        "message": "密碼庫已匯出"
     },
     "exportedOrganizationVault": {
-        "message": "已匯出組織密碼庫。"
+        "message": "組織密碼庫已匯出。"
     },
     "editedOrgSettings": {
         "message": "編輯了組織設定。"
@@ -2850,7 +2850,7 @@
         }
     },
     "movedItemIdToOrg": {
-        "message": "移動 $ID$ 項目至一個組織。",
+        "message": "已移動 $ID$ 項目至一個組織。",
         "placeholders": {
             "id": {
                 "content": "$1",
@@ -2943,7 +2943,7 @@
         }
     },
     "copiedSecurityCodeItemId": {
-        "message": "複製了 $ID$ 項目的安全代碼",
+        "message": "複製了 $ID$ 項目的安全代碼。",
         "placeholders": {
             "id": {
                 "content": "$1",
@@ -3210,10 +3210,10 @@
         "message": "群組存取"
     },
     "groupAccessUserDesc": {
-        "message": "透過將成員添加到 1 或多個群組來授予他們對集合的存取權限。"
+        "message": "透過將成員添加到 1 或多個群組來授予他們對分類的存取權限。"
     },
     "invitedUsers": {
-        "message": "已邀請使用者。"
+        "message": "已邀請使用者"
     },
     "resendInvitation": {
         "message": "重新傳送邀請"
@@ -3222,7 +3222,7 @@
         "message": "重新傳送電子郵件"
     },
     "hasBeenReinvited": {
-        "message": "已重新邀請 $USER$。",
+        "message": "已重新邀請 $USER$",
         "placeholders": {
             "user": {
                 "content": "$1",
@@ -3465,7 +3465,7 @@
         "message": "為您的訂閲設定席位限制。達到此限制後，您將無法邀請新的成員。"
     },
     "limitSmSubscriptionDesc": {
-        "message": "為您的 Secrets Manger 訂閲設定席位限制。達到此限制後，就無法邀請新成員。"
+        "message": "為您的機密管理員訂閲設定席位限制。達到此限制後，就無法邀請新成員。"
     },
     "maxSeatLimit": {
         "message": "席位限制（選用）",
@@ -3504,13 +3504,13 @@
         "message": "已更新訂閲"
     },
     "subscribedToSecretsManager": {
-        "message": "訂閱已更新。您現在可以存取 Secrets Manager 了。"
+        "message": "訂閱已更新。您現在可以存取機密管理員了。"
     },
     "additionalOptions": {
         "message": "額外選項"
     },
     "additionalOptionsDesc": {
-        "message": "如需更多管理訂閱協助，請聯絡客戶支援。"
+        "message": "如需更多管理訂閱協助，請聯絡客服。"
     },
     "subscriptionUserSeatsUnlimitedAutoscale": {
         "message": "調整訂閱將會依比例變更您的計費總額。若新邀請的成員超過您的訂閱席位，您將立即收到依比例收取的額外使用者費用。"
@@ -3525,7 +3525,7 @@
         }
     },
     "subscriptionUserSeatsWithoutAdditionalSeatsOption": {
-        "message": "您可以邀請最多 $COUNT$ 個成員，而無需額外付款。聯絡客戶支援團隊升級您的方案並邀請更多成員。",
+        "message": "您可以邀請最多 $COUNT$ 個成員，而無需額外付款。聯絡客服團隊升級您的方案並邀請更多成員。",
         "placeholders": {
             "count": {
                 "content": "$1",
@@ -3717,7 +3717,7 @@
         "message": "已選擇"
     },
     "ownership": {
-        "message": "擁有權"
+        "message": "所有權"
     },
     "whoOwnsThisItem": {
         "message": "誰擁有這個項目？"
@@ -3835,7 +3835,7 @@
         "message": "最小長度"
     },
     "clone": {
-        "message": "複製"
+        "message": "拓製"
     },
     "masterPassPolicyTitle": {
         "message": "主密碼要求"
@@ -3990,7 +3990,7 @@
         }
     },
     "vaultTimeoutLogOutConfirmation": {
-        "message": "一旦登出，在密碼庫逾時後您將失去對密碼庫的所有存取權限，若要重新驗證則需連線網路。確定要使用此設定嗎？"
+        "message": "一旦登出，密碼庫逾時後您將失去對密碼庫的所有存取權限，若要重新驗證則需連線網路。確定要使用此設定嗎？"
     },
     "vaultTimeoutLogOutConfirmationTitle": {
         "message": "逾時動作確認"
@@ -4029,10 +4029,10 @@
         "message": "您現在可以關閉此分頁，並且回到擴充套件繼續。"
     },
     "includeAllTeamsFeatures": {
-        "message": "包含所有團隊版功能"
+        "message": "所有團隊版功能，以及："
     },
     "includeAllTeamsStarterFeatures": {
-        "message": "所有 Teams Starter 功能，另外還有："
+        "message": "所有 Teams Starter 功能，以及："
     },
     "chooseMonthlyOrAnnualBilling": {
         "message": "選擇按月或按年計費"
@@ -4192,7 +4192,7 @@
         "message": "移除密碼"
     },
     "removedPassword": {
-        "message": "已移除密碼"
+        "message": "密碼已移除"
     },
     "removePasswordConfirmation": {
         "message": "您確定要移除此密碼嗎？"
@@ -4400,7 +4400,7 @@
         "message": "組織擁有者與管理員不受此原則的執行影響。"
     },
     "personalOwnershipSubmitError": {
-        "message": "由於某個企業原則，您被限制為儲存項目至您的個人密碼庫。將擁有權變更為組織，並從可用的集合中選擇。"
+        "message": "由於某個企業原則，您被限制為儲存項目至您的個人密碼庫。將所有權變更為組織，並從可用的分類中選擇。"
     },
     "disableSend": {
         "message": "停用 Send"
@@ -4548,13 +4548,13 @@
         }
     },
     "personalOwnershipPolicyInEffect": {
-        "message": "組織政策影響您的擁有權選項。"
+        "message": "組織政策影響您的所有權選項。"
     },
     "personalOwnershipPolicyInEffectImports": {
         "message": "某個組織政策已禁止您將項目匯入至您的個人密碼庫。"
     },
     "personalOwnershipCheckboxDesc": {
-        "message": "停用組織使用者的個人擁有權"
+        "message": "停用組織使用者的個人所有權"
     },
     "textHiddenByDefault": {
         "message": "存取此 Send 時，預設隱藏文字内容",
@@ -4565,10 +4565,10 @@
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "sendTextDesc": {
-        "message": "您想要傳送的文字。"
+        "message": "您想以 Send 傳送的文字。"
     },
     "sendFileDesc": {
-        "message": "您想要傳送的檔案。"
+        "message": "您想要以 Send 傳送的檔案。"
     },
     "copySendLinkOnSave": {
         "message": "储存時複製連結到剪貼簿以便分享此 Send。"
@@ -4625,7 +4625,7 @@
         "description": "This will be used as part of a larger sentence, broken up to include links. The full sentence will read 'Learn more about Bitwarden Send or sign up to **try it today.**'"
     },
     "sendAccessCreatorIdentifier": {
-        "message": "Bitwarden 成員 $USER_IDENTIFIER$ 與您分享下列資訊：",
+        "message": "Bitwarden 成員 $USER_IDENTIFIER$ 與您分享下列資訊",
         "placeholders": {
             "user_identifier": {
                 "content": "$1",
@@ -4692,7 +4692,7 @@
         }
     },
     "eventWithdrawAccountRecovery": {
-        "message": "使用者 $ID$ 撤銷了帳戶復原",
+        "message": "使用者 $ID$ 撤銷了帳戶復原。",
         "placeholders": {
             "id": {
                 "content": "$1",
@@ -4815,7 +4815,7 @@
         "message": "主題"
     },
     "themeDesc": {
-        "message": "選擇網頁密碼庫主題。"
+        "message": "選擇網頁版密碼庫主題。"
     },
     "themeSystem": {
         "message": "使用系統主題"
@@ -4833,13 +4833,13 @@
         "message": "批次作業狀態"
     },
     "bulkConfirmMessage": {
-        "message": "已成功確認。"
+        "message": "已成功確認"
     },
     "bulkReinviteMessage": {
-        "message": "已成功重新邀請。"
+        "message": "已成功重新邀請"
     },
     "bulkRemovedMessage": {
-        "message": "已成功移除。"
+        "message": "已成功移除"
     },
     "bulkRevokedMessage": {
         "message": "成功撤銷對組織的存取權限"
@@ -4848,7 +4848,7 @@
         "message": "成功還原對組織的存取權限"
     },
     "bulkFilteredMessage": {
-        "message": "已排除，不適用於此動作。"
+        "message": "已排除，不適用於此動作"
     },
     "fingerprint": {
         "message": "指紋"
@@ -4875,13 +4875,13 @@
         "message": "已邀請您設定一個新的提供者。若要繼續，您需要登入或建立一個新的 Bitwarden 帳戶。"
     },
     "setupProviderDesc": {
-        "message": "請在下方輸入詳細資訊以完成提供者設定。若您有任何問題，請聯絡客戶支援。"
+        "message": "請在下方輸入詳細資訊以完成提供者設定。若您有任何問題，請聯絡客服。"
     },
     "providerName": {
         "message": "提供者名稱"
     },
     "providerSetup": {
-        "message": "已完成提供者設定。"
+        "message": "已完成提供者設定"
     },
     "clients": {
         "message": "客户"
@@ -5024,7 +5024,7 @@
         "message": "分鐘"
     },
     "vaultTimeoutPolicyInEffect": {
-        "message": "您的組織政策正影響您的密碼庫逾時時間。密碼庫逾時時間最高可以設定到 $HOURS$ 小時 $MINUTES$ 分鐘。",
+        "message": "您的組織政策已限定您密碼庫逾時的時間長度。密碼庫逾時時間最高可以設定到 $HOURS$ 小時 $MINUTES$ 分鐘。",
         "placeholders": {
             "hours": {
                 "content": "$1",
@@ -5210,7 +5210,7 @@
         "message": "簽署身分驗證要求"
     },
     "ssoSettingsSaved": {
-        "message": "已儲存單一登入設定。"
+        "message": "單一登入設定已儲存"
     },
     "sponsoredFamilies": {
         "message": "免費的 Bitwarden 家庭方案"
@@ -5228,7 +5228,7 @@
         "message": "最多 6 位使用者的付費方案存取權限"
     },
     "sponsoredFamiliesSharedCollections": {
-        "message": "用於家庭機密的共用集合"
+        "message": "用於家庭機密的共用分類"
     },
     "badToken": {
         "message": "連結已失效。請讓贊助者重新傳送邀請。"
@@ -5486,16 +5486,16 @@
         "message": "輪換權杖"
     },
     "rotateBillingSyncTokenWarning": {
-        "message": "如果繼續，您需要重新在自我裝載伺服器上設定計費同步。"
+        "message": "如果繼續，您需要重新在自架伺服器上設定計費同步。"
     },
     "rotateBillingSyncTokenTitle": {
         "message": "輪換「計費同步權杖」會導致之前的權杖失效。"
     },
     "selfHostingTitle": {
-        "message": "自我裝載"
+        "message": "自架"
     },
     "selfHostingEnterpriseOrganizationSectionCopy": {
-        "message": "若要在您自己的伺服器上設定組織，您需要上傳授權檔案。若要使您的自我裝載組織支援「免費家庭」方案及進階計費功能，您需要設定計費同步。"
+        "message": "若要在您自己的伺服器上設定組織，您需要上傳授權檔案。若要使您的自架組織支援「免費家庭」方案及進階計費功能，您需要設定計費同步。"
     },
     "billingSyncApiKeyRotated": {
         "message": "權杖已輪換"
@@ -5552,7 +5552,7 @@
         "message": "必填"
     },
     "charactersCurrentAndMaximum": {
-        "message": "$CURRENT$/$MAX$ character maximum",
+        "message": "最多 $CURRENT$/$MAX$ 字元",
         "placeholders": {
             "current": {
                 "content": "$1",
@@ -5913,7 +5913,7 @@
         "message": "開啟"
     },
     "off": {
-        "message": "Off"
+        "message": "關閉"
     },
     "members": {
         "message": "成員"
@@ -5925,7 +5925,7 @@
         "message": "使用者數量"
     },
     "loggingInAs": {
-        "message": "正在使用以下身份登入："
+        "message": "正在使用以下身份登入"
     },
     "notYou": {
         "message": "這不是您嗎？"
@@ -6359,7 +6359,7 @@
         "description": "A unique string that gives a client application (eg. CLI) access to a secret or set of secrets."
     },
     "accessTokenExpirationRequired": {
-        "message": "必須指定逾期日期。",
+        "message": "必須指定逾期日期",
         "description": "Error message indicating that an expiration date for the access token must be set."
     },
     "accessTokenCreatedAndCopied": {
@@ -6706,7 +6706,7 @@
         "message": "匯出組織機密資料"
     },
     "exportingOrganizationSecretDataDescription": {
-        "message": "僅匯出與 $ORGANIZATION$ 關聯的 Secrets Manager 資料。其他產品中的項目或來自其他組織的項目將不包括在內。",
+        "message": "僅匯出與 $ORGANIZATION$ 關聯的機密管理員資料。其他產品中的項目或來自其他組織的項目將不包括在內。",
         "placeholders": {
             "ORGANIZATION": {
                 "content": "$1",
@@ -6811,16 +6811,16 @@
         "message": "繼續操作會登出您所有活動工作階段。您需要重新登入並完成兩步驟登入設定。 我們建議在變更加密設定之前匯出您的密碼庫，以防止資料遺失。"
     },
     "secretsManager": {
-        "message": "Secrets Manager"
+        "message": "機密管理員"
     },
     "secretsManagerBeta": {
-        "message": "Secrets Manager Beta 版"
+        "message": "機密管理員 Beta 版"
     },
     "secretsManagerAccessDescription": {
-        "message": "啟用 Secrets Manager 的使用者存取權限。"
+        "message": "啟用機密管理員的使用者存取權限。"
     },
     "userAccessSecretsManagerGA": {
-        "message": "此使用者可以存取 Secrets Manager"
+        "message": "此使用者可以存取機密管理員"
     },
     "important": {
         "message": "重要："
@@ -6877,7 +6877,7 @@
         "description": "Link to a downloadable resource. This will be used as part of a larger phrase. Example: Download the Secrets Manager CLI"
     },
     "smCLI": {
-        "message": "Secrets Manager CLI"
+        "message": "機密管理員 CLI"
     },
     "importSecrets": {
         "message": "匯入機密"
@@ -6920,10 +6920,10 @@
         "message": "必須選擇。"
     },
     "secretsManagerSubscriptionDesc": {
-        "message": "在 Beta 計劃期間，啟用組織對 Secrets Manager 的存取權限是免費的。成員中的使用者可以獲得 Beta 版存取權限。"
+        "message": "在 Beta 計劃期間，啟用組織對機密管理員的存取權限是免費的。成員中的使用者可以獲得 Beta 版存取權限。"
     },
     "secretsManagerEnable": {
-        "message": "啟用 Secrets Manager Beta 版"
+        "message": "啟用機密管理員 Beta 版"
     },
     "saPeopleWarningTitle": {
         "message": "存取權杖依然可用"
@@ -6953,13 +6953,13 @@
         "message": "已洩露的主密碼"
     },
     "exposedMasterPasswordDesc": {
-        "message": "該密碼已被洩露。建議您使用一個獨特的密碼來保護您的帳戶，您確定要使用已洩露的密碼嗎？"
+        "message": "該密碼已洩露。建議您使用一個獨特的密碼來保護您的帳戶，您確定要使用已洩露的密碼嗎？"
     },
     "weakAndExposedMasterPassword": {
         "message": "強度不足且已洩露的主密碼"
     },
     "weakAndBreachedMasterPasswordDesc": {
-        "message": "密碼強度不足，且該密碼已經洩露。請使用一個強度足夠和獨特的密碼來保護您的帳戶。您確定要使用這個密碼嗎？"
+        "message": "密碼強度不足，且該密碼已洩露。請使用一個強度足夠和獨特的密碼來保護您的帳戶。您確定要使用這個密碼嗎？"
     },
     "characterMinimum": {
         "message": "最少 $LENGTH$ 個字元以上",
@@ -7014,7 +7014,7 @@
         "message": "更新 KDF 設定"
     },
     "loginInitiated": {
-        "message": "已啟動登入"
+        "message": "登入已啟動"
     },
     "deviceApprovalRequired": {
         "message": "裝置需要取得核准。請在下面選擇一個核准選項："
@@ -7092,14 +7092,14 @@
         "message": "使用者更新了透過帳戶復原發送的密碼。"
     },
     "activatedAccessToSecretsManager": {
-        "message": "已啟用對 Secrets Manager 的存取權限",
+        "message": "已啟用對機密管理員的存取權限",
         "description": "Confirmation message that one or more users gained access to Secrets Manager"
     },
     "activateAccess": {
         "message": "啟用存取權限"
     },
     "bulkEnableSecretsManagerDescription": {
-        "message": "授予以下成員對 Secrets Manager 的存取權限。在 Password Manager 授予的角色也適用於 Secrets Manager。",
+        "message": "授予以下成員對機密管理員的存取權限。在密碼管理員授予的角色也適用於機密管理員。",
         "description": "This description is shown to an admin when they are attempting to add more users to Secrets Manager."
     },
     "activateSecretsManager": {
@@ -7203,7 +7203,7 @@
         "message": "選定的區域標記"
     },
     "accountSuccessfullyCreated": {
-        "message": "已成功建立帳戶！"
+        "message": "帳戶已成功建立！"
     },
     "adminApprovalRequested": {
         "message": "已要求管理員核准"
@@ -7286,10 +7286,10 @@
         }
     },
     "subscribeToSecretsManager": {
-        "message": "訂閲 Secrets Manager"
+        "message": "訂閲機密管理員"
     },
     "addSecretsManagerUpgradeDesc": {
-        "message": "將 Secrets Manager 加入您的升級方案，來維持先前方案建立的秘密資訊的存取權限。"
+        "message": "將機密管理員加入您的升級方案，來維持先前方案建立的秘密資訊的存取權限。"
     },
     "additionalServiceAccounts": {
         "message": "額外服務帳戶"
@@ -7328,13 +7328,13 @@
         "message": "分類管理行為已儲存"
     },
     "passwordManagerPlanPrice": {
-        "message": "密碼管理器方案價格"
+        "message": "密碼管理員方案價格"
     },
     "secretsManagerPlanPrice": {
-        "message": "Secrets Manager 方案價格"
+        "message": "機密管理員方案價格"
     },
     "passwordManager": {
-        "message": "密碼管理器"
+        "message": "密碼管理員"
     },
     "freeOrganization": {
         "message": "免費組織"
@@ -7355,7 +7355,7 @@
         "message": "已登入！"
     },
     "smBetaEndedDesc": {
-        "message": "Secrets Manager Beta 版已於 $BETA_ENDING_DATE$ 結束。您還剩 $DAYS$ 天時間將 Secrets Manager 新增至您的付費訂閱，就可以繼續存取 Secrets Manager 資料。聯絡客戶成功團隊將 Secrets Manager 新增至您的訂閱。",
+        "message": "機密管理員 Beta 版已於 $BETA_ENDING_DATE$ 結束。您還剩 $DAYS$ 天時間將機密管理員新增至您的付費訂閱，就可以繼續存取機密管理員 資料。聯絡客戶成功團隊將機密管理員新增至您的訂閱。",
         "placeholders": {
             "beta_ending_date": {
                 "content": "$1",
@@ -7404,7 +7404,7 @@
         "message": "密碼金鑰不會被複製"
     },
     "passkeyNotCopiedAlert": {
-        "message": "密碼金鑰不會被複製到已複製項目。 您想繼續複製該項目嗎？"
+        "message": "密碼金鑰不會被複製到已拓製項目。 您想繼續拓製該項目嗎？"
     },
     "modifiedCollectionManagement": {
         "message": "已修改的分類管理設定 $ID$。",
@@ -7416,7 +7416,7 @@
         }
     },
     "seeDetailedInstructions": {
-        "message": "請參閱我們說明網站上的詳細說明：",
+        "message": "請參閱我們說明網站上的詳細說明於",
         "description": "This is followed a by a hyperlink to the help website."
     },
     "projectAccessUpdated": {
