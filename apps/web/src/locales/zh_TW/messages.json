@@ -9,7 +9,7 @@
         "message": "統一資源標識符（URI）"
     },
     "uriPosition": {
-        "message": "$POSITION$ 統一資源標識符（URI）",
+        "message": "統一資源標識符（URI）$POSITION$",
         "description": "A listing of URIs. Ex: URI 1, URI 2, URI 3, etc.",
         "placeholders": {
             "position": {
@@ -49,7 +49,7 @@
         "message": "發卡銀行"
     },
     "expiration": {
-        "message": "到期"
+        "message": "到期日"
     },
     "securityCode": {
         "message": "安全碼（CVV）"
@@ -136,7 +136,7 @@
         "message": "到期年份"
     },
     "authenticatorKeyTotp": {
-        "message": "驗證器金鑰（TOTP）"
+        "message": "驗證金鑰（TOTP）"
     },
     "folder": {
         "message": "資料夾"
@@ -881,7 +881,7 @@
         }
     },
     "enterVerificationCodeApp": {
-        "message": "輸入驗證器應用程式提供的 6 位數驗證碼。"
+        "message": "請輸入您的驗證器提供的 6 位數驗證碼。"
     },
     "enterVerificationCodeEmail": {
         "message": "輸入已傳送至 $EMAIL$ 的 6 位數驗證碼。",
@@ -923,7 +923,7 @@
         "message": "此帳戶已設定兩步驟登入，但是本瀏覽器不支援已設定的任一兩步驟提供程式。"
     },
     "noTwoStepProviders2": {
-        "message": "請使用支援的瀏覽器（例如 Chrome），及/或新增可以更好地支援跨瀏覽器的提供程式（例如驗證器應用程式）。"
+        "message": "請使用支援的瀏覽器（例如 Chrome），及/或新增可以更好地支援跨瀏覽器的提供程式（例如驗證器）。"
     },
     "twoStepOptions": {
         "message": "兩步驟登入選項"
@@ -935,10 +935,10 @@
         "message": "復原代碼"
     },
     "authenticatorAppTitle": {
-        "message": "驗證器應用程式"
+        "message": "驗證器"
     },
     "authenticatorAppDesc": {
-        "message": "使用驗證器應用程式（如 Authy 或 Google Authenticator）產生基於時間的驗證碼。",
+        "message": "使用驗證器（如 Authy 或 Google Authenticator）產生基於時間的驗證碼。",
         "description": "'Authy' and 'Google Authenticator' are product names and should not be translated."
     },
     "yubiKeyTitle": {
@@ -1191,13 +1191,13 @@
         "message": "帳戶已儲存"
     },
     "changeEmail": {
-        "message": "變更電子郵件"
+        "message": "變更電子郵件地址"
     },
     "changeEmailTwoFactorWarning": {
         "message": "繼續操作將變更您的帳戶電子郵件位址。這不會變更用於兩步驟登入的電子郵件地址。您可以在兩步驟登入設定中變更它。"
     },
     "newEmail": {
-        "message": "新的電子郵件"
+        "message": "新的電子郵件地址"
     },
     "code": {
         "message": "代碼"
@@ -1474,7 +1474,7 @@
         "message": "網域規則"
     },
     "domainRulesDesc": {
-        "message": "如果您在多個不同網站使用相同的登入資料，您可以將這些網站標記為「通用」。Bitwarden 會為您設定 「全域」域名。"
+        "message": "如果您在多個不同網站使用相同的登入資料，您可以將這些網站標記為「通用」。Bitwarden 會為您設定「全域」域名。"
     },
     "globalEqDomains": {
         "message": "全域通用網域"
@@ -1495,7 +1495,7 @@
         "message": "新增自訂網域"
     },
     "newCustomDomainDesc": {
-        "message": "輸入以逗號分隔的網域清單。只允許輸入「基本」網域，請勿輸入子網域名稱。例如，輸入「google.com」即可，而非「www.google.com」。您也可以輸入「androidapp://package.name」來將 Android 應用程式與其他網域名稱建立關聯。"
+        "message": "輸入以逗號分隔的網域清單。只允許輸入「基本」網域，請勿輸入子網域名稱。例如輸入「google.com」即可，而非「www.google.com」。您也可以輸入「androidapp://package.name」來將 Android 應用程式與其他網域名稱建立關聯。"
     },
     "customDomainX": {
         "message": "自訂網域 $INDEX$",
@@ -1535,7 +1535,7 @@
         "message": "如果您已經設定好或計畫要使用 SSO 登入，兩步驟登入可能已經由您的身份提供機關開啟。"
     },
     "twoStepLoginRecoveryWarning": {
-        "message": "啟用兩步驟登入可能會將您永久鎖定在您的 Bitwarden 帳戶外。如果您無法正常使用兩步驟登入方式（例如，您遺失了裝置），則可以使用復原碼存取您的帳戶。 如果您失去帳戶的存取權限，Bitwarden 也無法幫助您。所以我們建議您記下或列印復原碼，並將其妥善保存。"
+        "message": "啟用兩步驟登入可能會將您永久鎖定在您的 Bitwarden 帳戶外。如果您無法正常使用兩步驟登入方式（例如遺失了裝置），則可以使用復原碼存取您的帳戶。如果您失去帳戶的存取權限，Bitwarden 也無法協助，所以我們建議您記下或列印復原碼，並將其妥善保存。"
     },
     "viewRecoveryCode": {
         "message": "檢視復原碼"
@@ -1591,13 +1591,13 @@
         "message": "輸入您的主密碼以修改兩步驟登入設定。"
     },
     "twoStepAuthenticatorDesc": {
-        "message": "請依照下列步驟設定使用驗證器應用程式的兩步驟登入："
+        "message": "請依照下列步驟，使用驗證器設定兩步驟登入："
     },
     "twoStepAuthenticatorDownloadApp": {
-        "message": "下載兩步驟驗證器應用程式"
+        "message": "下載兩步驟驗證器"
     },
     "twoStepAuthenticatorNeedApp": {
-        "message": "需要驗證器應用程式嗎？您可以下載以下應用程式"
+        "message": "需要驗證器嗎？您可以下載下列應用程式"
     },
     "iosDevices": {
         "message": "iOS 裝置"
@@ -1609,10 +1609,10 @@
         "message": "Windows 裝置"
     },
     "twoStepAuthenticatorAppsRecommended": {
-        "message": "推薦使用下列的應用程式，您也可使用其他驗證器應用程式。"
+        "message": "推薦使用下列應用程式，但您也可使用其他驗證器。"
     },
     "twoStepAuthenticatorScanCode": {
-        "message": "使用您的驗證器應用程式掃描此 QR Code"
+        "message": "使用您的驗證器掃描此 QR Code"
     },
     "key": {
         "message": "金鑰"
@@ -1621,7 +1621,7 @@
         "message": "請輸入應用程式產生的 6 位數驗證碼"
     },
     "twoStepAuthenticatorReaddDesc": {
-        "message": "若您需要將其加入其他裝置，以下是您的驗證器應用程式所需要的 QR Code（或金鑰）。"
+        "message": "若您需要將其加入其他裝置，以下是您的驗證器所需要的 QR Code（或金鑰）。"
     },
     "twoStepDisableDesc": {
         "message": "您確定要停用此兩步驟登入方式嗎？"
@@ -1813,7 +1813,7 @@
         "message": "未設定兩步驟登入"
     },
     "inactive2faReportDesc": {
-        "message": "兩步驟登入為您的帳戶增加了一層保護。使用 Bitwarden 驗證器或使用其他方法為這些帳戶啟用兩步驟登入。"
+        "message": "兩步驟登入方式，可為您的帳戶加上一道保護。使用 Bitwarden 驗證器或使用其他方法為這些帳戶啟用兩步驟登入。"
     },
     "inactive2faFound": {
         "message": "發現未啟用 2FA 的登入"
@@ -2021,7 +2021,7 @@
         "message": "將您的帳戶升級至進階會員，就能解鎖一些很棒的附加功能。"
     },
     "premiumSignUpStorage": {
-        "message": "用於檔案附件的 1 GB 的加密檔案儲存空間。"
+        "message": "用於檔案附件的 1 GB 加密儲存空間。"
     },
     "premiumSignUpTwoStepOptions": {
         "message": "專有的兩步驟登入選項，例如 YubiKey 和 Duo。"
@@ -2051,7 +2051,7 @@
         }
     },
     "premiumPriceWithFamilyPlan": {
-        "message": "升級到進階會員只需 $PRICE$/年，或是可為 $FAMILYPLANUSERCOUNT$ 個使用者取得進階會員與無限制的家庭共享只需： ",
+        "message": "升級到進階會員只需 $PRICE$/年，或是升級到含有 $FAMILYPLANUSERCOUNT$ 位進階使用者，可無限制家庭共享的 ",
         "placeholders": {
             "price": {
                 "content": "$1",
@@ -2092,7 +2092,7 @@
         "message": "# GB 額外儲存空間"
     },
     "additionalStorageIntervalDesc": {
-        "message": "您的方案擁有 $SIZE$ 的加密儲存空間。您也可以購買額外的儲存空間，1 GB 每 $INTERVAL$ 價格為 $PRICE$。",
+        "message": "您的方案擁有 $SIZE$ 的加密儲存空間。若要購買額外的儲存空間，每 GB 每$INTERVAL$價格為 $PRICE$。",
         "placeholders": {
             "size": {
                 "content": "$1",
@@ -2332,7 +2332,7 @@
         }
     },
     "uploadLicenseFilePremium": {
-        "message": "若要將帳戶升級進階版會員，您需要上傳有效的授權檔案。"
+        "message": "若要將帳戶升級為進階版，請上傳有效的授權檔案。"
     },
     "uploadLicenseFileOrg": {
         "message": "若要建立自架組織，您需要上傳有效的授權檔案。"
@@ -3258,22 +3258,22 @@
         "message": "结束日期"
     },
     "verifyEmail": {
-        "message": "驗證電子郵件"
+        "message": "驗證電子郵件地址"
     },
     "verifyEmailDesc": {
-        "message": "驗證您帳戶的電子郵件地址以使用所有功能。"
+        "message": "請驗證您帳戶的電子郵件地址，即可使用所有功能。"
     },
     "verifyEmailFirst": {
         "message": "必須驗證您帳戶的電子郵件位址。"
     },
     "checkInboxForVerification": {
-        "message": "請檢查您的電子郵件收件匣以取得驗證連結。"
+        "message": "請到您的電子郵件信箱收信，以取得驗證連結。"
     },
     "emailVerified": {
         "message": "帳戶電子郵件已驗證"
     },
     "emailVerifiedFailed": {
-        "message": "無法驗證電子郵件。請嘗試傳送一封新的驗證電子郵件。"
+        "message": "無法驗證您的電子郵件信箱，請試著再傳送一封新的驗證信。"
     },
     "emailVerificationRequired": {
         "message": "需要驗證電子郵件"
@@ -3597,7 +3597,7 @@
         "message": "更新加密金鑰"
     },
     "updateEncryptionSchemeDesc": {
-        "message": "我們變更了加密方案以提供更好的安全性。 立即透過在下面輸入您的主密碼來更新您的加密金鑰。"
+        "message": "我們變更了加密方法以加強安全性。請在下面輸入主密碼來更新您的加密金鑰。"
     },
     "updateEncryptionKeyWarning": {
         "message": "更新加密金鑰後，您需要登出並重新登入目前使用的所有 Bitwarden 應用程式（如行動應用程式或瀏覽器擴充套件）。登出和重新登入（這會下載新的加密金鑰）失敗可能會導致資料損毀。我們將嘗試自動登出，但可能會有所延遲。"
@@ -3757,7 +3757,7 @@
         "message": "此項目包含需要修正的舊檔案附件。"
     },
     "attachmentFixDescription": {
-        "message": "此附件使用了過時的加密方式。 選擇「修正」以下載、重新加密，然後重新上傳此附件。"
+        "message": "此附件使用了過時的加密方式。選擇「修正」以下載、重新加密，然後重新上傳此附件。"
     },
     "fix": {
         "message": "修正",
@@ -4252,7 +4252,7 @@
         "message": "緊急存取"
     },
     "emergencyAccessDesc": {
-        "message": "授予和管理可信任連絡人的緊急存取權限。當遇到緊急情况時，可信任連絡人可以要求存取檢視或接管您帳戶的權限。瀏覽說明頁面以取得有關零知識共用的工作原理和更多詳細資訊。"
+        "message": "授予和管理可信任連絡人的緊急存取權限。當遇到緊急情况時，可信任連絡人可以要求存取檢視或接管您的帳戶。瀏覽說明頁面以取得有關零知識共用的工作原理和更多詳細資訊。"
     },
     "emergencyAccessOwnerWarning": {
         "message": "您是一個或多個組織的擁有者。如果您授予緊急聯絡人接管存取權限，那麼他們在接管後將能夠以組織擁有者的身分使用您的所有權限。"
@@ -5432,10 +5432,10 @@
         "message": "已移轉至 Key Connector"
     },
     "paymentSponsored": {
-        "message": "請提供一個用於與此組織的付款方式。別擔心，我們不會向您收取任何費用，除非您選擇進階功能或您的贊助到期。 "
+        "message": "請提供用於此組織的付款方式。別擔心，我們不會向您收取任何費用，除非您選擇進階功能或您的贊助到期。 "
     },
     "orgCreatedSponsorshipInvalid": {
-        "message": "贊助邀請已逾期，您可以刪除您建立的組織，以避免在 7 天試用期結束後被收取費用。 您也可以關閉此提示以保留該組織並承擔計費責任。"
+        "message": "贊助邀請已到期，您可以刪除建立的組織，以避免在 7 天試用期結束後被收取費用，也可以關閉此提示以保留該組織並在出帳時付費。"
     },
     "newFamiliesOrganization": {
         "message": "新增家庭組織"
@@ -5453,7 +5453,7 @@
         "message": "成功！已連線 Key Connector。"
     },
     "keyConnectorTestFail": {
-        "message": "無法連線 Key Connector。請檢查網址。"
+        "message": "無法與 Key Connector 連線，請檢查網址。"
     },
     "sponsorshipTokenHasExpired": {
         "message": "此贊助邀請已逾期。"
@@ -6505,7 +6505,7 @@
         "message": "自動網域驗證"
     },
     "automaticDomainVerificationProcess": {
-        "message": "Bitwarden 將在前 72 小時內嘗試驗證網域 3 次。如果無法驗證此網域，請檢查主機中的 DNS 記錄並手動驗證。如果無法驗證，該網域將在 7 天內從您的組織中移除"
+        "message": "Bitwarden 將在 72 小時內嘗試驗證網域 3 次。如果無法驗證此網域，請檢查主機的 DNS 記錄並手動進行驗證。如果超過 7 天仍無法驗證，將從您的組織中移除該網域"
     },
     "invalidDomainNameMessage": {
         "message": "輸入的格式無效。格式：mydomain.com。子網域需要單獨的條目進行驗證。"
@@ -6808,7 +6808,7 @@
         "message": "更新您的加密設定以滿足新的安全建議以及提升帳號保護。"
     },
     "changeKdfLoggedOutWarning": {
-        "message": "繼續操作會登出您所有活動工作階段。您需要重新登入並完成兩步驟登入設定。 我們建議在變更加密設定之前匯出您的密碼庫，以防止資料遺失。"
+        "message": "繼續操作會登出您所有活動工作階段。您需要重新登入並完成兩步驟登入設定。我們建議在變更加密設定之前匯出您的密碼庫，以防止資料遺失。"
     },
     "secretsManager": {
         "message": "機密管理員"
@@ -7404,7 +7404,7 @@
         "message": "密碼金鑰不會被複製"
     },
     "passkeyNotCopiedAlert": {
-        "message": "密碼金鑰不會被複製到已拓製項目。 您想繼續拓製該項目嗎？"
+        "message": "密碼金鑰不會被複製到已拓製項目。您想繼續拓製該項目嗎？"
     },
     "modifiedCollectionManagement": {
         "message": "已修改的分類管理設定 $ID$。",
