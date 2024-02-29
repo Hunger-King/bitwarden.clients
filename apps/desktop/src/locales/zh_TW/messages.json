@@ -76,7 +76,7 @@
         "message": "統一資源標識符（URI）"
     },
     "uriPosition": {
-        "message": "$POSITION$ 統一資源標識符（URI）",
+        "message": "統一資源標識符（URI）$POSITION$",
         "description": "A listing of URIs. Ex: URI 1, URI 2, URI 3, etc.",
         "placeholders": {
             "position": {
@@ -145,7 +145,7 @@
         "message": "發卡銀行"
     },
     "expiration": {
-        "message": "到期"
+        "message": "到期日"
     },
     "securityCode": {
         "message": "安全代碼"
@@ -311,7 +311,7 @@
         "message": "編輯"
     },
     "authenticatorKeyTotp": {
-        "message": "驗證器金鑰（TOTP）"
+        "message": "驗證金鑰（TOTP）"
     },
     "folder": {
         "message": "資料夾"
@@ -594,7 +594,7 @@
         "message": "繼續"
     },
     "enterVerificationCodeApp": {
-        "message": "輸入驗證器應用程式提供的 6 位數驗證碼。"
+        "message": "請輸入您的驗證器提供的 6 位數驗證碼。"
     },
     "enterVerificationCodeEmail": {
         "message": "輸入已傳送至 $EMAIL$ 的 6 位數驗證碼。",
@@ -636,10 +636,10 @@
         "message": "復原代碼"
     },
     "authenticatorAppTitle": {
-        "message": "驗證器應用程式"
+        "message": "驗證器"
     },
     "authenticatorAppDesc": {
-        "message": "使用驗證器應用程式（如 Authy 或 Google Authenticator）產生基於時間的驗證碼。",
+        "message": "使用驗證器（如 Authy 或 Google Authenticator）產生基於時間的驗證碼。",
         "description": "'Authy' and 'Google Authenticator' are product names and should not be translated."
     },
     "yubiKeyTitle": {
@@ -1075,7 +1075,7 @@
         "message": "註冊成為進階會員就能獲得："
     },
     "premiumSignUpStorage": {
-        "message": "用於檔案附件的 1 GB 的加密檔案儲存空間。"
+        "message": "用於檔案附件的 1 GB 加密儲存空間。"
     },
     "premiumSignUpTwoStepOptions": {
         "message": "專有的兩步驟登入選項，例如 YubiKey 和 Duo。"
@@ -1744,7 +1744,7 @@
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "createdSend": {
-        "message": "Send 已新增",
+        "message": "已建立 Send",
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "editedSend": {
@@ -1837,7 +1837,7 @@
         "message": "對收件人隱藏我的電子郵件地址。"
     },
     "sendOptionsPolicyInEffect": {
-        "message": "一或多個組織政策正影響您的 Send 選項。"
+        "message": "一或多個組織政策影響了您的 Send 選項。"
     },
     "emailVerificationRequired": {
         "message": "需要驗證電子郵件"
@@ -2431,7 +2431,7 @@
         "message": "密碼金鑰不會被複製"
     },
     "passkeyNotCopiedAlert": {
-        "message": "密碼金鑰不會被複製到已拓製項目。 您想繼續拓製該項目嗎？"
+        "message": "密碼金鑰不會被複製到已拓製項目。您想繼續拓製該項目嗎？"
     },
     "aliasDomain": {
         "message": "別名網域"
