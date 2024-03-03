@@ -470,7 +470,7 @@
         "message": "檔案"
     },
     "selectFile": {
-        "message": "選取檔案"
+        "message": "選擇檔案"
     },
     "maxFileSize": {
         "message": "檔案最大為 500MB。"
@@ -759,7 +759,7 @@
         "message": "帳戶"
     },
     "loading": {
-        "message": "正在載入..."
+        "message": "正在載入…"
     },
     "lockVault": {
         "message": "鎖定密碼庫"
@@ -1659,7 +1659,7 @@
         "message": "需先在桌面應用程式設定中設定生物特徵辨識，才能使用瀏覽器的生物特徵辨識功能。"
     },
     "personalOwnershipSubmitError": {
-        "message": "由於某個企業原則，您被限制儲存項目到您的個人密碼庫。將所有權變更為組織，並從可用的分類中選擇。"
+        "message": "由於生效中的某個企業原則，您不可將項目儲存至您的個人密碼庫。請將所有權變更為組織帳號，並選擇可用的分類。"
     },
     "hintEqualsPassword": {
         "message": "密碼提示不能與您的密碼相同。"
@@ -1767,10 +1767,10 @@
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "sendTextDesc": {
-        "message": "您想要傳送的文字。"
+        "message": "您想以 Send 傳送的文字。"
     },
     "sendFileDesc": {
-        "message": "您想要傳送的檔案。"
+        "message": "您想要以 Send 傳送的檔案。"
     },
     "days": {
         "message": "$DAYS$ 天",
@@ -1803,7 +1803,7 @@
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "sendDisabledWarning": {
-        "message": "由於企業政策限制，您只能刪除現有的 Send。",
+        "message": "由於企業原則限制，您只能刪除現有的 Send。",
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "copyLink": {
@@ -1918,7 +1918,7 @@
         "message": "自動註冊"
     },
     "resetPasswordAutoEnrollInviteWarning": {
-        "message": "此組織的企業政策自動要求您重設註冊密碼。註冊後將允許組織管理員變更您的主密碼。"
+        "message": "此組織有一個可以為您自動進行密碼重設的企業原則。註冊後將允許組織管理員變更您的主密碼。"
     },
     "vaultExportDisabled": {
         "message": "密碼庫匯出已停用"
@@ -1951,10 +1951,10 @@
         "message": "您確定要離開這個組織嗎？"
     },
     "leftOrganization": {
-        "message": "您已離開此組織。"
+        "message": "您已離開組織。"
     },
     "ssoKeyConnectorError": {
-        "message": "Key Connector 錯誤：請確保 Key Connector 可用且正常運作。"
+        "message": "Key Connector 錯誤：請確保 Key Connector 可用且運作正常。"
     },
     "lockAllVaults": {
         "message": "鎖定所有密碼庫"
@@ -2566,7 +2566,7 @@
         "message": "LastPass 電子郵件"
     },
     "importingYourAccount": {
-        "message": "正在匯入您的帳戶..."
+        "message": "正在匯入您的帳戶…"
     },
     "lastPassMFARequired": {
         "message": "需要進行 LastPass 多因素驗證"
