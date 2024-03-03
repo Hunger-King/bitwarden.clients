@@ -805,7 +805,7 @@
         "message": "檔案"
     },
     "selectFile": {
-        "message": "選取檔案"
+        "message": "選擇檔案"
     },
     "maxFileSize": {
         "message": "檔案最大為 500MB。"
@@ -949,7 +949,7 @@
         "message": "兩步驟登入選項"
     },
     "recoveryCodeDesc": {
-        "message": "無法使用任何雙因素提供程式嗎？請使用您的復原碼以停用您帳戶的所有雙因素提供程式。"
+        "message": "無法使用任何雙因素驗證程式嗎？請使用您的復原碼以停用您帳戶的所有雙因素驗證程式。"
     },
     "recoveryCodeTitle": {
         "message": "復原代碼"
@@ -1032,11 +1032,11 @@
         "description": "Overlay setting select option for disabling autofill overlay"
     },
     "autofillOverlayVisibilityOnFieldFocus": {
-        "message": "當欄位被選取時（反白）",
+        "message": "當欄位被選擇時（反白）",
         "description": "Overlay appearance select option for showing the field on focus of the input element"
     },
     "autofillOverlayVisibilityOnButtonClick": {
-        "message": "當選取自動填入圖示時",
+        "message": "當選擇自動填入圖示時",
         "description": "Overlay appearance select option for showing the field on click of the overlay icon"
     },
     "enableAutoFillOnPageLoad": {
@@ -1685,7 +1685,7 @@
         "message": "此動作無法在側邊欄中完成，請在彈出式視窗中再試一次。"
     },
     "personalOwnershipSubmitError": {
-        "message": "由於某個企業政策，您被限制並無法將項目儲存至您的個人密碼庫。將所有權變更為組織，並從可用的分類中選擇。"
+        "message": "由於生效中的某個企業原則，您不可將項目儲存至您的個人密碼庫。請將所有權變更為組織帳號，並選擇可用的分類。"
     },
     "personalOwnershipPolicyInEffect": {
         "message": "組織政策影響您的所有權選項。"
@@ -1794,7 +1794,7 @@
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "sendFileDesc": {
-        "message": "您想要傳送的檔案。"
+        "message": "您想要以 Send 傳送的檔案。"
     },
     "deletionDate": {
         "message": "刪除日期"
@@ -1849,7 +1849,7 @@
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "sendTextDesc": {
-        "message": "您想要傳送的文字。"
+        "message": "您想以 Send 傳送的文字。"
     },
     "sendHideText": {
         "message": "預設隱藏此 Send 的文字。",
@@ -1870,7 +1870,7 @@
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "sendDisabledWarning": {
-        "message": "由於企業政策限制，您只能刪除現有的 Send。",
+        "message": "由於企業原則限制，您只能刪除現有的 Send。",
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "createdSend": {
@@ -1957,7 +1957,7 @@
         "message": "自動註冊"
     },
     "resetPasswordAutoEnrollInviteWarning": {
-        "message": "此組織的企業政策自動要求您重設註冊密碼。註冊後將允許組織管理員變更您的主密碼。"
+        "message": "此組織有一個可以為您自動進行密碼重設的企業原則。註冊後將允許組織管理員變更您的主密碼。"
     },
     "selectFolder": {
         "message": "選擇資料夾⋯"
@@ -2052,7 +2052,7 @@
         "message": "您確定要離開這個組織嗎？"
     },
     "leftOrganization": {
-        "message": "您已離開此組織。"
+        "message": "您已離開組織。"
     },
     "toggleCharacterCount": {
         "message": "切換字元計數"
@@ -2132,7 +2132,7 @@
         "message": "API 金鑰"
     },
     "ssoKeyConnectorError": {
-        "message": "Key Connector 錯誤：請確保 Key Connector 可用且正常運作。"
+        "message": "Key Connector 錯誤：請確保 Key Connector 可用且運作正常。"
     },
     "premiumSubcriptionRequired": {
         "message": "需要訂閱進階會員"
@@ -2719,7 +2719,7 @@
         "message": "密碼金鑰項目"
     },
     "overwritePasskey": {
-        "message": "覆寫密碼金輪嗎？"
+        "message": "要覆寫密碼金鑰嗎？"
     },
     "overwritePasskeyAlert": {
         "message": "該項目已包含密碼金鑰。您確定要覆寫目前的密碼金鑰嗎？"
@@ -2752,7 +2752,7 @@
         "message": "LastPass 電子郵件"
     },
     "importingYourAccount": {
-        "message": "正在匯入您的帳戶..."
+        "message": "正在匯入您的帳戶…"
     },
     "lastPassMFARequired": {
         "message": "需要進行 LastPass 多因素驗證"
