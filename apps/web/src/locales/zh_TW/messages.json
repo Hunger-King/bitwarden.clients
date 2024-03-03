@@ -528,7 +528,7 @@
         }
     },
     "movedItemsToOrg": {
-        "message": "將已選取項目移動至 $ORGNAME$",
+        "message": "已將選擇的項目移動至 $ORGNAME$",
         "placeholders": {
             "orgname": {
                 "content": "$1",
@@ -612,7 +612,7 @@
         "message": "使用主密碼登入"
     },
     "readingPasskeyLoading": {
-        "message": "正在讀取密碼金鑰..."
+        "message": "正在讀取密碼金鑰…"
     },
     "readingPasskeyLoadingInfo": {
         "message": "請勿關閉此視窗，並且依照瀏覽器的指示操作。"
@@ -630,7 +630,7 @@
         "message": "不支援密碼金鑰雙因素驗證。請先更新應用程式再登入。"
     },
     "loginWithPasskeyInfo": {
-        "message": "使用已產生的密碼金輪，無需密碼即可自動登入。生物特徵辨識（例如面部識別或指紋）或其他 FIDO2 安全方式將確認您的身分。"
+        "message": "產生密碼金鑰後，無需密碼即可自動登入。可透過生物特徵辨識（例如臉部識別或指紋）或其他 FIDO2 安全方式將確認您的身分。"
     },
     "newPasskey": {
         "message": "新增密碼金鑰"
@@ -642,7 +642,7 @@
         "message": "輸入您的主密碼以修改密碼金鑰登入設定。"
     },
     "creatingPasskeyLoading": {
-        "message": "正在建立密碼金輪..."
+        "message": "正在建立密碼金鑰…"
     },
     "creatingPasskeyLoadingInfo": {
         "message": "請勿關閉此視窗，並且依照瀏覽器的指示操作。"
@@ -660,7 +660,7 @@
         "message": "自訂名稱"
     },
     "customPasskeyNameInfo": {
-        "message": "命名您的密碼金輪以方便您辨識它。"
+        "message": "命名您的密碼金鑰以方便您辨識它。"
     },
     "useForVaultEncryption": {
         "message": "用於驗證密碼庫"
@@ -1245,7 +1245,7 @@
         "message": "KDF 演算法"
     },
     "kdfIterations": {
-        "message": "KDF 疊代"
+        "message": "KDF 迭代次數"
     },
     "kdfIterationsDesc": {
         "message": "較高的 KDF 迭代次數可以避免您的主密碼遭到暴力破解。我們建議為 $VALUE$ 或更高。",
@@ -1270,13 +1270,13 @@
         "description": "Memory refers to computer memory (RAM). MB is short for megabytes."
     },
     "argon2Warning": {
-        "message": "若將 KDF 疊代次數、記憶體占用與平行數量設定太高，可能導致在老舊裝置上登入（以及解鎖）時的效能不佳。我們建議分別並小量更動這些設定並在您所有的裝置上測試。"
+        "message": "若將 KDF 迭代次數、記憶體占用與平行數量設得太高，可能導致在老舊裝置上登入（以及解鎖）時的效能不佳。我們建議分別並小量更動這些設定並在您所有的裝置上測試。"
     },
     "kdfParallelism": {
         "message": "KDF 平行數量"
     },
     "argon2Desc": {
-        "message": "更高的 KDF 疊代次數、記憶體占用與平行數量可以避免您的主密碼遭到攻擊者的暴力破解。"
+        "message": "將 KDF 迭代次數、記憶體用量與平行數量拉高，可避免您的主密碼遭到攻擊者的暴力破解。"
     },
     "changeKdf": {
         "message": "變更 KDF"
@@ -2267,7 +2267,7 @@
         "description": "Payment/credit transactions."
     },
     "noTransactions": {
-        "message": "無交易記錄"
+        "message": "無交易記錄。"
     },
     "chargeNoun": {
         "message": "費用",
@@ -2700,7 +2700,7 @@
         "message": "此使用者可存取及變更所有項目。"
     },
     "userAccessSelectedCollections": {
-        "message": "此使用者只能存取已選取的分類。"
+        "message": "此使用者只能存取已選擇的分類。"
     },
     "search": {
         "message": "搜尋"
@@ -3630,7 +3630,7 @@
         "message": "已退款"
     },
     "nothingSelected": {
-        "message": "您未選取任何内容。"
+        "message": "您未選擇任何内容。"
     },
     "acceptPolicies": {
         "message": "勾選此核取方塊，即表示您同意下列條款："
@@ -3951,7 +3951,7 @@
         "message": "已永久刪除項目"
     },
     "permanentlyDeleteSelectedItemsDesc": {
-        "message": "您已經選取了 $COUNT$ 個項目要永久刪除。確定要永久刪除這些項目嗎？",
+        "message": "您選擇了 $COUNT$ 個項目要永久刪除。確定要永久刪除這些項目嗎？",
         "placeholders": {
             "count": {
                 "content": "$1",
@@ -4096,7 +4096,7 @@
         "message": "先決條件"
     },
     "requireSsoPolicyReq": {
-        "message": "必須先開啟「單一組織」企業政策，此政策才會生效。"
+        "message": "必須先開啟「單一組織」企業原則，此原則才會生效。"
     },
     "requireSsoPolicyReqError": {
         "message": "單一組織政策尚未設定。"
@@ -4400,7 +4400,7 @@
         "message": "組織擁有者與管理員不受此原則的執行影響。"
     },
     "personalOwnershipSubmitError": {
-        "message": "由於某個企業原則，您被限制為儲存項目至您的個人密碼庫。將所有權變更為組織，並從可用的分類中選擇。"
+        "message": "由於生效中的某個企業原則，您不可將項目儲存至您的個人密碼庫。請將所有權變更為組織帳號，並選擇可用的分類。"
     },
     "disableSend": {
         "message": "停用 Send"
@@ -4761,7 +4761,7 @@
         "message": "對於具有主密碼的現有帳戶，需要成員自行註冊後，管理員才可復原其帳戶。將為新成員開啟自動注冊以啟用帳戶復原功能。"
     },
     "accountRecoverySingleOrgRequirementDesc": {
-        "message": "必須先開啟「單一組織」企業政策，此政策才會生效。"
+        "message": "必須先開啟「單一組織」企業原則，此原則才會生效。"
     },
     "resetPasswordPolicyAutoEnroll": {
         "message": "自動註冊"
@@ -4800,7 +4800,7 @@
         "message": "重新傳送通知"
     },
     "noSelectedUsersApplicable": {
-        "message": "此動作不適用於任何已選取的使用者。"
+        "message": "此動作不適用於任何已選擇的使用者。"
     },
     "removeUsersWarning": {
         "message": "您確定要移除以下使用者嗎？這可能需要幾秒鐘的時間，並且不能中斷或取消。"
@@ -6038,7 +6038,7 @@
         "description": "A prompt explaining how secrets can be associated with projects."
     },
     "selectProjects": {
-        "message": "選取專案",
+        "message": "選擇專案",
         "description": "A label for a type-to-filter input field to choose projects."
     },
     "searchProjects": {
