@@ -23,6 +23,7 @@ import { SettingsService } from "@bitwarden/common/abstractions/settings.service
 import { VaultTimeoutSettingsService } from "@bitwarden/common/abstractions/vault-timeout/vault-timeout-settings.service";
 import { VaultTimeoutService } from "@bitwarden/common/abstractions/vault-timeout/vault-timeout.service";
 import { InternalPolicyService } from "@bitwarden/common/admin-console/abstractions/policy/policy.service.abstraction";
+import { ProviderService } from "@bitwarden/common/admin-console/abstractions/provider.service";
 import { AuthService } from "@bitwarden/common/auth/abstractions/auth.service";
 import { KeyConnectorService } from "@bitwarden/common/auth/abstractions/key-connector.service";
 import { UserVerificationService } from "@bitwarden/common/auth/abstractions/user-verification/user-verification.service.abstraction";
@@ -39,6 +40,7 @@ import { PlatformUtilsService } from "@bitwarden/common/platform/abstractions/pl
 import { StateService } from "@bitwarden/common/platform/abstractions/state.service";
 import { SystemService } from "@bitwarden/common/platform/abstractions/system.service";
 import { BiometricStateService } from "@bitwarden/common/platform/biometrics/biometric-state.service";
+import { StateEventRunnerService } from "@bitwarden/common/platform/state";
 import { PasswordGenerationServiceAbstraction } from "@bitwarden/common/tools/generator/password";
 import { UserId } from "@bitwarden/common/types/guid";
 import { CipherService } from "@bitwarden/common/vault/abstractions/cipher.service";
@@ -149,6 +151,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private configService: ConfigServiceAbstraction,
     private dialogService: DialogService,
     private biometricStateService: BiometricStateService,
+    private stateEventRunnerService: StateEventRunnerService,
+    private providerService: ProviderService,
   ) {}
 
   ngOnInit() {
@@ -219,13 +223,13 @@ export class AppComponent implements OnInit, OnDestroy {
             const currentUser = await this.stateService.getUserId();
             const accounts = await firstValueFrom(this.stateService.accounts$);
             await this.vaultTimeoutService.lock(currentUser);
-            // FIXME: Verify that this floating promise is intentional. If it is, add an explanatory comment and ensure there is proper error handling.
-            // eslint-disable-next-line @typescript-eslint/no-floating-promises
-            Promise.all(
-              Object.keys(accounts)
-                .filter((u) => u !== currentUser)
-                .map((u) => this.vaultTimeoutService.lock(u)),
-            );
+            for (const account of Object.keys(accounts)) {
+              if (account === currentUser) {
+                continue;
+              }
+
+              await this.vaultTimeoutService.lock(account);
+            }
             break;
           }
           case "locked":
@@ -571,7 +575,7 @@ export class AppComponent implements OnInit, OnDestroy {
     let preLogoutActiveUserId;
     try {
       await this.eventUploadService.uploadEvents(userBeingLoggedOut);
-      await this.syncService.setLastSync(new Date(0), userBeingLoggedOut as UserId);
+      await this.syncService.setLastSync(new Date(0), userBeingLoggedOut);
       await this.cryptoService.clearKeys(userBeingLoggedOut);
       await this.settingsService.clear(userBeingLoggedOut);
       await this.cipherService.clear(userBeingLoggedOut);
@@ -582,6 +586,9 @@ export class AppComponent implements OnInit, OnDestroy {
       await this.policyService.clear(userBeingLoggedOut);
       await this.keyConnectorService.clear();
       await this.biometricStateService.logout(userBeingLoggedOut as UserId);
+      await this.providerService.save(null, userBeingLoggedOut as UserId);
+
+      await this.stateEventRunnerService.handleEvent("logout", userBeingLoggedOut as UserId);
 
       preLogoutActiveUserId = this.activeUserId;
       await this.stateService.clean({ userId: userBeingLoggedOut });

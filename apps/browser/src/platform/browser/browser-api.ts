@@ -306,7 +306,7 @@ export class BrowserApi {
   ) {
     event.addListener(callback);
 
-    if (BrowserApi.isSafariApi && !BrowserApi.isBackgroundPage(window)) {
+    if (BrowserApi.isSafariApi && !BrowserApi.isBackgroundPage(self)) {
       BrowserApi.trackedChromeEventListeners.push([event, callback]);
       BrowserApi.setupUnloadListeners();
     }
@@ -323,7 +323,7 @@ export class BrowserApi {
   ) {
     event.removeListener(callback);
 
-    if (BrowserApi.isSafariApi && !BrowserApi.isBackgroundPage(window)) {
+    if (BrowserApi.isSafariApi && !BrowserApi.isBackgroundPage(self)) {
       const index = BrowserApi.trackedChromeEventListeners.findIndex(([_event, eventListener]) => {
         return eventListener == callback;
       });
@@ -475,12 +475,19 @@ export class BrowserApi {
 
   /**
    * Extension API helper method used to execute a script in a tab.
+   *
    * @see https://developer.chrome.com/docs/extensions/reference/tabs/#method-executeScript
-   * @param {number} tabId
-   * @param {chrome.tabs.InjectDetails} details
-   * @returns {Promise<unknown>}
+   * @param tabId - The id of the tab to execute the script in.
+   * @param details {@link "InjectDetails" https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails}
+   * @param scriptingApiDetails {@link "ExecutionWorld" https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/scripting/ExecutionWorld}
    */
-  static executeScriptInTab(tabId: number, details: chrome.tabs.InjectDetails) {
+  static executeScriptInTab(
+    tabId: number,
+    details: chrome.tabs.InjectDetails,
+    scriptingApiDetails?: {
+      world: chrome.scripting.ExecutionWorld;
+    },
+  ): Promise<unknown> {
     if (BrowserApi.manifestVersion === 3) {
       return chrome.scripting.executeScript({
         target: {
@@ -490,6 +497,7 @@ export class BrowserApi {
         },
         files: details.file ? [details.file] : null,
         injectImmediately: details.runAt === "document_start",
+        world: scriptingApiDetails?.world || "ISOLATED",
       });
     }
 

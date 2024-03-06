@@ -20,6 +20,10 @@ import { CollapsedGroupingsMigrator } from "./migrations/22-move-collapsed-group
 import { MoveBiometricPromptsToStateProviders } from "./migrations/23-move-biometric-prompts-to-state-providers";
 import { SmOnboardingTasksMigrator } from "./migrations/24-move-sm-onboarding-key-to-state-providers";
 import { ClearClipboardDelayMigrator } from "./migrations/25-move-clear-clipboard-to-autofill-settings-state-provider";
+import { RevertLastSyncMigrator } from "./migrations/26-revert-move-last-sync-to-state-provider";
+import { BadgeSettingsMigrator } from "./migrations/27-move-badge-settings-to-state-providers";
+import { MoveBiometricUnlockToStateProviders } from "./migrations/28-move-biometric-unlock-to-state-providers";
+import { UserNotificationSettingsKeyMigrator } from "./migrations/29-move-user-notification-settings-to-state-provider";
 import { FixPremiumMigrator } from "./migrations/3-fix-premium";
 import { RemoveEverBeenUnlockedMigrator } from "./migrations/4-remove-ever-been-unlocked";
 import { AddKeyTypeToOrgKeysMigrator } from "./migrations/5-add-key-type-to-org-keys";
@@ -30,7 +34,7 @@ import { MoveBrowserSettingsToGlobal } from "./migrations/9-move-browser-setting
 import { MinVersionMigrator } from "./migrations/min-version";
 
 export const MIN_VERSION = 2;
-export const CURRENT_VERSION = 25;
+export const CURRENT_VERSION = 29;
 export type MinVersion = typeof MIN_VERSION;
 
 export function createMigrationBuilder() {
@@ -58,7 +62,11 @@ export function createMigrationBuilder() {
     .with(CollapsedGroupingsMigrator, 21, 22)
     .with(MoveBiometricPromptsToStateProviders, 22, 23)
     .with(SmOnboardingTasksMigrator, 23, 24)
-    .with(ClearClipboardDelayMigrator, 24, CURRENT_VERSION);
+    .with(ClearClipboardDelayMigrator, 24, 25)
+    .with(RevertLastSyncMigrator, 25, 26)
+    .with(BadgeSettingsMigrator, 26, 27)
+    .with(MoveBiometricUnlockToStateProviders, 27, 28)
+    .with(UserNotificationSettingsKeyMigrator, 28, CURRENT_VERSION);
 }
 
 export async function currentVersion(

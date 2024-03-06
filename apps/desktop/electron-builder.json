@@ -24,7 +24,7 @@
     "**/node_modules/argon2/package.json",
     "**/node_modules/argon2/lib/binding/napi-v3/argon2.node"
   ],
-  "electronVersion": "28.2.4",
+  "electronVersion": "28.2.5",
   "generateUpdatesFilesForAllChannels": true,
   "publish": {
     "provider": "generic",
@@ -127,7 +127,8 @@
     "entitlementsLoginHelper": "resources/entitlements.mas.loginhelper.plist",
     "hardenedRuntime": false,
     "extendInfo": {
-      "LSMinimumSystemVersion": "10.15.0"
+      "LSMinimumSystemVersion": "10.15.0",
+      "ElectronTeamID": "LTZ2PFU5D6"
     }
   },
   "nsisWeb": {

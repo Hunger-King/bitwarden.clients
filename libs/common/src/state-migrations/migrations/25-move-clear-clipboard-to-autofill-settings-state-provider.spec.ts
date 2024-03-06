@@ -82,7 +82,7 @@ const autofillSettingsLocalStateDefinition: {
   },
 };
 
-describe("ProviderKeysMigrator", () => {
+describe("ClearClipboardDelayMigrator", () => {
   let helper: MockProxy<MigrationHelper>;
   let sut: ClearClipboardDelayMigrator;
 
@@ -128,7 +128,7 @@ describe("ProviderKeysMigrator", () => {
 
   describe("rollback", () => {
     beforeEach(() => {
-      helper = mockMigrationHelper(rollbackJSON(), 23);
+      helper = mockMigrationHelper(rollbackJSON(), 25);
       sut = new ClearClipboardDelayMigrator(24, 25);
     });
 

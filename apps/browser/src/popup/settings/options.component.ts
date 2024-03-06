@@ -4,6 +4,8 @@ import { firstValueFrom } from "rxjs";
 import { AbstractThemingService } from "@bitwarden/angular/platform/services/theming/theming.service.abstraction";
 import { SettingsService } from "@bitwarden/common/abstractions/settings.service";
 import { AutofillSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/autofill-settings.service";
+import { BadgeSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/badge-settings.service";
+import { UserNotificationSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/user-notification-settings.service";
 import { I18nService } from "@bitwarden/common/platform/abstractions/i18n.service";
 import { MessagingService } from "@bitwarden/common/platform/abstractions/messaging.service";
 import { StateService } from "@bitwarden/common/platform/abstractions/state.service";
@@ -20,7 +22,7 @@ import { enableAccountSwitching } from "../../platform/flags";
 })
 export class OptionsComponent implements OnInit {
   enableFavicon = false;
-  enableBadgeCounter = false;
+  enableBadgeCounter = true;
   enableAutoFillOnPageLoad = false;
   autoFillOnPageLoadDefault = false;
   autoFillOnPageLoadOptions: any[];
@@ -46,7 +48,9 @@ export class OptionsComponent implements OnInit {
   constructor(
     private messagingService: MessagingService,
     private stateService: StateService,
+    private userNotificationSettingsService: UserNotificationSettingsServiceAbstraction,
     private autofillSettingsService: AutofillSettingsServiceAbstraction,
+    private badgeSettingsService: BadgeSettingsServiceAbstraction,
     i18nService: I18nService,
     private themingService: AbstractThemingService,
     private settingsService: SettingsService,
@@ -93,10 +97,13 @@ export class OptionsComponent implements OnInit {
       this.autofillSettingsService.autofillOnPageLoadDefault$,
     );
 
-    this.enableAddLoginNotification = !(await this.stateService.getDisableAddLoginNotification());
+    this.enableAddLoginNotification = await firstValueFrom(
+      this.userNotificationSettingsService.enableAddedLoginPrompt$,
+    );
 
-    this.enableChangedPasswordNotification =
-      !(await this.stateService.getDisableChangedPasswordNotification());
+    this.enableChangedPasswordNotification = await firstValueFrom(
+      this.userNotificationSettingsService.enableChangedPasswordPrompt$,
+    );
 
     this.enableContextMenuItem = !(await this.stateService.getDisableContextMenuItem());
 
@@ -107,7 +114,7 @@ export class OptionsComponent implements OnInit {
 
     this.enableFavicon = !this.settingsService.getDisableFavicon();
 
-    this.enableBadgeCounter = !(await this.stateService.getDisableBadgeCounter());
+    this.enableBadgeCounter = await firstValueFrom(this.badgeSettingsService.enableBadgeCounter$);
 
     this.enablePasskeys = await firstValueFrom(this.vaultSettingsService.enablePasskeys$);
 
@@ -120,12 +127,14 @@ export class OptionsComponent implements OnInit {
   }
 
   async updateAddLoginNotification() {
-    await this.stateService.setDisableAddLoginNotification(!this.enableAddLoginNotification);
+    await this.userNotificationSettingsService.setEnableAddedLoginPrompt(
+      this.enableAddLoginNotification,
+    );
   }
 
   async updateChangedPasswordNotification() {
-    await this.stateService.setDisableChangedPasswordNotification(
-      !this.enableChangedPasswordNotification,
+    await this.userNotificationSettingsService.setEnableChangedPasswordPrompt(
+      this.enableChangedPasswordNotification,
     );
   }
 
@@ -155,7 +164,7 @@ export class OptionsComponent implements OnInit {
   }
 
   async updateBadgeCounter() {
-    await this.stateService.setDisableBadgeCounter(!this.enableBadgeCounter);
+    await this.badgeSettingsService.setEnableBadgeCounter(this.enableBadgeCounter);
     this.messagingService.send("bgUpdateContextMenu");
   }
 

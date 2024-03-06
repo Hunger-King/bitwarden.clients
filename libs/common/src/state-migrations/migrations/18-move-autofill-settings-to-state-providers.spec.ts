@@ -73,7 +73,7 @@ const autofillSettingsStateDefinition: {
   },
 };
 
-describe("ProviderKeysMigrator", () => {
+describe("AutofillSettingsKeyMigrator", () => {
   let helper: MockProxy<MigrationHelper>;
   let sut: AutofillSettingsKeyMigrator;
 
@@ -147,7 +147,7 @@ describe("ProviderKeysMigrator", () => {
 
   describe("rollback", () => {
     beforeEach(() => {
-      helper = mockMigrationHelper(rollbackJSON(), 16);
+      helper = mockMigrationHelper(rollbackJSON(), 18);
       sut = new AutofillSettingsKeyMigrator(17, 18);
     });
 

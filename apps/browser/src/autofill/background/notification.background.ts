@@ -4,9 +4,9 @@ import { PolicyService } from "@bitwarden/common/admin-console/abstractions/poli
 import { PolicyType } from "@bitwarden/common/admin-console/enums";
 import { AuthService } from "@bitwarden/common/auth/abstractions/auth.service";
 import { AuthenticationStatus } from "@bitwarden/common/auth/enums/authentication-status";
+import { UserNotificationSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/user-notification-settings.service";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
-import { ThemeType } from "@bitwarden/common/platform/enums";
 import { Utils } from "@bitwarden/common/platform/misc/utils";
 import { CipherService } from "@bitwarden/common/vault/abstractions/cipher.service";
 import { FolderService } from "@bitwarden/common/vault/abstractions/folder/folder.service.abstraction";
@@ -58,6 +58,9 @@ export default class NotificationBackground {
     bgUnlockPopoutOpened: ({ message, sender }) => this.unlockVault(message, sender.tab),
     checkNotificationQueue: ({ sender }) => this.checkNotificationQueue(sender.tab),
     bgReopenUnlockPopout: ({ sender }) => this.openUnlockPopout(sender.tab),
+    bgGetEnableChangedPasswordPrompt: () => this.getEnableChangedPasswordPrompt(),
+    bgGetEnableAddedLoginPrompt: () => this.getEnableAddedLoginPrompt(),
+    getWebVaultUrlForNotification: () => this.getWebVaultUrl(),
   };
 
   constructor(
@@ -67,6 +70,7 @@ export default class NotificationBackground {
     private policyService: PolicyService,
     private folderService: FolderService,
     private stateService: BrowserStateService,
+    private userNotificationSettingsService: UserNotificationSettingsServiceAbstraction,
     private environmentService: EnvironmentService,
     private logService: LogService,
   ) {}
@@ -79,6 +83,20 @@ export default class NotificationBackground {
     this.setupExtensionMessageListener();
 
     this.cleanupNotificationQueue();
+  }
+
+  /**
+   * Gets the enableChangedPasswordPrompt setting from the user notification settings service.
+   */
+  async getEnableChangedPasswordPrompt(): Promise<boolean> {
+    return await firstValueFrom(this.userNotificationSettingsService.enableChangedPasswordPrompt$);
+  }
+
+  /**
+   * Gets the enableAddedLoginPrompt setting from the user notification settings service.
+   */
+  async getEnableAddedLoginPrompt(): Promise<boolean> {
+    return await firstValueFrom(this.userNotificationSettingsService.enableAddedLoginPrompt$);
   }
 
   /**
@@ -134,11 +152,9 @@ export default class NotificationBackground {
     notificationQueueMessage: NotificationQueueMessageItem,
   ) {
     const notificationType = notificationQueueMessage.type;
-    const webVaultURL = this.environmentService.getWebVaultUrl();
     const typeData: Record<string, any> = {
       isVaultLocked: notificationQueueMessage.wasVaultLocked,
-      theme: await this.getCurrentTheme(),
-      webVaultURL,
+      theme: await this.stateService.getTheme(),
     };
 
     switch (notificationType) {
@@ -156,18 +172,6 @@ export default class NotificationBackground {
       type: notificationType,
       typeData,
     });
-  }
-
-  private async getCurrentTheme() {
-    const theme = await this.stateService.getTheme();
-
-    if (theme !== ThemeType.System) {
-      return theme;
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? ThemeType.Dark
-      : ThemeType.Light;
   }
 
   /**
@@ -208,9 +212,10 @@ export default class NotificationBackground {
       return;
     }
 
-    const disabledAddLogin = await this.stateService.getDisableAddLoginNotification();
+    const addLoginIsEnabled = await this.getEnableAddedLoginPrompt();
+
     if (authStatus === AuthenticationStatus.Locked) {
-      if (!disabledAddLogin) {
+      if (addLoginIsEnabled) {
         await this.pushAddLoginToQueue(loginDomain, loginInfo, sender.tab, true);
       }
 
@@ -221,14 +226,15 @@ export default class NotificationBackground {
     const usernameMatches = ciphers.filter(
       (c) => c.login.username != null && c.login.username.toLowerCase() === normalizedUsername,
     );
-    if (!disabledAddLogin && usernameMatches.length === 0) {
+    if (addLoginIsEnabled && usernameMatches.length === 0) {
       await this.pushAddLoginToQueue(loginDomain, loginInfo, sender.tab);
       return;
     }
 
-    const disabledChangePassword = await this.stateService.getDisableChangedPasswordNotification();
+    const changePasswordIsEnabled = await this.getEnableChangedPasswordPrompt();
+
     if (
-      !disabledChangePassword &&
+      changePasswordIsEnabled &&
       usernameMatches.length === 1 &&
       usernameMatches[0].login.password !== loginInfo.password
     ) {
@@ -634,6 +640,10 @@ export default class NotificationBackground {
    */
   private async getFolderData() {
     return await firstValueFrom(this.folderService.folderViews$);
+  }
+
+  private getWebVaultUrl(): string {
+    return this.environmentService.getWebVaultUrl();
   }
 
   private async removeIndividualVault(): Promise<boolean> {

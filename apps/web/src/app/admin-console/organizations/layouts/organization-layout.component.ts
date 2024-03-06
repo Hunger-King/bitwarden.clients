@@ -8,6 +8,7 @@ import {
   canAccessBillingTab,
   canAccessGroupsTab,
   canAccessMembersTab,
+  canAccessOrgAdmin,
   canAccessReportingTab,
   canAccessSettingsTab,
   canAccessVaultTab,
@@ -15,10 +16,12 @@ import {
   OrganizationService,
 } from "@bitwarden/common/admin-console/abstractions/organization/organization.service.abstraction";
 import { Organization } from "@bitwarden/common/admin-console/models/domain/organization";
+import { FeatureFlag } from "@bitwarden/common/enums/feature-flag.enum";
+import { ConfigServiceAbstraction as ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service.abstraction";
 import { PlatformUtilsService } from "@bitwarden/common/platform/abstractions/platform-utils.service";
 import { BannerModule, IconModule, LayoutComponent, NavigationModule } from "@bitwarden/components";
 
-import { PaymentMethodBannersComponent } from "../../../components/payment-method-banners/payment-method-banners.component";
+import { PaymentMethodWarningsModule } from "../../../billing/shared";
 import { OrgSwitcherComponent } from "../../../layouts/org-switcher/org-switcher.component";
 import { AdminConsoleLogo } from "../../icons/admin-console-logo";
 
@@ -35,23 +38,29 @@ import { AdminConsoleLogo } from "../../icons/admin-console-logo";
     NavigationModule,
     OrgSwitcherComponent,
     BannerModule,
-    PaymentMethodBannersComponent,
+    PaymentMethodWarningsModule,
   ],
 })
 export class OrganizationLayoutComponent implements OnInit, OnDestroy {
   protected readonly logo = AdminConsoleLogo;
 
-  protected orgFilter = (org: Organization) => org.isAdmin;
+  protected orgFilter = (org: Organization) => canAccessOrgAdmin(org);
 
   organization$: Observable<Organization>;
   showPaymentAndHistory$: Observable<boolean>;
 
   private _destroy = new Subject<void>();
 
+  protected showPaymentMethodWarningBanners$ = this.configService.getFeatureFlag$(
+    FeatureFlag.ShowPaymentMethodWarningBanners,
+    false,
+  );
+
   constructor(
     private route: ActivatedRoute,
     private organizationService: OrganizationService,
     private platformUtilsService: PlatformUtilsService,
+    private configService: ConfigService,
   ) {}
 
   async ngOnInit() {
