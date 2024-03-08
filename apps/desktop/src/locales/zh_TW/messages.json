@@ -15,7 +15,7 @@
         "message": "類型"
     },
     "typeLogin": {
-        "message": "登入"
+        "message": "登入資訊"
     },
     "typeCard": {
         "message": "信用卡"
@@ -558,7 +558,7 @@
         "message": "帳戶已建立！現在可以登入了。"
     },
     "masterPassSent": {
-        "message": "已寄出包含您主密碼提示的電子郵件。"
+        "message": "已寄出主密碼提示信。"
     },
     "unexpectedError": {
         "message": "發生了未預期的錯誤。"
@@ -570,7 +570,7 @@
         "message": "沒有可列出的項目。"
     },
     "sendVerificationCode": {
-        "message": "傳送驗證碼至您的電子郵件信箱"
+        "message": "傳送驗證碼至您的電子郵件地址"
     },
     "sendCode": {
         "message": "傳送驗證碼"
@@ -649,11 +649,11 @@
         "message": "使用 YubiKey 存取您的帳戶。支援 YubiKey 4、4 Nano、4C、以及 NEO 裝置。"
     },
     "duoDesc": {
-        "message": "使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全金鑰進行驗證。",
+        "message": "使用 Duo Security，透過 Duo Mobile 程式、簡訊、接聽電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "duoOrganizationDesc": {
-        "message": "為您的組織使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全金鑰進行驗證。",
+        "message": "為您的組織使用 Duo Security，透過 Duo Mobile 程式、簡訊、接聽電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "webAuthnTitle": {
@@ -744,7 +744,7 @@
         "message": "登出"
     },
     "addNewLogin": {
-        "message": "新增登入資料"
+        "message": "新增登入資訊"
     },
     "addNewItem": {
         "message": "新增項目"
@@ -824,7 +824,7 @@
         "message": "解鎖"
     },
     "loggedInAsOn": {
-        "message": "已在 $HOSTNAME$ 以 $EMAIL$ 身份登入。",
+        "message": "已使用 $EMAIL$ 身份登入 $HOSTNAME$。",
         "placeholders": {
             "email": {
                 "content": "$1",
@@ -840,7 +840,7 @@
         "message": "無效的主密碼"
     },
     "twoStepLoginConfirmation": {
-        "message": "兩步驟登入需要您從其他裝置（例如安全金鑰、驗證器程式、SMS、手機或電子郵件）來驗證您的登入，這使您的帳戶更加安全。兩步驟登入可以在 bitwarden.com 網頁版密碼庫啟用。現在要前往嗎？"
+        "message": "開啟兩步驟登入後，每次登入帳號時需要您從其他裝置（例如安全金鑰、驗證器、簡訊、接聽電話或電子郵件）來驗證您的登入，此功能可使您的帳戶更加安全。兩步驟登入功能可以在 bitwarden.com 網頁版密碼庫開啟。現在要前往嗎？"
     },
     "twoStepLogin": {
         "message": "兩步驟登入"
@@ -914,7 +914,7 @@
         "message": "顯示網站圖示"
     },
     "faviconDesc": {
-        "message": "在每個登入資料旁顯示一個可辨識的圖片。"
+        "message": "在每個登入資訊旁顯示一個可辨識的圖片。"
     },
     "enableMinToTray": {
         "message": "最小化至系統匣圖示"
@@ -1004,7 +1004,7 @@
         "message": "檢查更新…"
     },
     "version": {
-        "message": "$VERSION_NUM$ 版本",
+        "message": "版本 $VERSION_NUM$",
         "placeholders": {
             "version_num": {
                 "content": "$1",
@@ -1072,7 +1072,7 @@
         "message": "您尚未成為進階會員。"
     },
     "premiumSignUpAndGet": {
-        "message": "註冊成為進階會員就能獲得："
+        "message": "升級進階會員方案，就能獲得："
     },
     "premiumSignUpStorage": {
         "message": "用於檔案附件的 1 GB 加密儲存空間。"
@@ -1617,7 +1617,7 @@
         "message": "很遺憾，目前僅 Mac App Store 版本支援瀏覽器整合功能。"
     },
     "browserIntegrationWindowsStoreDesc": {
-        "message": "很遺憾，Microsoft Store 版本目前尚不支援瀏覽器整合功能。"
+        "message": "很遺憾，Microsoft Store 版本目前尚未支援瀏覽器整合功能。"
     },
     "browserIntegrationLinuxDesc": {
         "message": "很遺憾，Linux 版本目前尚未支援瀏覽器整合功能。"
@@ -1840,10 +1840,10 @@
         "message": "一或多個組織政策影響了您的 Send 選項。"
     },
     "emailVerificationRequired": {
-        "message": "需要驗證電子郵件"
+        "message": "需要驗證電子郵件地址"
     },
     "emailVerificationRequiredDesc": {
-        "message": "必須驗證您的電子郵件才能使用此功能。"
+        "message": "必須驗證您的電子郵件地址，才能使用此功能。"
     },
     "passwordPrompt": {
         "message": "重新要求主密碼"
@@ -2026,7 +2026,7 @@
         "message": "使用者名稱類型"
     },
     "plusAddressedEmail": {
-        "message": "採用子地址的電子郵件",
+        "message": "使用加號的電子郵件子地址",
         "description": "Username generator option that appends a random sub-address to the username. For example: address+subaddress@email.com"
     },
     "plusAddressedEmailDesc": {
@@ -2319,7 +2319,7 @@
         "message": "登入已核准"
     },
     "userEmailMissing": {
-        "message": "缺少使用者電子郵件"
+        "message": "缺少使用者電子郵件地址"
     },
     "deviceTrusted": {
         "message": "裝置已信任"
@@ -2379,7 +2379,7 @@
         }
     },
     "multipleInputEmails": {
-        "message": "一或多個電子郵件無效"
+        "message": "一或多個電子郵件地址無效"
     },
     "inputTrimValidator": {
         "message": "輸入內容不得只有空格。",
@@ -2572,10 +2572,10 @@
         "message": "需要進行 LastPass 多因素驗證"
     },
     "lastPassMFADesc": {
-        "message": "輸入來自身分驗證應用程式的一次性通行代碼"
+        "message": "輸入來自驗證程式的單次使用通行碼"
     },
     "lastPassOOBDesc": {
-        "message": "在身分驗證應用程式中核准登入請求或輸入一次性通行代碼。"
+        "message": "在驗證程式中核准登入請求或輸入單次使用通行碼。"
     },
     "passcode": {
         "message": "密碼"
