@@ -107,7 +107,7 @@
         "message": "複製自訂欄位名稱"
     },
     "noMatchingLogins": {
-        "message": "無符合的登入資料"
+        "message": "無符合的登入資訊"
     },
     "noCards": {
         "message": "無信用卡"
@@ -131,10 +131,10 @@
         "message": "登入您的密碼庫"
     },
     "autoFillInfo": {
-        "message": "沒有可以在目前瀏覽器分頁自動填入的登入資料。"
+        "message": "沒有可以在目前瀏覽器分頁自動填入的登入資訊。"
     },
     "addLogin": {
-        "message": "新增登入資料"
+        "message": "新增登入資訊"
     },
     "addItem": {
         "message": "新增項目"
@@ -152,7 +152,7 @@
         "message": "繼續"
     },
     "sendVerificationCode": {
-        "message": "傳送驗證碼至您的電子郵件信箱"
+        "message": "傳送驗證碼至您的電子郵件地址"
     },
     "sendCode": {
         "message": "傳送驗證碼"
@@ -384,7 +384,7 @@
         "message": "解鎖"
     },
     "loggedInAsOn": {
-        "message": "已在 $HOSTNAME$ 以 $EMAIL$ 身份登入。",
+        "message": "已使用 $EMAIL$ 身份登入 $HOSTNAME$。",
         "placeholders": {
             "email": {
                 "content": "$1",
@@ -482,7 +482,7 @@
         "message": "帳戶已建立！現在可以登入了。"
     },
     "masterPassSent": {
-        "message": "已寄出包含您主密碼提示的電子郵件。"
+        "message": "已寄出主密碼提示信。"
     },
     "verificationCodeRequired": {
         "message": "必須填入驗證碼。"
@@ -534,7 +534,7 @@
         "message": "您可以在 bitwarden.com 網頁版密碼庫變更主密碼。現在要前往嗎？"
     },
     "twoStepLoginConfirmation": {
-        "message": "兩步驟登入需要您從其他裝置（例如安全金鑰、驗證器程式、SMS、手機或電子郵件）來驗證您的登入，這使您的帳戶更加安全。兩步驟登入可以在 bitwarden.com 網頁版密碼庫啟用。現在要前往嗎？"
+        "message": "開啟兩步驟登入後，每次登入帳號時需要您從其他裝置（例如安全金鑰、驗證器、簡訊、接聽電話或電子郵件）來驗證您的登入，此功能可使您的帳戶更加安全。兩步驟登入功能可以在 bitwarden.com 網頁版密碼庫開啟。現在要前往嗎？"
     },
     "editedFolder": {
         "message": "資料夾已儲存"
@@ -614,7 +614,7 @@
         "description": "This is the folder for uncategorized items"
     },
     "enableAddLoginNotification": {
-        "message": "詢問新增登入資料"
+        "message": "詢問是否要新增登入資訊"
     },
     "addLoginNotificationDesc": {
         "message": "在密碼庫中找不到相符的項目時詢問是否新增項目。"
@@ -649,10 +649,10 @@
         "message": "儲存"
     },
     "enableChangedPasswordNotification": {
-        "message": "詢問更新現有的登入資料"
+        "message": "詢問更新現有的登入資訊"
     },
     "changedPasswordNotificationDesc": {
-        "message": "偵測到網站密碼變更時，詢問是否更新登入資料密碼。"
+        "message": "偵測到網站密碼變更時，詢問是否更新該筆密碼。"
     },
     "changedPasswordNotificationDescAlt": {
         "message": "當偵測到網站上的變更時，詢問是否更新登入的密碼。適用於所有已登入的帳戶。"
@@ -689,7 +689,7 @@
         "description": "Default URI match detection for auto-fill."
     },
     "defaultUriMatchDetectionDesc": {
-        "message": "選擇在執行自動填入等動作時，登入資料的預設統一資源標識符（URI）比對方式。"
+        "message": "選擇在執行自動填入等動作時，登入資訊的預設統一資源標識符（URI）比對方式。"
     },
     "theme": {
         "message": "主題"
@@ -832,7 +832,7 @@
         "message": "您尚未成為進階會員。"
     },
     "premiumSignUpAndGet": {
-        "message": "註冊成為進階會員就能獲得："
+        "message": "升級進階會員方案，就能獲得："
     },
     "ppremiumSignUpStorage": {
         "message": "用於檔案附件的 1 GB 加密儲存空間。"
@@ -880,7 +880,7 @@
         "message": "自動複製 TOTP"
     },
     "disableAutoTotpCopyDesc": {
-        "message": "若登入資料已包含驗證器金鑰，在自動填入此登入資料時，TOTP 驗證碼將複製至您的剪貼簿。"
+        "message": "若登入資訊已包含驗證器金鑰，在自動填入登入資訊時，也會同步為您複製 TOTP 驗證碼。"
     },
     "enableAutoBiometricsPrompt": {
         "message": "啟動時要求進行生物特徵辨識"
@@ -968,11 +968,11 @@
         "message": "使用 YubiKey 存取您的帳戶。支援 YubiKey 4、4 Nano、4C、以及 NEO 裝置。"
     },
     "duoDesc": {
-        "message": "使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全金鑰進行驗證。",
+        "message": "使用 Duo Security，透過 Duo Mobile 程式、簡訊、接聽電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "duoOrganizationDesc": {
-        "message": "為您的組織使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全金鑰進行驗證。",
+        "message": "為您的組織使用 Duo Security，透過 Duo Mobile 程式、簡訊、接聽電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "webAuthnTitle": {
@@ -1076,7 +1076,7 @@
         "message": "在側邊欄中開啟密碼庫"
     },
     "commandAutofillDesc": {
-        "message": "自動將上次使用的登入資料填入目前網站"
+        "message": "自動將上次使用的登入資訊填入目前網站"
     },
     "commandGeneratePasswordDesc": {
         "message": "產生一組新的隨機密碼並將其複製到剪貼簿中"
@@ -1129,13 +1129,13 @@
         "message": "顯示網站圖示"
     },
     "faviconDesc": {
-        "message": "在每個登入資料旁顯示一個可辨識的圖片。"
+        "message": "在每個登入資訊旁顯示一個可辨識的圖片。"
     },
     "enableBadgeCounter": {
         "message": "顯示圖示計數器"
     },
     "badgeCounterDesc": {
-        "message": "顯示可用於目前網頁的登入資料數量。"
+        "message": "顯示可用於目前網頁的登入資訊數量。"
     },
     "cardholderName": {
         "message": "持卡人姓名"
@@ -1276,10 +1276,10 @@
         "message": "類型"
     },
     "typeLogin": {
-        "message": "登入"
+        "message": "登入資訊"
     },
     "typeLogins": {
-        "message": "登入資料"
+        "message": "登入資訊"
     },
     "typeSecureNote": {
         "message": "安全筆記"
@@ -1315,7 +1315,7 @@
         "message": "身分"
     },
     "logins": {
-        "message": "登入資料"
+        "message": "登入資訊"
     },
     "secureNotes": {
         "message": "安全筆記"
@@ -1936,10 +1936,10 @@
         "message": "此動作受到保護。若要繼續，請重新輸入您的主密碼以驗證身份。"
     },
     "emailVerificationRequired": {
-        "message": "需要驗證電子郵件"
+        "message": "需要驗證電子郵件地址"
     },
     "emailVerificationRequiredDesc": {
-        "message": "您必須驗證您的電子郵件才能使用此功能。您可以在網頁版密碼庫裡驗證您的電子郵件。"
+        "message": "您必須驗證您的電子郵件地址才能使用此功能。您可以到網頁版密碼庫進行驗證。"
     },
     "updatedMasterPassword": {
         "message": "已更新主密碼"
@@ -2085,7 +2085,7 @@
         "message": "使用者名稱類型"
     },
     "plusAddressedEmail": {
-        "message": "採用子地址的電子郵件",
+        "message": "使用加號的電子郵件子地址",
         "description": "Username generator option that appends a random sub-address to the username. For example: address+subaddress@email.com"
     },
     "plusAddressedEmailDesc": {
@@ -2370,7 +2370,7 @@
         "message": "登入已核准"
     },
     "userEmailMissing": {
-        "message": "缺少使用者電子郵件"
+        "message": "缺少使用者電子郵件地址"
     },
     "deviceTrusted": {
         "message": "裝置已信任"
@@ -2430,7 +2430,7 @@
         }
     },
     "multipleInputEmails": {
-        "message": "一或多個電子郵件無效"
+        "message": "一或多個電子郵件地址無效"
     },
     "inputTrimValidator": {
         "message": "輸入內容不得只有空格。",
@@ -2758,10 +2758,10 @@
         "message": "需要進行 LastPass 多因素驗證"
     },
     "lastPassMFADesc": {
-        "message": "輸入來自身分驗證應用程式的一次性通行代碼"
+        "message": "輸入來自驗證程式的單次使用通行碼"
     },
     "lastPassOOBDesc": {
-        "message": "在身分驗證應用程式中核准登入請求或輸入一次性通行代碼。"
+        "message": "在驗證程式中核准登入請求或輸入單次使用通行碼。"
     },
     "passcode": {
         "message": "密碼"
