@@ -271,7 +271,7 @@
         "message": "搜尋我的最愛"
     },
     "searchLogin": {
-        "message": "搜尋登入資料",
+        "message": "搜尋登入資訊",
         "description": "Search Login type"
     },
     "searchCard": {
@@ -311,7 +311,7 @@
         "message": "類型"
     },
     "typeLogin": {
-        "message": "登入"
+        "message": "登入資訊"
     },
     "typeCard": {
         "message": "信用卡"
@@ -323,7 +323,7 @@
         "message": "安全筆記"
     },
     "typeLoginPlural": {
-        "message": "登入資料"
+        "message": "登入資訊"
     },
     "typeCardPlural": {
         "message": "信用卡"
@@ -799,7 +799,7 @@
         "message": "帳戶建立成功。"
     },
     "masterPassSent": {
-        "message": "已寄出包含您主密碼提示的電子郵件。"
+        "message": "已寄出主密碼提示信。"
     },
     "unexpectedError": {
         "message": "發生了未預期的錯誤。"
@@ -820,7 +820,7 @@
         "message": "解鎖"
     },
     "loggedInAsEmailOn": {
-        "message": "已在 $HOSTNAME$ 上以 $EMAIL$ 身份登入。",
+        "message": "已使用 $EMAIL$ 身份登入 $HOSTNAME$。",
         "placeholders": {
             "email": {
                 "content": "$1",
@@ -872,7 +872,7 @@
         "message": "已傳送通知至您的裝置。"
     },
     "versionNumber": {
-        "message": "$VERSION_NUMBER$ 版本",
+        "message": "版本 $VERSION_NUMBER$",
         "placeholders": {
             "version_number": {
                 "content": "$1",
@@ -948,11 +948,11 @@
         "message": "使用 YubiKey 存取您的帳戶。支援 YubiKey 4 系列、5 系列以及 NEO 裝置。"
     },
     "duoDesc": {
-        "message": "使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全金鑰進行驗證。",
+        "message": "使用 Duo Security，透過 Duo Mobile 程式、簡訊、接聽電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "duoOrganizationDesc": {
-        "message": "為您的組織使用 Duo Security 的 Duo Mobile 程式、SMS、撥打電話或 U2F 安全金鑰進行驗證。",
+        "message": "為您的組織使用 Duo Security，透過 Duo Mobile 程式、簡訊、接聽電話或 U2F 安全金鑰進行驗證。",
         "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated."
     },
     "u2fDesc": {
@@ -1194,7 +1194,7 @@
         "message": "變更電子郵件地址"
     },
     "changeEmailTwoFactorWarning": {
-        "message": "繼續操作將變更您的帳戶電子郵件位址。這不會變更用於兩步驟登入的電子郵件地址。您可以在兩步驟登入設定中變更它。"
+        "message": "繼續操作將變更您的帳戶電子郵件地址。更改此地址不會變更進行兩步驟登入驗證時，使用的電子郵件地址。若要更改兩步驟登入驗證地址，請到兩步驟登入設定中變更。"
     },
     "newEmail": {
         "message": "新的電子郵件地址"
@@ -1458,7 +1458,7 @@
         "message": "顯示網站圖示"
     },
     "faviconDesc": {
-        "message": "在每個登入資料旁顯示一個可辨識的圖片。"
+        "message": "在每個登入資訊旁顯示一個可辨識的圖片。"
     },
     "enableFullWidth": {
         "message": "顯示全幅寬度",
@@ -1474,7 +1474,7 @@
         "message": "網域規則"
     },
     "domainRulesDesc": {
-        "message": "如果您在多個不同網站使用相同的登入資料，您可以將這些網站標記為「通用」。Bitwarden 會為您設定「全域」域名。"
+        "message": "如果您在多個不同網站使用相同的登入資訊，您可以將這些網站標記為「通用」。Bitwarden 會為您設定「全域」域名。"
     },
     "globalEqDomains": {
         "message": "全域通用網域"
@@ -1906,7 +1906,7 @@
         }
     },
     "noReusedPasswords": {
-        "message": "您的密碼庫中沒有重複使用密碼的登入資料。"
+        "message": "您的密碼庫中沒有重複使用密碼的登入資訊。"
     },
     "reusedXTimes": {
         "message": "已重複使用 $COUNT$ 次",
@@ -2073,7 +2073,7 @@
         "message": "進階存取"
     },
     "premiumAccessDesc": {
-        "message": "您可以為您的組織的所有成員添加進階存取，只需 $PRICE$ /$INTERVAL$.",
+        "message": "您可以為您的組織的所有成員升級為 Premium 版功能，只需 $PRICE$ /$INTERVAL$。",
         "placeholders": {
             "price": {
                 "content": "$1",
@@ -2625,7 +2625,7 @@
         "message": "您確定要移除此使用者？"
     },
     "removeOrgUserConfirmation": {
-        "message": "成員被移除後，他們將不再擁有對組織資料的存取權限，並且此動作無法恢復。要將此成員添加回組織，必須重新邀請他們並再次加入。"
+        "message": "移除成員後，他們將不再能存取組織的資料，並且此動作無法恢復。若要將此成員加回組織，必須重新邀請他們加入。"
     },
     "revokeUserConfirmation": {
         "message": "成員身份被撤銷後，將不再擁有對組織資料的存取權限。要快速還原此成員的存取權限，請轉到「已撤銷」分頁。"
@@ -2682,10 +2682,10 @@
         }
     },
     "inviteUserDesc": {
-        "message": "在下方輸入 Bitwarden 帳戶的電子郵件位址，邀請新使用者加入您的組織。若他們沒有 Bitwarden 帳戶，系統將提示他們建立新帳戶。"
+        "message": "在下方輸入 Bitwarden 帳戶的電子郵件地址即可邀請新使用者加入您的組織。若他們沒有 Bitwarden 帳戶，系統將提示他們建立。"
     },
     "inviteMultipleEmailDesc": {
-        "message": "透過使用逗號分隔，您可以一次輸入最多 $COUNT$ 個電子郵件地阯。",
+        "message": "可使用逗號分隔最多 $COUNT$ 組電子郵件地址。",
         "placeholders": {
             "count": {
                 "content": "$1",
@@ -2715,7 +2715,7 @@
         "message": "已確認"
     },
     "clientOwnerEmail": {
-        "message": "用戶擁有者電子郵件"
+        "message": "用戶擁有者電子郵件地址"
     },
     "owner": {
         "message": "擁有者"
@@ -3210,7 +3210,7 @@
         "message": "群組存取"
     },
     "groupAccessUserDesc": {
-        "message": "透過將成員添加到 1 或多個群組來授予他們對分類的存取權限。"
+        "message": "將成員加入到 1 或多個群組，即可授予他們對不同分類的存取權限。"
     },
     "invitedUsers": {
         "message": "已邀請使用者"
@@ -3264,22 +3264,22 @@
         "message": "請驗證您帳戶的電子郵件地址，即可使用所有功能。"
     },
     "verifyEmailFirst": {
-        "message": "必須驗證您帳戶的電子郵件位址。"
+        "message": "必須先驗證您帳戶的電子郵件地址。"
     },
     "checkInboxForVerification": {
         "message": "請到您的電子郵件信箱收信，以取得驗證連結。"
     },
     "emailVerified": {
-        "message": "帳戶電子郵件已驗證"
+        "message": "帳戶電子郵件地址已驗證"
     },
     "emailVerifiedFailed": {
         "message": "無法驗證您的電子郵件信箱，請試著再傳送一封新的驗證信。"
     },
     "emailVerificationRequired": {
-        "message": "需要驗證電子郵件"
+        "message": "需要驗證電子郵件地址"
     },
     "emailVerificationRequiredDesc": {
-        "message": "必須驗證您的電子郵件才能使用此功能。"
+        "message": "必須驗證您的電子郵件地址，才能使用此功能。"
     },
     "updateBrowser": {
         "message": "更新瀏覽器"
@@ -4029,10 +4029,10 @@
         "message": "您現在可以關閉此分頁，並且回到擴充套件繼續。"
     },
     "includeAllTeamsFeatures": {
-        "message": "所有團隊版功能，以及："
+        "message": "所有 Teams 版功能，以及："
     },
     "includeAllTeamsStarterFeatures": {
-        "message": "所有 Teams Starter 功能，以及："
+        "message": "所有 Teams Starter 版功能，以及："
     },
     "chooseMonthlyOrAnnualBilling": {
         "message": "選擇按月或按年計費"
@@ -4806,7 +4806,7 @@
         "message": "您確定要移除以下使用者嗎？這可能需要幾秒鐘的時間，並且不能中斷或取消。"
     },
     "removeOrgUsersConfirmation": {
-        "message": "成員被移除後，他們將不再擁有對組織資料的存取權限，並且此動作無法恢復。要將成員添加回組織，必須重新邀請他們並加入。這可能需要幾秒鐘的時間，並且不能中斷或取消。"
+        "message": "移除成員後，他們就無法再存取組織的資料，並且此動作無法恢復。若要將成員加回組織，必須重新邀請他們加入。此動作可能需要花幾秒鐘，無法中斷或取消。"
     },
     "revokeUsersWarning": {
         "message": "成員被撤銷后，他們將不再擁有對組織資料的存取權限。要快速還原成員的存取權限，請轉到「已撤銷」分頁。這可能需要幾秒鐘的時間，並且不能中斷或取消。"
@@ -4903,7 +4903,7 @@
         "message": "服務使用者可以存取和管理所有客戶組織。"
     },
     "providerInviteUserDesc": {
-        "message": "透過在下方輸入他們的 Bitwarden 帳戶電子郵件位址，來邀請新的使用者加入您的提供者。若他們還沒有 Bitwarden 帳戶，將提示他們建立新帳戶。"
+        "message": "在下方輸入 Bitwarden 帳戶的電子郵件地址即可邀請新使用者加入您的提供者。若他們沒有 Bitwarden 帳戶，系統將提示他們建立。"
     },
     "joinProvider": {
         "message": "加入提供者"
@@ -5333,7 +5333,7 @@
         "message": "Key Connector 網址"
     },
     "sendVerificationCode": {
-        "message": "傳送驗證碼至您的電子郵件信箱"
+        "message": "傳送驗證碼至您的電子郵件地址"
     },
     "sendCode": {
         "message": "傳送驗證碼"
@@ -5668,7 +5668,7 @@
         "message": "使用者名稱類型"
     },
     "plusAddressedEmail": {
-        "message": "採用子地址的電子郵件",
+        "message": "使用加號的電子郵件子地址",
         "description": "Username generator option that appends a random sub-address to the username. For example: address+subaddress@email.com"
     },
     "plusAddressedEmailDesc": {
@@ -5886,10 +5886,10 @@
         }
     },
     "multipleInputEmails": {
-        "message": "一或多個電子郵件無效"
+        "message": "一或多個電子郵件地址無效"
     },
     "tooManyEmails": {
-        "message": "您一次最多只能送出 $COUNT$ 個電子郵件",
+        "message": "您一次最多只能送出 $COUNT$ 組電子郵件地址",
         "placeholders": {
             "count": {
                 "content": "$1",
@@ -6415,7 +6415,7 @@
         "message": "授予成員對該群組已指派分類的存取權限。"
     },
     "editGroupCollectionsDesc": {
-        "message": "透過將他們添加到此群組，授予分類的存取權限。"
+        "message": "將成員加入到此群組，即可授予他們對不同分類的存取權限。"
     },
     "accessAllCollectionsDesc": {
         "message": "授予對所有目前和未來分類的存取權限。"
@@ -6808,7 +6808,7 @@
         "message": "更新您的加密設定以滿足新的安全建議以及提升帳號保護。"
     },
     "changeKdfLoggedOutWarning": {
-        "message": "繼續操作會登出您所有活動工作階段。您需要重新登入並完成兩步驟登入設定。我們建議在變更加密設定之前匯出您的密碼庫，以防止資料遺失。"
+        "message": "繼續操作會將您從所有使用階段登出，然後再重新登入並完成兩步驟登入設定。我們建議在每次變更加密設定之前先匯出密碼庫，以防止資料遺失。"
     },
     "secretsManager": {
         "message": "機密管理員"
@@ -7221,7 +7221,7 @@
         "message": "登入已核准"
     },
     "userEmailMissing": {
-        "message": "缺少使用者電子郵件"
+        "message": "缺少使用者電子郵件地址"
     },
     "deviceTrusted": {
         "message": "裝置已信任"
