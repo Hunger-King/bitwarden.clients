@@ -162,7 +162,7 @@ export class AppComponent implements OnDestroy, OnInit {
             break;
           case "syncCompleted":
             if (message.successfully) {
-              this.configService.triggerServerConfigFetch();
+              await this.configService.ensureConfigFetched();
             }
             break;
           case "upgradeOrganization": {

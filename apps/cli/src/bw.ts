@@ -473,13 +473,10 @@ export class Main {
     this.configApiService = new ConfigApiService(this.apiService, this.authService);
 
     this.configService = new CliConfigService(
-      this.stateService,
       this.configApiService,
-      this.authService,
       this.environmentService,
       this.logService,
       this.stateProvider,
-      true,
     );
 
     this.cipherService = new CipherService(
@@ -672,7 +669,6 @@ export class Main {
     const locale = await this.stateService.getLocale();
     await this.i18nService.init(locale);
     this.twoFactorService.init();
-    this.configService.init();
 
     const installedVersion = await this.stateService.getInstalledVersion();
     const currentVersion = await this.platformUtilsService.getApplicationVersion();

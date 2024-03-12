@@ -134,7 +134,7 @@ export default class RuntimeBackground {
           // FIXME: Verify that this floating promise is intentional. If it is, add an explanatory comment and ensure there is proper error handling.
           // eslint-disable-next-line @typescript-eslint/no-floating-promises
           this.main.avatarUpdateService.loadColorFromState();
-          this.configService.triggerServerConfigFetch();
+          await this.configService.ensureConfigFetched();
         }
         break;
       case "openPopup":
