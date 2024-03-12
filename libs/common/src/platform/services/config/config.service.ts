@@ -1,86 +1,102 @@
 import {
-  ReplaySubject,
+  NEVER,
+  Observable,
   Subject,
-  catchError,
-  concatMap,
-  defer,
-  delayWhen,
+  combineLatest,
   firstValueFrom,
   map,
-  merge,
-  timer,
+  mergeWith,
+  of,
+  shareReplay,
+  switchMap,
+  tap,
 } from "rxjs";
 import { SemVer } from "semver";
 
-import { AuthService } from "../../../auth/abstractions/auth.service";
-import { AuthenticationStatus } from "../../../auth/enums/authentication-status";
 import { FeatureFlag, FeatureFlagValue } from "../../../enums/feature-flag.enum";
+import { UserId } from "../../../types/guid";
 import { ConfigApiServiceAbstraction } from "../../abstractions/config/config-api.service.abstraction";
 import { ConfigServiceAbstraction } from "../../abstractions/config/config.service.abstraction";
 import { ServerConfig } from "../../abstractions/config/server-config";
 import { EnvironmentService, Region } from "../../abstractions/environment.service";
 import { LogService } from "../../abstractions/log.service";
-import { StateService } from "../../abstractions/state.service";
 import { ServerConfigData } from "../../models/data/server-config.data";
-import { StateProvider } from "../../state";
+import { CONFIG_DISK, KeyDefinition, StateProvider, UserKeyDefinition } from "../../state";
 
-const ONE_HOUR_IN_MILLISECONDS = 1000 * 3600;
+export const RETRIEVAL_INTERVAL = 3_600_000; // 1 hour
 
+export type ApiUrl = string;
+
+export const USER_SERVER_CONFIG = new UserKeyDefinition<ServerConfig>(
+  CONFIG_DISK,
+  "userServerConfig",
+  {
+    deserializer: (data) => (data == null ? null : ServerConfig.fromJSON(data)),
+    clearOn: ["logout"],
+  },
+);
+
+// TODO MDG: When to clean these up?
+export const GLOBAL_SERVER_CONFIGURATIONS = KeyDefinition.record<ServerConfig, ApiUrl>(
+  CONFIG_DISK,
+  "unauthedServerConfigs",
+  {
+    deserializer: (data) => (data == null ? null : ServerConfig.fromJSON(data)),
+  },
+);
+
+// FIXME: currently we are limited to api requests for active users. Update to accept a UserId and APIUrl once ApiService supports it.
 export class ConfigService implements ConfigServiceAbstraction {
-  private inited = false;
+  private failedFetchFallbackSubject = new Subject<ServerConfig>();
 
-  protected _serverConfig = new ReplaySubject<ServerConfig | null>(1);
-  serverConfig$ = this._serverConfig.asObservable();
+  /** {@link ConfigServiceAbstraction.serverConfig$} */
+  serverConfig$: Observable<ServerConfig>;
 
-  private _forceFetchConfig = new Subject<void>();
-  protected refreshTimer$ = timer(ONE_HOUR_IN_MILLISECONDS, ONE_HOUR_IN_MILLISECONDS); // after 1 hour, then every hour
-
-  cloudRegion$ = this.serverConfig$.pipe(
-    map((config) => config?.environment?.cloudRegion ?? Region.US),
-  );
+  /** {@link ConfigServiceAbstraction.cloudRegion$} */
+  cloudRegion$: Observable<Region>;
 
   constructor(
-    private stateService: StateService,
     private configApiService: ConfigApiServiceAbstraction,
-    private authService: AuthService,
     private environmentService: EnvironmentService,
     private logService: LogService,
     private stateProvider: StateProvider,
-
-    // Used to avoid duplicate subscriptions, e.g. in browser between the background and popup
-    private subscribe = true,
-  ) {}
-
-  init() {
-    if (!this.subscribe || this.inited) {
-      return;
-    }
-
-    const latestServerConfig$ = defer(() => this.configApiService.get()).pipe(
-      map((response) => new ServerConfigData(response)),
-      delayWhen((data) => this.saveConfig(data)),
-      catchError((e: unknown) => {
-        // fall back to stored ServerConfig (if any)
-        this.logService.error("Unable to fetch ServerConfig: " + (e as Error)?.message);
-        return this.stateService.getServerConfig();
-      }),
+  ) {
+    const apiUrl$ = this.environmentService.environment$.pipe(
+      map((environment) => environment.getApiUrl()),
     );
 
-    // If you need to fetch a new config when an event occurs, add an observable that emits on that event here
-    merge(
-      this.refreshTimer$, // an overridable interval
-      this.environmentService.environment$, // when environment URLs change (including when app is started)
-      this._forceFetchConfig, // manual
-    )
-      .pipe(
-        concatMap(() => latestServerConfig$),
-        map((data) => (data == null ? null : new ServerConfig(data))),
-      )
-      .subscribe((config) => this._serverConfig.next(config));
+    this.serverConfig$ = combineLatest([this.stateProvider.activeUserId$, apiUrl$]).pipe(
+      switchMap(([userId, apiUrl]) => {
+        const config$ =
+          userId == null ? this.globalConfigFor$(apiUrl) : this.userConfigFor$(userId);
+        return config$.pipe(map((config) => [config, userId, apiUrl] as const));
+      }),
+      tap(async (rec) => {
+        const [existingConfig, userId, apiUrl] = rec;
+        // Grab new config if older retrieval interval
+        if (!existingConfig || this.olderThanRetrievalInterval(existingConfig.utcDate)) {
+          await this.renewConfig(existingConfig, userId, apiUrl);
+        }
+      }),
+      switchMap(([existingConfig]) => {
+        // If we needed to fetch, stop this emit, we'll get a new one after update
+        // This is split up with the above tap because we need to return an observable from a failed promise,
+        // which isn't very doable since promises are converted to observables in switchMap
+        if (!existingConfig || this.olderThanRetrievalInterval(existingConfig.utcDate)) {
+          return NEVER;
+        }
+        return of(existingConfig);
+      }),
+      // If fetch fails, we'll emit on this subject to fallback to the existing config
+      mergeWith(this.failedFetchFallbackSubject),
+      shareReplay({ refCount: true, bufferSize: 1 }),
+    );
 
-    this.inited = true;
+    this.cloudRegion$ = this.serverConfig$.pipe(
+      map((config) => config?.environment?.cloudRegion ?? Region.US),
+    );
   }
-
+  /** {@link ConfigServiceAbstraction.getFeatureFlag$} */
   getFeatureFlag$<T extends FeatureFlagValue>(key: FeatureFlag, defaultValue?: T) {
     return this.serverConfig$.pipe(
       map((serverConfig) => {
@@ -93,29 +109,12 @@ export class ConfigService implements ConfigServiceAbstraction {
     );
   }
 
+  /** {@link ConfigServiceAbstraction.getFeatureFlag} */
   async getFeatureFlag<T extends FeatureFlagValue>(key: FeatureFlag, defaultValue?: T) {
     return await firstValueFrom(this.getFeatureFlag$(key, defaultValue));
   }
 
-  triggerServerConfigFetch() {
-    this._forceFetchConfig.next();
-  }
-
-  private async saveConfig(data: ServerConfigData) {
-    if ((await this.authService.getAuthStatus()) === AuthenticationStatus.LoggedOut) {
-      return;
-    }
-
-    const userId = await firstValueFrom(this.stateProvider.activeUserId$);
-    await this.stateService.setServerConfig(data);
-    await this.environmentService.setCloudRegion(userId, data.environment?.cloudRegion);
-  }
-
-  /**
-   * Verifies whether the server version meets the minimum required version
-   * @param minimumRequiredServerVersion The minimum version required
-   * @returns True if the server version is greater than or equal to the minimum required version
-   */
+  /** {@link ConfigServiceAbstraction.checkServerMeetsVersionRequirement$} */
   checkServerMeetsVersionRequirement$(minimumRequiredServerVersion: SemVer) {
     return this.serverConfig$.pipe(
       map((serverConfig) => {
@@ -126,5 +125,55 @@ export class ConfigService implements ConfigServiceAbstraction {
         return serverVersion.compare(minimumRequiredServerVersion) >= 0;
       }),
     );
+  }
+
+  /** {@link ConfigServiceAbstraction.ensureConfigFetched} */
+  async ensureConfigFetched() {
+    // Triggering a retrieval for the given user ensures that the config is less than RETRIEVAL_INTERVAL old
+    await firstValueFrom(this.serverConfig$);
+  }
+
+  private olderThanRetrievalInterval(date: Date) {
+    return new Date().getTime() - date.getTime() > RETRIEVAL_INTERVAL;
+  }
+
+  // Updates the on-disk configuration with a newly retrieved configuration
+  private async renewConfig(
+    existingConfig: ServerConfig,
+    userId: UserId,
+    apiUrl: string,
+  ): Promise<void> {
+    try {
+      const response = await this.configApiService.get();
+      const newConfig = new ServerConfig(new ServerConfigData(response));
+      // Null userId sets global, otherwise sets to the given user
+      await this.environmentService.setCloudRegion(userId, newConfig?.environment?.cloudRegion);
+      if (userId == null) {
+        // update global state with new pulled config
+        await this.stateProvider.getGlobal(GLOBAL_SERVER_CONFIGURATIONS).update((configs) => {
+          return { ...configs, [apiUrl]: newConfig };
+        });
+      } else {
+        // update state with new pulled config
+        await this.stateProvider.setUserState(USER_SERVER_CONFIG, newConfig, userId);
+      }
+    } catch (e) {
+      // mutate error to be handled by catchError
+      this.logService.error(
+        `Unable to fetch ServerConfig from ${apiUrl}: ${(e as Error)?.message}`,
+      );
+      // Emit the existing config
+      this.failedFetchFallbackSubject.next(existingConfig);
+    }
+  }
+
+  private globalConfigFor$(apiUrl: string): Observable<ServerConfig> {
+    return this.stateProvider
+      .getGlobal(GLOBAL_SERVER_CONFIGURATIONS)
+      .state$.pipe(map((configs) => configs?.[apiUrl]));
+  }
+
+  private userConfigFor$(userId: UserId): Observable<ServerConfig> {
+    return this.stateProvider.getUser(userId, USER_SERVER_CONFIG).state$;
   }
 }

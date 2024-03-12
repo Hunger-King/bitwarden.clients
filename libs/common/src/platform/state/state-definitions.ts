@@ -17,6 +17,8 @@ import { StateDefinition } from "./state-definition";
  *
  */
 
+
+
 // Admin Console
 
 export const ORGANIZATIONS_DISK = new StateDefinition("organizations", "disk");
@@ -54,6 +56,7 @@ export const NEW_WEB_LAYOUT_BANNER_DISK = new StateDefinition("newWebLayoutBanne
 
 export const BIOMETRIC_SETTINGS_DISK = new StateDefinition("biometricSettings", "disk");
 export const CLEAR_EVENT_DISK = new StateDefinition("clearEvent", "disk");
+export const CONFIG_DISK = new StateDefinition("config", "disk");
 export const CRYPTO_DISK = new StateDefinition("crypto", "disk");
 export const CRYPTO_MEMORY = new StateDefinition("crypto", "memory");
 export const ENVIRONMENT_DISK = new StateDefinition("environment", "disk");
