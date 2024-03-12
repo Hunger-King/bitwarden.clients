@@ -70,6 +70,7 @@ export class FakeAccountService implements AccountService {
   }
 
   async switchAccount(userId: UserId): Promise<void> {
+    this.activeAccountSubject.next({ id: userId, ...this.accountsSubject["_buffer"][0][userId] });
     await this.mock.switchAccount(userId);
   }
 }
