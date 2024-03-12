@@ -27,19 +27,15 @@ export const RETRIEVAL_INTERVAL = 3_600_000; // 1 hour
 
 export type ApiUrl = string;
 
-export const USER_SERVER_CONFIG = new UserKeyDefinition<ServerConfig>(
-  CONFIG_DISK,
-  "userServerConfig",
-  {
-    deserializer: (data) => (data == null ? null : ServerConfig.fromJSON(data)),
-    clearOn: ["logout"],
-  },
-);
+export const USER_SERVER_CONFIG = new UserKeyDefinition<ServerConfig>(CONFIG_DISK, "serverConfig", {
+  deserializer: (data) => (data == null ? null : ServerConfig.fromJSON(data)),
+  clearOn: ["logout"],
+});
 
 // TODO MDG: When to clean these up?
 export const GLOBAL_SERVER_CONFIGURATIONS = KeyDefinition.record<ServerConfig, ApiUrl>(
   CONFIG_DISK,
-  "unauthedServerConfigs",
+  "byServer",
   {
     deserializer: (data) => (data == null ? null : ServerConfig.fromJSON(data)),
   },

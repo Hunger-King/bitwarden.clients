@@ -20,7 +20,6 @@ import { LocalData } from "../../vault/models/data/local.data";
 import { CipherView } from "../../vault/models/view/cipher.view";
 import { AddEditCipherInfo } from "../../vault/types/add-edit-cipher-info";
 import { KdfType, ThemeType } from "../enums";
-import { ServerConfigData } from "../models/data/server-config.data";
 import {
   Account,
   AccountDecryptionOptions,
@@ -378,14 +377,6 @@ export abstract class StateService<T extends Account = Account> {
   setApproveLoginRequests: (value: boolean, options?: StorageOptions) => Promise<void>;
   getWindow: () => Promise<WindowState>;
   setWindow: (value: WindowState) => Promise<void>;
-  /**
-   * @deprecated Do not call this directly, use ConfigService
-   */
-  getServerConfig: (options?: StorageOptions) => Promise<ServerConfigData>;
-  /**
-   * @deprecated Do not call this directly, use ConfigService
-   */
-  setServerConfig: (value: ServerConfigData, options?: StorageOptions) => Promise<void>;
 
   getAvatarColor: (options?: StorageOptions) => Promise<string | null | undefined>;
   setAvatarColor: (value: string, options?: StorageOptions) => Promise<void>;
