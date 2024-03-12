@@ -95,7 +95,10 @@ export class FakeSingleUserStateProvider implements SingleUserStateProvider {
     return result as SingleUserState<T>;
   }
 
-  getFake<T>(userId: UserId, keyDefinition: KeyDefinition<T>): FakeSingleUserState<T> {
+  getFake<T>(
+    userId: UserId,
+    keyDefinition: KeyDefinition<T> | UserKeyDefinition<T>,
+  ): FakeSingleUserState<T> {
     return this.get(userId, keyDefinition) as FakeSingleUserState<T>;
   }
 
@@ -137,7 +140,7 @@ export class FakeActiveUserStateProvider implements ActiveUserStateProvider {
     return result as ActiveUserState<T>;
   }
 
-  getFake<T>(keyDefinition: KeyDefinition<T>): FakeActiveUserState<T> {
+  getFake<T>(keyDefinition: KeyDefinition<T> | UserKeyDefinition<T>): FakeActiveUserState<T> {
     return this.get(keyDefinition) as FakeActiveUserState<T>;
   }
 
@@ -154,8 +157,15 @@ export class FakeActiveUserStateProvider implements ActiveUserStateProvider {
 
 export class FakeStateProvider implements StateProvider {
   mock = mock<StateProvider>();
-  getUserState$<T>(keyDefinition: KeyDefinition<T>, userId?: UserId): Observable<T> {
-    this.mock.getUserState$(keyDefinition, userId);
+  getUserState$<T>(
+    keyDefinition: KeyDefinition<T> | UserKeyDefinition<T>,
+    userId?: UserId,
+  ): Observable<T> {
+    if (keyDefinition instanceof KeyDefinition) {
+      this.mock.getUserState$(keyDefinition, userId);
+    } else {
+      this.mock.getUserState$(keyDefinition, userId);
+    }
     if (userId) {
       return this.getUser<T>(userId, keyDefinition).state$;
     }
