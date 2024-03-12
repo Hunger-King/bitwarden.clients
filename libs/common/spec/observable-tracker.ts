@@ -28,11 +28,11 @@ export class ObservableTracker<T> {
     );
   }
 
-  /** Awaits until the the number of observed emissions equals or exceeds {@link count}
+  /** Awaits until the the total number of emissions observed by this tracker equals or exceeds {@link count}
    * @param count The number of emissions to wait for
    */
   async pauseUntilReceived(count: number, msTimeout = 50): Promise<T[]> {
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < count - this.emissions.length; i++) {
       await this.expectEmission(msTimeout);
     }
     return this.emissions;
@@ -81,6 +81,6 @@ function clone(value: any): any {
  * emissions of the given observable
  * @param observable The observable to track
  */
-export function subscribeTo(observable: Observable<any>) {
+export function subscribeTo<T>(observable: Observable<T>) {
   return new ObservableTracker(observable);
 }
