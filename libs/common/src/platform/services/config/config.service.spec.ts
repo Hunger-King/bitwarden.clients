@@ -28,11 +28,11 @@ import {
 
 import {
   ApiUrl,
-  ConfigService,
+  DefaultConfigService,
   RETRIEVAL_INTERVAL,
   GLOBAL_SERVER_CONFIGURATIONS,
   USER_SERVER_CONFIG,
-} from "./config.service";
+} from "./default-config.service";
 
 describe("ConfigService", () => {
   const configApiService = mock<ConfigApiServiceAbstraction>();
@@ -57,7 +57,7 @@ describe("ConfigService", () => {
   });
 
   describe.each([null, userId])("active user: %s", (activeUserId) => {
-    let sut: ConfigService;
+    let sut: DefaultConfigService;
 
     beforeAll(async () => {
       await accountService.switchAccount(activeUserId);
@@ -65,7 +65,12 @@ describe("ConfigService", () => {
 
     beforeEach(() => {
       environmentService.environment$ = of(environmentFactory(activeApiUrl));
-      sut = new ConfigService(configApiService, environmentService, logService, stateProvider);
+      sut = new DefaultConfigService(
+        configApiService,
+        environmentService,
+        logService,
+        stateProvider,
+      );
     });
 
     describe("serverConfig$", () => {
@@ -175,7 +180,7 @@ describe("ConfigService", () => {
   });
 
   describe("environment change", () => {
-    let sut: ConfigService;
+    let sut: DefaultConfigService;
     let environmentSubject: Subject<Environment>;
 
     beforeAll(async () => {
@@ -186,7 +191,12 @@ describe("ConfigService", () => {
     beforeEach(() => {
       environmentSubject = new Subject<Environment>();
       environmentService.environment$ = environmentSubject;
-      sut = new ConfigService(configApiService, environmentService, logService, stateProvider);
+      sut = new DefaultConfigService(
+        configApiService,
+        environmentService,
+        logService,
+        stateProvider,
+      );
     });
 
     describe("serverConfig$", () => {

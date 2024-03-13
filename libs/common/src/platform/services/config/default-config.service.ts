@@ -42,7 +42,7 @@ export const GLOBAL_SERVER_CONFIGURATIONS = KeyDefinition.record<ServerConfig, A
 );
 
 // FIXME: currently we are limited to api requests for active users. Update to accept a UserId and APIUrl once ApiService supports it.
-export class ConfigService implements ConfigServiceAbstraction {
+export class DefaultConfigService implements ConfigServiceAbstraction {
   private failedFetchFallbackSubject = new Subject<ServerConfig>();
 
   /** {@link ConfigServiceAbstraction.serverConfig$} */
