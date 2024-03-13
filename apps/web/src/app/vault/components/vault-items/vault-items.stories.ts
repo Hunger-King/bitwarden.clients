@@ -8,7 +8,7 @@ import { SettingsService } from "@bitwarden/common/abstractions/settings.service
 import { OrganizationUserType } from "@bitwarden/common/admin-console/enums";
 import { Organization } from "@bitwarden/common/admin-console/models/domain/organization";
 import { TokenService } from "@bitwarden/common/auth/abstractions/token.service";
-import { ConfigServiceAbstraction } from "@bitwarden/common/platform/abstractions/config/config.service.abstraction";
+import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
 import { StateService } from "@bitwarden/common/platform/abstractions/state.service";
 import { SymmetricCryptoKey } from "@bitwarden/common/platform/models/domain/symmetric-crypto-key";
@@ -94,7 +94,7 @@ export default {
           } as Partial<TokenService>,
         },
         {
-          provide: ConfigServiceAbstraction,
+          provide: ConfigService,
           useValue: {
             getFeatureFlag() {
               // does not currently affect any display logic, default all to OFF
