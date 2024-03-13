@@ -37,6 +37,7 @@ import { UserVerificationService } from "@bitwarden/common/auth/services/user-ve
 import { AutofillSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/autofill-settings.service";
 import { ClientType } from "@bitwarden/common/enums";
 import { ConfigApiServiceAbstraction } from "@bitwarden/common/platform/abstractions/config/config-api.service.abstraction";
+import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
 import { KeyGenerationService as KeyGenerationServiceAbstraction } from "@bitwarden/common/platform/abstractions/key-generation.service";
 import {
@@ -50,6 +51,7 @@ import { GlobalState } from "@bitwarden/common/platform/models/domain/global-sta
 import { AppIdService } from "@bitwarden/common/platform/services/app-id.service";
 import { BroadcasterService } from "@bitwarden/common/platform/services/broadcaster.service";
 import { ConfigApiService } from "@bitwarden/common/platform/services/config/config-api.service";
+import { DefaultConfigService } from "@bitwarden/common/platform/services/config/default-config.service";
 import { ContainerService } from "@bitwarden/common/platform/services/container.service";
 import { CryptoService } from "@bitwarden/common/platform/services/crypto.service";
 import { EncryptServiceImplementation } from "@bitwarden/common/platform/services/cryptography/encrypt.service.implementation";
@@ -122,7 +124,6 @@ import {
   VaultExportServiceAbstraction,
 } from "@bitwarden/vault-export-core";
 
-import { CliConfigService } from "./platform/services/cli-config.service";
 import { CliPlatformUtilsService } from "./platform/services/cli-platform-utils.service";
 import { ConsoleLogService } from "./platform/services/console-log.service";
 import { I18nService } from "./platform/services/i18n.service";
@@ -204,7 +205,7 @@ export class Main {
   deviceTrustCryptoService: DeviceTrustCryptoServiceAbstraction;
   authRequestService: AuthRequestService;
   configApiService: ConfigApiServiceAbstraction;
-  configService: CliConfigService;
+  configService: ConfigService;
   accountService: AccountService;
   globalStateProvider: GlobalStateProvider;
   singleUserStateProvider: SingleUserStateProvider;
@@ -472,7 +473,7 @@ export class Main {
 
     this.configApiService = new ConfigApiService(this.apiService, this.authService);
 
-    this.configService = new CliConfigService(
+    this.configService = new DefaultConfigService(
       this.configApiService,
       this.environmentService,
       this.logService,
