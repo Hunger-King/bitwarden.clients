@@ -5,65 +5,108 @@ import { AccountServerConfigMigrator } from "./32-move-account-server-configs";
 describe("AccountServerConfigMigrator", () => {
   const migrator = new AccountServerConfigMigrator(31, 32);
 
-  it("can migrate all data", async () => {
-    const output = await runMigrator(migrator, {
-      authenticatedAccounts: ["user1", "user2"],
-      user1: {
-        settings: {
-          serverConfig: {
-            config: "user1 server config",
+  describe("all data", () => {
+    function toMigrate() {
+      return {
+        authenticatedAccounts: ["user1", "user2"],
+        user1: {
+          settings: {
+            serverConfig: {
+              config: "user1 server config",
+            },
           },
         },
-      },
-      user2: {
-        settings: {
-          serverConfig: {
-            config: "user2 server config",
+        user2: {
+          settings: {
+            serverConfig: {
+              config: "user2 server config",
+            },
           },
         },
-      },
+      };
+    }
+
+    function migrated() {
+      return {
+        authenticatedAccounts: ["user1", "user2"],
+
+        user1: {
+          settings: {},
+        },
+        user2: {
+          settings: {},
+        },
+        user_user1_config_serverConfig: {
+          config: "user1 server config",
+        },
+        user_user2_config_serverConfig: {
+          config: "user2 server config",
+        },
+      };
+    }
+
+    function rolledBack(previous: object) {
+      return {
+        ...previous,
+        user_user1_config_serverConfig: null as unknown,
+        user_user2_config_serverConfig: null as unknown,
+      };
+    }
+
+    it("migrates", async () => {
+      const output = await runMigrator(migrator, toMigrate(), "migrate");
+      expect(output).toEqual(migrated());
     });
 
-    expect(output).toEqual({
-      authenticatedAccounts: ["user1", "user2"],
-
-      user1: {
-        settings: {},
-      },
-      user2: {
-        settings: {},
-      },
-      user_user1_config_serverConfig: {
-        config: "user1 server config",
-      },
-      user_user2_config_serverConfig: {
-        config: "user2 server config",
-      },
+    it("rolls back", async () => {
+      const output = await runMigrator(migrator, migrated(), "rollback");
+      expect(output).toEqual(rolledBack(toMigrate()));
     });
   });
 
-  it("handles missing parts", async () => {
-    const output = await runMigrator(migrator, {
-      authenticatedAccounts: ["user1", "user2"],
-      user1: {
-        settings: {
-          serverConfig: {
-            config: "user1 server config",
+  describe("missing parts", () => {
+    function toMigrate() {
+      return {
+        authenticatedAccounts: ["user1", "user2"],
+        user1: {
+          settings: {
+            serverConfig: {
+              config: "user1 server config",
+            },
           },
         },
-      },
-      user2: null,
+        user2: null as unknown,
+      };
+    }
+
+    function migrated() {
+      return {
+        authenticatedAccounts: ["user1", "user2"],
+        user1: {
+          settings: {},
+        },
+        user2: null as unknown,
+        user_user1_config_serverConfig: {
+          config: "user1 server config",
+        },
+      };
+    }
+
+    function rollback(previous: object) {
+      return {
+        ...previous,
+        user_user1_config_serverConfig: null as unknown,
+      };
+    }
+
+    it("migrates", async () => {
+      const output = await runMigrator(migrator, toMigrate(), "migrate");
+      expect(output).toEqual(migrated());
     });
 
-    expect(output).toEqual({
-      authenticatedAccounts: ["user1", "user2"],
-      user1: {
-        settings: {},
-      },
-      user2: null,
-      user_user1_config_serverConfig: {
-        config: "user1 server config",
-      },
+    it("rolls back", async () => {
+      const output = await runMigrator(migrator, migrated(), "rollback");
+      expect(output).toEqual(rollback(toMigrate()));
     });
   });
 });
