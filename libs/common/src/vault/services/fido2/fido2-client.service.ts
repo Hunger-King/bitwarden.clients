@@ -3,7 +3,7 @@ import { parse } from "tldts";
 
 import { AuthService } from "../../../auth/abstractions/auth.service";
 import { AuthenticationStatus } from "../../../auth/enums/authentication-status";
-import { ConfigServiceAbstraction } from "../../../platform/abstractions/config/config.service.abstraction";
+import { ConfigService } from "../../../platform/abstractions/config/config.service";
 import { LogService } from "../../../platform/abstractions/log.service";
 import { StateService } from "../../../platform/abstractions/state.service";
 import { Utils } from "../../../platform/misc/utils";
@@ -40,7 +40,7 @@ import { Fido2Utils } from "./fido2-utils";
 export class Fido2ClientService implements Fido2ClientServiceAbstraction {
   constructor(
     private authenticator: Fido2AuthenticatorService,
-    private configService: ConfigServiceAbstraction,
+    private configService: ConfigService,
     private authService: AuthService,
     private stateService: StateService,
     private vaultSettingsService: VaultSettingsService,

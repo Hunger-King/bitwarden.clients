@@ -20,7 +20,7 @@ import { TwoFactorEmailRequest } from "@bitwarden/common/auth/models/request/two
 import { TwoFactorProviders } from "@bitwarden/common/auth/services/two-factor.service";
 import { WebAuthnIFrame } from "@bitwarden/common/auth/webauthn-iframe";
 import { AppIdService } from "@bitwarden/common/platform/abstractions/app-id.service";
-import { ConfigServiceAbstraction } from "@bitwarden/common/platform/abstractions/config/config.service.abstraction";
+import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
 import { I18nService } from "@bitwarden/common/platform/abstractions/i18n.service";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
@@ -86,7 +86,7 @@ export class TwoFactorComponent extends CaptchaProtectedComponent implements OnI
     protected appIdService: AppIdService,
     protected loginService: LoginService,
     protected ssoLoginService: SsoLoginServiceAbstraction,
-    protected configService: ConfigServiceAbstraction,
+    protected configService: ConfigService,
   ) {
     super(environmentService, i18nService, platformUtilsService);
     this.webAuthnSupported = this.platformUtilsService.supportsWebAuthn(win);

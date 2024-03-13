@@ -99,7 +99,7 @@ import { PaymentMethodWarningsService } from "@bitwarden/common/billing/services
 import { AppIdService as AppIdServiceAbstraction } from "@bitwarden/common/platform/abstractions/app-id.service";
 import { BroadcasterService as BroadcasterServiceAbstraction } from "@bitwarden/common/platform/abstractions/broadcaster.service";
 import { ConfigApiServiceAbstraction } from "@bitwarden/common/platform/abstractions/config/config-api.service.abstraction";
-import { ConfigServiceAbstraction } from "@bitwarden/common/platform/abstractions/config/config.service.abstraction";
+import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { CryptoFunctionService as CryptoFunctionServiceAbstraction } from "@bitwarden/common/platform/abstractions/crypto-function.service";
 import { CryptoService as CryptoServiceAbstraction } from "@bitwarden/common/platform/abstractions/crypto.service";
 import { EncryptService } from "@bitwarden/common/platform/abstractions/encrypt.service";
@@ -352,7 +352,7 @@ import { ModalService } from "./modal.service";
         autofillSettingsService: AutofillSettingsServiceAbstraction,
         encryptService: EncryptService,
         fileUploadService: CipherFileUploadServiceAbstraction,
-        configService: ConfigServiceAbstraction,
+        configService: ConfigService,
       ) =>
         new CipherService(
           cryptoService,
@@ -376,7 +376,7 @@ import { ModalService } from "./modal.service";
         AutofillSettingsServiceAbstraction,
         EncryptService,
         CipherFileUploadServiceAbstraction,
-        ConfigServiceAbstraction,
+        ConfigService,
       ],
     },
     {
@@ -784,7 +784,7 @@ import { ModalService } from "./modal.service";
       deps: [ConfigApiServiceAbstraction, EnvironmentService, LogService, StateProvider],
     },
     {
-      provide: ConfigServiceAbstraction,
+      provide: ConfigService,
       useExisting: DefaultConfigService,
     },
     {

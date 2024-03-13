@@ -12,7 +12,7 @@ import { AuthResult } from "@bitwarden/common/auth/models/domain/auth-result";
 import { ForceSetPasswordReason } from "@bitwarden/common/auth/models/domain/force-set-password-reason";
 import { KeyConnectorUserDecryptionOption } from "@bitwarden/common/auth/models/domain/user-decryption-options/key-connector-user-decryption-option";
 import { TrustedDeviceUserDecryptionOption } from "@bitwarden/common/auth/models/domain/user-decryption-options/trusted-device-user-decryption-option";
-import { ConfigServiceAbstraction } from "@bitwarden/common/platform/abstractions/config/config.service.abstraction";
+import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { CryptoFunctionService } from "@bitwarden/common/platform/abstractions/crypto-function.service";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
 import { I18nService } from "@bitwarden/common/platform/abstractions/i18n.service";
@@ -62,7 +62,7 @@ describe("SsoComponent", () => {
   let mockEnvironmentService: MockProxy<EnvironmentService>;
   let mockPasswordGenerationService: MockProxy<PasswordGenerationServiceAbstraction>;
   let mockLogService: MockProxy<LogService>;
-  let mockConfigService: MockProxy<ConfigServiceAbstraction>;
+  let mockConfigService: MockProxy<ConfigService>;
 
   // Mock authService.logIn params
   let code: string;
@@ -109,7 +109,7 @@ describe("SsoComponent", () => {
     mockEnvironmentService = mock<EnvironmentService>();
     mockPasswordGenerationService = mock<PasswordGenerationServiceAbstraction>();
     mockLogService = mock<LogService>();
-    mockConfigService = mock<ConfigServiceAbstraction>();
+    mockConfigService = mock<ConfigService>();
 
     // Mock loginStrategyService.logIn params
     code = "code";
@@ -184,7 +184,7 @@ describe("SsoComponent", () => {
         { provide: PasswordGenerationServiceAbstraction, useValue: mockPasswordGenerationService },
 
         { provide: LogService, useValue: mockLogService },
-        { provide: ConfigServiceAbstraction, useValue: mockConfigService },
+        { provide: ConfigService, useValue: mockConfigService },
       ],
     });
 

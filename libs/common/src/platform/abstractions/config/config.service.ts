@@ -6,7 +6,7 @@ import { Region } from "../environment.service";
 
 import { ServerConfig } from "./server-config";
 
-export abstract class ConfigServiceAbstraction {
+export abstract class ConfigService {
   /** The server config of the currently active user */
   serverConfig$: Observable<ServerConfig | null>;
   /** The cloud region of the currently active user */

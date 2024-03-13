@@ -1,4 +1,4 @@
-import { ConfigServiceAbstraction } from "@bitwarden/common/platform/abstractions/config/config.service.abstraction";
+import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { DefaultConfigService } from "@bitwarden/common/platform/services/config/default-config.service";
 
 import { configApiServiceFactory, ConfigApiServiceInitOptions } from "./config-api.service.factory";
@@ -23,9 +23,9 @@ export type ConfigServiceInitOptions = ConfigServiceFactoryOptions &
   StateProviderInitOptions;
 
 export function configServiceFactory(
-  cache: { configService?: ConfigServiceAbstraction } & CachedServices,
+  cache: { configService?: ConfigService } & CachedServices,
   opts: ConfigServiceInitOptions,
-): Promise<ConfigServiceAbstraction> {
+): Promise<ConfigService> {
   return factory(
     cache,
     "configService",

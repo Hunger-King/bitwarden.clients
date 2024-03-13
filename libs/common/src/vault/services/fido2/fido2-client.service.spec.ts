@@ -3,7 +3,7 @@ import { of } from "rxjs";
 
 import { AuthService } from "../../../auth/abstractions/auth.service";
 import { AuthenticationStatus } from "../../../auth/enums/authentication-status";
-import { ConfigServiceAbstraction } from "../../../platform/abstractions/config/config.service.abstraction";
+import { ConfigService } from "../../../platform/abstractions/config/config.service";
 import { StateService } from "../../../platform/abstractions/state.service";
 import { Utils } from "../../../platform/misc/utils";
 import {
@@ -30,7 +30,7 @@ const VaultUrl = "https://vault.bitwarden.com";
 
 describe("FidoAuthenticatorService", () => {
   let authenticator!: MockProxy<Fido2AuthenticatorService>;
-  let configService!: MockProxy<ConfigServiceAbstraction>;
+  let configService!: MockProxy<ConfigService>;
   let authService!: MockProxy<AuthService>;
   let stateService!: MockProxy<StateService>;
   let vaultSettingsService: MockProxy<VaultSettingsService>;
@@ -39,7 +39,7 @@ describe("FidoAuthenticatorService", () => {
 
   beforeEach(async () => {
     authenticator = mock<Fido2AuthenticatorService>();
-    configService = mock<ConfigServiceAbstraction>();
+    configService = mock<ConfigService>();
     authService = mock<AuthService>();
     stateService = mock<StateService>();
     vaultSettingsService = mock<VaultSettingsService>();

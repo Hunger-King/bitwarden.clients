@@ -16,7 +16,7 @@ import { SemVer } from "semver";
 import { FeatureFlag, FeatureFlagValue } from "../../../enums/feature-flag.enum";
 import { UserId } from "../../../types/guid";
 import { ConfigApiServiceAbstraction } from "../../abstractions/config/config-api.service.abstraction";
-import { ConfigServiceAbstraction } from "../../abstractions/config/config.service.abstraction";
+import { ConfigService } from "../../abstractions/config/config.service";
 import { ServerConfig } from "../../abstractions/config/server-config";
 import { EnvironmentService, Region } from "../../abstractions/environment.service";
 import { LogService } from "../../abstractions/log.service";
@@ -42,13 +42,13 @@ export const GLOBAL_SERVER_CONFIGURATIONS = KeyDefinition.record<ServerConfig, A
 );
 
 // FIXME: currently we are limited to api requests for active users. Update to accept a UserId and APIUrl once ApiService supports it.
-export class DefaultConfigService implements ConfigServiceAbstraction {
+export class DefaultConfigService implements ConfigService {
   private failedFetchFallbackSubject = new Subject<ServerConfig>();
 
-  /** {@link ConfigServiceAbstraction.serverConfig$} */
+  /** {@link ConfigService.serverConfig$} */
   serverConfig$: Observable<ServerConfig>;
 
-  /** {@link ConfigServiceAbstraction.cloudRegion$} */
+  /** {@link ConfigService.cloudRegion$} */
   cloudRegion$: Observable<Region>;
 
   constructor(
@@ -92,7 +92,7 @@ export class DefaultConfigService implements ConfigServiceAbstraction {
       map((config) => config?.environment?.cloudRegion ?? Region.US),
     );
   }
-  /** {@link ConfigServiceAbstraction.getFeatureFlag$} */
+  /** {@link ConfigService.getFeatureFlag$} */
   getFeatureFlag$<T extends FeatureFlagValue>(key: FeatureFlag, defaultValue?: T) {
     return this.serverConfig$.pipe(
       map((serverConfig) => {
@@ -105,12 +105,12 @@ export class DefaultConfigService implements ConfigServiceAbstraction {
     );
   }
 
-  /** {@link ConfigServiceAbstraction.getFeatureFlag} */
+  /** {@link ConfigService.getFeatureFlag} */
   async getFeatureFlag<T extends FeatureFlagValue>(key: FeatureFlag, defaultValue?: T) {
     return await firstValueFrom(this.getFeatureFlag$(key, defaultValue));
   }
 
-  /** {@link ConfigServiceAbstraction.checkServerMeetsVersionRequirement$} */
+  /** {@link ConfigService.checkServerMeetsVersionRequirement$} */
   checkServerMeetsVersionRequirement$(minimumRequiredServerVersion: SemVer) {
     return this.serverConfig$.pipe(
       map((serverConfig) => {
@@ -123,7 +123,7 @@ export class DefaultConfigService implements ConfigServiceAbstraction {
     );
   }
 
-  /** {@link ConfigServiceAbstraction.ensureConfigFetched} */
+  /** {@link ConfigService.ensureConfigFetched} */
   async ensureConfigFetched() {
     // Triggering a retrieval for the given user ensures that the config is less than RETRIEVAL_INTERVAL old
     await firstValueFrom(this.serverConfig$);
