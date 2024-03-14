@@ -3,12 +3,15 @@ import { firstValueFrom } from "rxjs";
 import { SettingsService } from "@bitwarden/common/abstractions/settings.service";
 import { AuthService } from "@bitwarden/common/auth/abstractions/auth.service";
 import { AuthenticationStatus } from "@bitwarden/common/auth/enums/authentication-status";
+import { SHOW_AUTOFILL_BUTTON } from "@bitwarden/common/autofill/constants";
 import { AutofillSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/autofill-settings.service";
+import { InlineMenuVisibilitySetting } from "@bitwarden/common/autofill/types";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
 import { I18nService } from "@bitwarden/common/platform/abstractions/i18n.service";
 import { PlatformUtilsService } from "@bitwarden/common/platform/abstractions/platform-utils.service";
 import { StateService } from "@bitwarden/common/platform/abstractions/state.service";
 import { Utils } from "@bitwarden/common/platform/misc/utils";
+import { ThemeStateService } from "@bitwarden/common/platform/theming/theme-state.service";
 import { CipherService } from "@bitwarden/common/vault/abstractions/cipher.service";
 import { CipherType } from "@bitwarden/common/vault/enums";
 import { buildCipherIcon } from "@bitwarden/common/vault/icon/build-cipher-icon";
@@ -22,13 +25,8 @@ import {
   openViewVaultItemPopout,
   openAddEditVaultItemPopout,
 } from "../../vault/popup/utils/vault-popout-window";
-import { SHOW_AUTOFILL_BUTTON } from "../constants";
 import { AutofillService, PageDetail } from "../services/abstractions/autofill.service";
-import {
-  InlineMenuVisibilitySetting,
-  AutofillOverlayElement,
-  AutofillOverlayPort,
-} from "../utils/autofill-overlay.enum";
+import { AutofillOverlayElement, AutofillOverlayPort } from "../utils/autofill-overlay.enum";
 
 import { LockedVaultPendingNotificationsData } from "./abstractions/notification.background";
 import {
@@ -99,6 +97,7 @@ class OverlayBackground implements OverlayBackgroundInterface {
     private autofillSettingsService: AutofillSettingsServiceAbstraction,
     private i18nService: I18nService,
     private platformUtilsService: PlatformUtilsService,
+    private themeStateService: ThemeStateService,
   ) {
     this.iconsServerUrl = this.environmentService.getIconsUrl();
   }
@@ -241,7 +240,7 @@ class OverlayBackground implements OverlayBackgroundInterface {
     });
 
     if (totpCode) {
-      this.platformUtilsService.copyToClipboard(totpCode, { window });
+      this.platformUtilsService.copyToClipboard(totpCode);
     }
 
     this.overlayLoginCiphers = new Map([[overlayCipherId, cipher], ...this.overlayLoginCiphers]);
@@ -698,7 +697,7 @@ class OverlayBackground implements OverlayBackgroundInterface {
       command: `initAutofillOverlay${isOverlayListPort ? "List" : "Button"}`,
       authStatus: await this.getAuthStatus(),
       styleSheetUrl: chrome.runtime.getURL(`overlay/${isOverlayListPort ? "list" : "button"}.css`),
-      theme: await this.stateService.getTheme(),
+      theme: await firstValueFrom(this.themeStateService.selectedTheme$),
       translations: this.getTranslations(),
       ciphers: isOverlayListPort ? this.getOverlayCipherData() : null,
     });

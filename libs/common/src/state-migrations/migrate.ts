@@ -25,6 +25,14 @@ import { BadgeSettingsMigrator } from "./migrations/27-move-badge-settings-to-st
 import { MoveBiometricUnlockToStateProviders } from "./migrations/28-move-biometric-unlock-to-state-providers";
 import { UserNotificationSettingsKeyMigrator } from "./migrations/29-move-user-notification-settings-to-state-provider";
 import { FixPremiumMigrator } from "./migrations/3-fix-premium";
+import { PolicyMigrator } from "./migrations/30-move-policy-state-to-state-provider";
+import { EnableContextMenuMigrator } from "./migrations/31-move-enable-context-menu-to-autofill-settings-state-provider";
+import { PreferredLanguageMigrator } from "./migrations/32-move-preferred-language";
+import { AppIdMigrator } from "./migrations/33-move-app-id-to-state-providers";
+import { DomainSettingsMigrator } from "./migrations/34-move-domain-settings-to-state-providers";
+import { MoveThemeToStateProviderMigrator } from "./migrations/35-move-theme-to-state-providers";
+import { VaultSettingsKeyMigrator } from "./migrations/36-move-show-card-and-identity-to-state-provider";
+import { AvatarColorMigrator } from "./migrations/37-move-avatar-color-to-state-providers";
 import { RemoveEverBeenUnlockedMigrator } from "./migrations/4-remove-ever-been-unlocked";
 import { AddKeyTypeToOrgKeysMigrator } from "./migrations/5-add-key-type-to-org-keys";
 import { RemoveLegacyEtmKeyMigrator } from "./migrations/6-remove-legacy-etm-key";
@@ -34,7 +42,7 @@ import { MoveBrowserSettingsToGlobal } from "./migrations/9-move-browser-setting
 import { MinVersionMigrator } from "./migrations/min-version";
 
 export const MIN_VERSION = 2;
-export const CURRENT_VERSION = 29;
+export const CURRENT_VERSION = 37;
 export type MinVersion = typeof MIN_VERSION;
 
 export function createMigrationBuilder() {
@@ -66,7 +74,15 @@ export function createMigrationBuilder() {
     .with(RevertLastSyncMigrator, 25, 26)
     .with(BadgeSettingsMigrator, 26, 27)
     .with(MoveBiometricUnlockToStateProviders, 27, 28)
-    .with(UserNotificationSettingsKeyMigrator, 28, CURRENT_VERSION);
+    .with(UserNotificationSettingsKeyMigrator, 28, 29)
+    .with(PolicyMigrator, 29, 30)
+    .with(EnableContextMenuMigrator, 30, 31)
+    .with(PreferredLanguageMigrator, 31, 32)
+    .with(AppIdMigrator, 32, 33)
+    .with(DomainSettingsMigrator, 33, 34)
+    .with(MoveThemeToStateProviderMigrator, 34, 35)
+    .with(VaultSettingsKeyMigrator, 35, 36)
+    .with(AvatarColorMigrator, 36, CURRENT_VERSION);
 }
 
 export async function currentVersion(
@@ -99,8 +115,12 @@ export async function waitForMigrations(
   const isReady = async () => {
     const version = await currentVersion(storageService, logService);
     // The saved version is what we consider the latest
-    // migrations should be complete
-    return version === CURRENT_VERSION;
+    // migrations should be complete, the state version
+    // shouldn't become larger than `CURRENT_VERSION` in
+    // any normal usage of the application but it is common
+    // enough in dev scenarios where we want to consider that
+    // ready as well and return true in that scenario.
+    return version >= CURRENT_VERSION;
   };
 
   const wait = async (time: number) => {

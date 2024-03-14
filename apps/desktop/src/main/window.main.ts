@@ -30,7 +30,7 @@ export class WindowMain {
   private windowStateChangeTimer: NodeJS.Timeout;
   private windowStates: { [key: string]: WindowState } = {};
   private enableAlwaysOnTop = false;
-  private session: Electron.Session;
+  session: Electron.Session;
 
   readonly defaultWidth = 950;
   readonly defaultHeight = 600;
@@ -246,8 +246,7 @@ export class WindowMain {
   // Retrieve the background color
   // Resolves background color missmatch when starting the application.
   async getBackgroundColor(): Promise<string> {
-    const data: { theme?: string } = await this.storageService.get("global");
-    let theme = data?.theme;
+    let theme = await this.storageService.get("global_theming_selection");
 
     if (theme == null || theme === "system") {
       theme = nativeTheme.shouldUseDarkColors ? "dark" : "light";

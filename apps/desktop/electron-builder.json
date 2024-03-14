@@ -24,7 +24,7 @@
     "**/node_modules/argon2/package.json",
     "**/node_modules/argon2/build/Release/argon2.node"
   ],
-  "electronVersion": "28.2.5",
+  "electronVersion": "28.2.6",
   "generateUpdatesFilesForAllChannels": true,
   "publish": {
     "provider": "generic",
@@ -167,6 +167,7 @@
   },
   "snap": {
     "autoStart": true,
+    "base": "core22",
     "confinement": "strict",
     "plugs": ["default", "password-manager-service"],
     "stagePackages": ["default"]

@@ -84,10 +84,6 @@ export class NativeMessagingBackground {
     private authService: AuthService,
     private biometricStateService: BiometricStateService,
   ) {
-    // FIXME: Verify that this floating promise is intentional. If it is, add an explanatory comment and ensure there is proper error handling.
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    this.stateService.setBiometricFingerprintValidated(false);
-
     if (chrome?.permissions?.onAdded) {
       // Reload extension to activate nativeMessaging
       chrome.permissions.onAdded.addListener((permissions) => {
@@ -100,9 +96,7 @@ export class NativeMessagingBackground {
 
   async connect() {
     this.appId = await this.appIdService.getAppId();
-    // FIXME: Verify that this floating promise is intentional. If it is, add an explanatory comment and ensure there is proper error handling.
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    this.stateService.setBiometricFingerprintValidated(false);
+    await this.biometricStateService.setFingerprintValidated(false);
 
     return new Promise<void>((resolve, reject) => {
       this.port = BrowserApi.connectNative("com.8bit.bitwarden");
@@ -128,7 +122,7 @@ export class NativeMessagingBackground {
             break;
           case "disconnected":
             if (this.connecting) {
-              reject("startDesktop");
+              reject(new Error("startDesktop"));
             }
             this.connected = false;
             this.port.disconnect();
@@ -148,9 +142,7 @@ export class NativeMessagingBackground {
 
             if (this.validatingFingerprint) {
               this.validatingFingerprint = false;
-              // FIXME: Verify that this floating promise is intentional. If it is, add an explanatory comment and ensure there is proper error handling.
-              // eslint-disable-next-line @typescript-eslint/no-floating-promises
-              this.stateService.setBiometricFingerprintValidated(true);
+              await this.biometricStateService.setFingerprintValidated(true);
             }
             this.sharedSecret = new SymmetricCryptoKey(decrypted);
             this.secureSetupResolve();
@@ -211,7 +203,7 @@ export class NativeMessagingBackground {
         this.connected = false;
 
         const reason = error != null ? "desktopIntegrationDisabled" : null;
-        reject(reason);
+        reject(new Error(reason));
       });
     });
   }

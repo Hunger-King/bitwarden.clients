@@ -1,6 +1,5 @@
 import { APP_INITIALIZER, InjectionToken, NgModule } from "@angular/core";
 
-import { AbstractThemingService } from "@bitwarden/angular/platform/services/theming/theming.service.abstraction";
 import {
   SECURE_STORAGE,
   STATE_FACTORY,
@@ -11,6 +10,7 @@ import {
   OBSERVABLE_MEMORY_STORAGE,
   OBSERVABLE_DISK_STORAGE,
   WINDOW,
+  SYSTEM_THEME_OBSERVABLE,
 } from "@bitwarden/angular/services/injection-tokens";
 import { JslibServicesModule } from "@bitwarden/angular/services/jslib-services.module";
 import { VaultTimeoutSettingsService } from "@bitwarden/common/abstractions/vault-timeout/vault-timeout-settings.service";
@@ -43,7 +43,7 @@ import { GlobalState } from "@bitwarden/common/platform/models/domain/global-sta
 import { MemoryStorageService } from "@bitwarden/common/platform/services/memory-storage.service";
 import { MigrationRunner } from "@bitwarden/common/platform/services/migration-runner";
 import { SystemService } from "@bitwarden/common/platform/services/system.service";
-import { StateProvider } from "@bitwarden/common/platform/state";
+import { GlobalStateProvider, StateProvider } from "@bitwarden/common/platform/state";
 // eslint-disable-next-line import/no-restricted-paths -- Implementation for memory storage
 import { MemoryStorageService as MemoryStorageServiceForStateProviders } from "@bitwarden/common/platform/state/storage/memory-storage.service";
 import { PasswordGenerationServiceAbstraction } from "@bitwarden/common/tools/generator/password";
@@ -60,13 +60,13 @@ import { ElectronRendererSecureStorageService } from "../../platform/services/el
 import { ElectronRendererStorageService } from "../../platform/services/electron-renderer-storage.service";
 import { ElectronStateService } from "../../platform/services/electron-state.service";
 import { I18nRendererService } from "../../platform/services/i18n.renderer.service";
+import { fromIpcSystemTheme } from "../../platform/utils/from-ipc-system-theme";
 import { EncryptedMessageHandlerService } from "../../services/encrypted-message-handler.service";
 import { NativeMessageHandlerService } from "../../services/native-message-handler.service";
 import { NativeMessagingService } from "../../services/native-messaging.service";
 import { SearchBarService } from "../layout/search/search-bar.service";
 
 import { DesktopFileDownloadService } from "./desktop-file-download.service";
-import { DesktopThemingService } from "./desktop-theming.service";
 import { InitService } from "./init.service";
 import { RendererCryptoFunctionService } from "./renderer-crypto-function.service";
 
@@ -104,7 +104,7 @@ const RELOAD_CALLBACK = new InjectionToken<() => any>("RELOAD_CALLBACK");
     {
       provide: I18nServiceAbstraction,
       useClass: I18nRendererService,
-      deps: [SYSTEM_LANGUAGE, LOCALES_DIRECTORY],
+      deps: [SYSTEM_LANGUAGE, LOCALES_DIRECTORY, GlobalStateProvider],
     },
     {
       provide: MessagingServiceAbstraction,
@@ -126,6 +126,7 @@ const RELOAD_CALLBACK = new InjectionToken<() => any>("RELOAD_CALLBACK");
         StateServiceAbstraction,
         AutofillSettingsServiceAbstraction,
         VaultTimeoutSettingsService,
+        BiometricStateService,
       ],
     },
     {
@@ -148,8 +149,8 @@ const RELOAD_CALLBACK = new InjectionToken<() => any>("RELOAD_CALLBACK");
       useClass: DesktopFileDownloadService,
     },
     {
-      provide: AbstractThemingService,
-      useClass: DesktopThemingService,
+      provide: SYSTEM_THEME_OBSERVABLE,
+      useFactory: () => fromIpcSystemTheme(),
     },
     {
       provide: EncryptedMessageHandlerService,
