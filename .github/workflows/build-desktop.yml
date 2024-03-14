@@ -463,7 +463,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
           node-version: ${{ env._NODE_VERSION }}
-      
+
       - name: Rust
         shell: pwsh
         run: rustup target install aarch64-apple-darwin
@@ -624,9 +624,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
           node-version: ${{ env._NODE_VERSION }}
-
-      - name: Set up Node-gyp
-        run: python3 -m pip install setuptools
 
       - name: Rust
         shell: pwsh
