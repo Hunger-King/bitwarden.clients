@@ -1165,13 +1165,13 @@
         "message": "特殊字元（!@#$%^&*）"
     },
     "numWords": {
-        "message": "字元位數"
+        "message": "單字數"
     },
     "wordSeparator": {
         "message": "單字分隔字元"
     },
     "capitalize": {
-        "message": "大寫",
+        "message": "首字母大寫",
         "description": "Make the first letter of a word uppercase."
     },
     "includeNumber": {
@@ -4557,7 +4557,7 @@
         "message": "停用組織使用者的個人所有權"
     },
     "textHiddenByDefault": {
-        "message": "存取此 Send 時，預設隱藏文字内容",
+        "message": "存取此 Send 時，預設隱藏文字",
         "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated."
     },
     "sendNameDesc": {
@@ -7404,7 +7404,7 @@
         "message": "密碼金鑰不會被複製"
     },
     "passkeyNotCopiedAlert": {
-        "message": "密碼金鑰不會被複製到已拓製項目。您想繼續拓製該項目嗎？"
+        "message": "不會將密碼金鑰複製到拓製的項目中。您想繼續拓製該項目嗎？"
     },
     "modifiedCollectionManagement": {
         "message": "已修改的分類管理設定 $ID$。",
