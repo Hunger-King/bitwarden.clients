@@ -281,13 +281,13 @@
         "message": "特殊字元（!@#$%^&*）"
     },
     "numWords": {
-        "message": "字元位數"
+        "message": "單字數"
     },
     "wordSeparator": {
         "message": "單字分隔字元"
     },
     "capitalize": {
-        "message": "大寫",
+        "message": "首字母大寫",
         "description": "Make the first letter of a work uppercase."
     },
     "includeNumber": {
@@ -2171,7 +2171,7 @@
         "message": "第三方"
     },
     "thirdPartyServerMessage": {
-        "message": "已連線至第三方伺服器 $SERVERNAME$ 進行實作。 請使用官方伺服器驗證伺服器錯誤，或將其報告給第三方伺服器。",
+        "message": "已連線至第三方的伺服器 $SERVERNAME$。若遇到 Bug，請使用官方伺服器進行驗證，或將其報告給該第三方伺服器。",
         "placeholders": {
             "servername": {
                 "content": "$1",
@@ -2686,7 +2686,7 @@
         "message": "密碼金鑰不會被複製"
     },
     "passkeyNotCopiedAlert": {
-        "message": "密碼金鑰不會被複製到已拓製項目。您想繼續拓製該項目嗎？"
+        "message": "不會將密碼金鑰複製到拓製的項目中。您想繼續拓製該項目嗎？"
     },
     "passkeyFeatureIsNotImplementedForAccountsWithoutMasterPassword": {
         "message": "發起站點需要驗證。沒有主密碼的帳戶尚未開通此功能。"
