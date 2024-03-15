@@ -31,6 +31,7 @@ import { CollectionView } from "@bitwarden/common/vault/models/view/collection.v
 import { DialogService } from "@bitwarden/components";
 
 import { CollectionAdminService } from "../../../../../vault/core/collection-admin.service";
+import { CollectionAdminView } from "../../../../../vault/core/views/collection-admin.view";
 import {
   CollectionAccessSelectionView,
   GroupService,
@@ -220,6 +221,9 @@ export class MemberDialogComponent implements OnDestroy {
 
         if (this.params.organizationUserId) {
           this.loadOrganizationUser(userDetails, groups, collections);
+        } else {
+          // Populate all available collections, without any user details
+          this.collectionAccessItems = collections.map((c) => mapCollectionToAccessItemView(c));
         }
 
         this.loading = false;
@@ -245,7 +249,7 @@ export class MemberDialogComponent implements OnDestroy {
   private loadOrganizationUser(
     userDetails: OrganizationUserAdminView,
     groups: GroupView[],
-    collections: CollectionView[],
+    collections: CollectionAdminView[],
   ) {
     if (!userDetails) {
       throw new Error("Could not find user to edit.");
@@ -294,13 +298,27 @@ export class MemberDialogComponent implements OnDestroy {
         }),
       );
 
+    // Populate all available collections (including current user access where applicable)
+    this.collectionAccessItems = collections.map((c) =>
+      mapCollectionToAccessItemView(
+        c,
+        c.users.find((access) => access.id === userDetails.id),
+      ),
+    );
+
+    // Populate additional collection access via groups (rendered as separate rows from user access)
     this.collectionAccessItems = this.collectionAccessItems.concat(
       collectionsFromGroups.map(({ collection, accessSelection, group }) =>
         mapCollectionToAccessItemView(collection, accessSelection, group),
       ),
     );
 
-    const accessSelections = mapToAccessSelections(userDetails);
+    // Set current collections and groups the user has access to
+    // Exclude readonly items, these only represent editable form values
+    const accessSelections = mapToAccessSelections(userDetails).filter(
+      (access) =>
+        !this.collectionAccessItems.find((item) => item.id === access.id && item.readonly),
+    );
     const groupAccessSelections = mapToGroupAccessSelections(userDetails.groups);
 
     this.formGroup.removeControl("emails");
@@ -580,7 +598,7 @@ function mapCollectionToAccessItemView(
     id: group ? `${collection.id}-${group.id}` : collection.id,
     labelName: collection.name,
     listName: collection.name,
-    readonly: group !== undefined,
+    readonly: group !== undefined || !collection.manage,
     readonlyPermission: accessSelection ? convertToPermission(accessSelection) : undefined,
     viaGroupName: group?.name,
   };
