@@ -315,10 +315,7 @@ export class MemberDialogComponent implements OnDestroy {
 
     // Set current collections and groups the user has access to
     // Exclude readonly items, these only represent editable form values
-    const accessSelections = mapToAccessSelections(userDetails).filter(
-      (access) =>
-        !this.collectionAccessItems.find((item) => item.id === access.id && item.readonly),
-    );
+    const accessSelections = mapToAccessSelections(userDetails);
     const groupAccessSelections = mapToGroupAccessSelections(userDetails.groups);
 
     this.formGroup.removeControl("emails");

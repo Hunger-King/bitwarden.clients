@@ -244,8 +244,12 @@ export class AccessSelectorComponent implements ControlValueAccessor, OnInit, On
     // Always clear the internal selection list on a new value
     this.selectionList.deselectAll();
 
-    // We need to also select any read only items to appear in the table
-    this.selectionList.selectItems(this.items.filter((m) => m.readonly).map((m) => m.id));
+    // We need to also select any collection access via a group - this is readonly but isn't included in the form value
+    this.selectionList.selectItems(
+      this.items
+        .filter((m) => m.readonly && m.type === AccessItemType.Collection && m.viaGroupName != null)
+        .map((m) => m.id),
+    );
 
     // If the new value is null, then we're done
     if (selectedItems == null) {
