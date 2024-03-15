@@ -136,10 +136,12 @@ export class AccessSelectorComponent implements ControlValueAccessor, OnInit, On
       val.filter((m) => m.readonly),
     );
     this.selectionList.populateItems(
-      val.map((m) => {
-        m.icon = m.icon ?? this.itemIcon(m); // Ensure an icon is set
-        return m;
-      }),
+      val
+        .filter((v) => !v.readonly)
+        .map((m) => {
+          m.icon = m.icon ?? this.itemIcon(m); // Ensure an icon is set
+          return m;
+        }),
       selected,
     );
   }
@@ -330,6 +332,10 @@ export class AccessSelectorComponent implements ControlValueAccessor, OnInit, On
 
   protected canEditItemPermission(item: AccessItemView) {
     return this.permissionMode == PermissionMode.Edit && !item.readonly && !item.accessAllItems;
+  }
+
+  protected get selectableItems(): AccessItemView[] {
+    return this.selectionList.deselectedItems.filter((item) => !item.readonly);
   }
 
   private _itemComparator(a: AccessItemView, b: AccessItemView) {
