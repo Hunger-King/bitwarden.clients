@@ -2,7 +2,9 @@ import * as path from "path";
 
 import { app } from "electron";
 
+import { TokenService as TokenServiceAbstraction } from "@bitwarden/common/auth/abstractions/token.service";
 import { AccountServiceImplementation } from "@bitwarden/common/auth/services/account.service";
+import { TokenService } from "@bitwarden/common/auth/services/token.service";
 import { StateService } from "@bitwarden/common/platform/abstractions/state.service";
 import { DefaultBiometricStateService } from "@bitwarden/common/platform/biometrics/biometric-state.service";
 import { StateFactory } from "@bitwarden/common/platform/factories/state-factory";
@@ -36,9 +38,11 @@ import { ClipboardMain } from "./platform/main/clipboard.main";
 import { DesktopCredentialStorageListener } from "./platform/main/desktop-credential-storage-listener";
 import { MainCryptoFunctionService } from "./platform/main/main-crypto-function.service";
 import { ElectronLogMainService } from "./platform/services/electron-log.main.service";
+import { ELECTRON_SUPPORTS_SECURE_STORAGE } from "./platform/services/electron-platform-utils.service";
 import { ElectronStateService } from "./platform/services/electron-state.service";
 import { ElectronStorageService } from "./platform/services/electron-storage.service";
 import { I18nMainService } from "./platform/services/i18n.main.service";
+import { IllegalSecureStorageService } from "./platform/services/illegal-secure-storage-service";
 import { ElectronMainMessagingService } from "./services/electron-main-messaging.service";
 
 export class Main {
@@ -53,6 +57,7 @@ export class Main {
   mainCryptoFunctionService: MainCryptoFunctionService;
   desktopCredentialStorageListener: DesktopCredentialStorageListener;
   migrationRunner: MigrationRunner;
+  tokenService: TokenServiceAbstraction;
 
   windowMain: WindowMain;
   messagingMain: MessagingMain;
@@ -129,14 +134,29 @@ export class Main {
       stateEventRegistrarService,
     );
 
+    const activeUserStateProvider = new DefaultActiveUserStateProvider(
+      accountService,
+      singleUserStateProvider,
+    );
+
     const stateProvider = new DefaultStateProvider(
-      new DefaultActiveUserStateProvider(accountService, singleUserStateProvider),
+      activeUserStateProvider,
       singleUserStateProvider,
       globalStateProvider,
       new DefaultDerivedStateProvider(this.memoryStorageForStateProviders),
     );
 
     this.environmentService = new EnvironmentService(stateProvider, accountService);
+
+    // Note: secure storage service is not available and should not be called in the main background process.
+    const illegalSecureStorageService = new IllegalSecureStorageService();
+
+    this.tokenService = new TokenService(
+      singleUserStateProvider,
+      globalStateProvider,
+      ELECTRON_SUPPORTS_SECURE_STORAGE,
+      illegalSecureStorageService,
+    );
 
     this.migrationRunner = new MigrationRunner(
       this.storageService,
@@ -155,6 +175,7 @@ export class Main {
       new StateFactory(GlobalState, Account),
       accountService, // will not broadcast logouts. This is a hack until we can remove messaging dependency
       this.environmentService,
+      this.tokenService,
       this.migrationRunner,
       false, // Do not use disk caching because this will get out of sync with the renderer service
     );
@@ -176,6 +197,7 @@ export class Main {
     this.messagingService = new ElectronMainMessagingService(this.windowMain, (message) => {
       this.messagingMain.onMessage(message);
     });
+
     this.powerMonitorMain = new PowerMonitorMain(this.messagingService);
     this.menuMain = new MenuMain(
       this.i18nService,

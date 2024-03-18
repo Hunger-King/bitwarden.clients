@@ -96,9 +96,11 @@ import {
   DomainSettingsService,
   DefaultDomainSettingsService,
 } from "@bitwarden/common/autofill/services/domain-settings.service";
+import { BillingAccountProfileStateService } from "@bitwarden/common/billing/abstractions/account/billing-account-profile-state.service";
 import { BillingApiServiceAbstraction } from "@bitwarden/common/billing/abstractions/billilng-api.service.abstraction";
 import { OrganizationBillingServiceAbstraction } from "@bitwarden/common/billing/abstractions/organization-billing.service";
 import { PaymentMethodWarningsServiceAbstraction } from "@bitwarden/common/billing/abstractions/payment-method-warnings-service.abstraction";
+import { DefaultBillingAccountProfileStateService } from "@bitwarden/common/billing/services/account/billing-account-profile-state.service";
 import { BillingApiService } from "@bitwarden/common/billing/services/billing-api.service";
 import { OrganizationBillingService } from "@bitwarden/common/billing/services/organization-billing.service";
 import { PaymentMethodWarningsService } from "@bitwarden/common/billing/services/payment-method-warnings.service";
@@ -250,6 +252,7 @@ import {
   SECURE_STORAGE,
   STATE_FACTORY,
   STATE_SERVICE_USE_CACHE,
+  SUPPORTS_SECURE_STORAGE,
   SYSTEM_LANGUAGE,
   SYSTEM_THEME_OBSERVABLE,
   WINDOW,
@@ -271,6 +274,12 @@ const typesafeProviders: Array<SafeProvider> = [
     provide: LOCALE_ID as SafeInjectionToken<string>,
     useFactory: (i18nService: I18nServiceAbstraction) => i18nService.translationLocale,
     deps: [I18nServiceAbstraction],
+  }),
+  safeProvider({
+    provide: SUPPORTS_SECURE_STORAGE,
+    useFactory: (platformUtilsService: PlatformUtilsServiceAbstraction) =>
+      platformUtilsService.supportsSecureStorage(),
+    deps: [PlatformUtilsServiceAbstraction],
   }),
   safeProvider({
     provide: LOCALES_DIRECTORY,
@@ -361,6 +370,7 @@ const typesafeProviders: Array<SafeProvider> = [
       DeviceTrustCryptoServiceAbstraction,
       AuthRequestServiceAbstraction,
       GlobalStateProvider,
+      BillingAccountProfileStateService,
     ],
   }),
   safeProvider({
@@ -475,7 +485,7 @@ const typesafeProviders: Array<SafeProvider> = [
   safeProvider({
     provide: TokenServiceAbstraction,
     useClass: TokenService,
-    deps: [StateServiceAbstraction],
+    deps: [SingleUserStateProvider, GlobalStateProvider, SUPPORTS_SECURE_STORAGE, SECURE_STORAGE],
   }),
   safeProvider({
     provide: KeyGenerationServiceAbstraction,
@@ -519,6 +529,7 @@ const typesafeProviders: Array<SafeProvider> = [
       PlatformUtilsServiceAbstraction,
       EnvironmentServiceAbstraction,
       AppIdServiceAbstraction,
+      StateServiceAbstraction,
       LOGOUT_CALLBACK,
     ],
   }),
@@ -563,6 +574,7 @@ const typesafeProviders: Array<SafeProvider> = [
       SendApiServiceAbstraction,
       AvatarServiceAbstraction,
       LOGOUT_CALLBACK,
+      BillingAccountProfileStateService,
     ],
   }),
   safeProvider({ provide: BroadcasterServiceAbstraction, useClass: BroadcasterService, deps: [] }),
@@ -621,6 +633,7 @@ const typesafeProviders: Array<SafeProvider> = [
       STATE_FACTORY,
       AccountServiceAbstraction,
       EnvironmentServiceAbstraction,
+      TokenServiceAbstraction,
       MigrationRunner,
       STATE_SERVICE_USE_CACHE,
     ],
@@ -1030,6 +1043,11 @@ const typesafeProviders: Array<SafeProvider> = [
     provide: PaymentMethodWarningsServiceAbstraction,
     useClass: PaymentMethodWarningsService,
     deps: [BillingApiServiceAbstraction, StateProvider],
+  }),
+  safeProvider({
+    provide: BillingAccountProfileStateService,
+    useClass: DefaultBillingAccountProfileStateService,
+    deps: [ActiveUserStateProvider],
   }),
 ];
 

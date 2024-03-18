@@ -7,6 +7,8 @@ import { TokenService } from "@bitwarden/common/auth/abstractions/token.service"
 import { TwoFactorService } from "@bitwarden/common/auth/abstractions/two-factor.service";
 import { UserApiTokenRequest } from "@bitwarden/common/auth/models/request/identity-token/user-api-token.request";
 import { IdentityTokenResponse } from "@bitwarden/common/auth/models/response/identity-token.response";
+import { BillingAccountProfileStateService } from "@bitwarden/common/billing/abstractions/account/billing-account-profile-state.service";
+import { VaultTimeoutAction } from "@bitwarden/common/enums/vault-timeout-action.enum";
 import { AppIdService } from "@bitwarden/common/platform/abstractions/app-id.service";
 import { CryptoService } from "@bitwarden/common/platform/abstractions/crypto.service";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
@@ -47,6 +49,7 @@ export class UserApiLoginStrategy extends LoginStrategy {
     twoFactorService: TwoFactorService,
     private environmentService: EnvironmentService,
     private keyConnectorService: KeyConnectorService,
+    billingAccountProfileStateService: BillingAccountProfileStateService,
   ) {
     super(
       cryptoService,
@@ -58,6 +61,7 @@ export class UserApiLoginStrategy extends LoginStrategy {
       logService,
       stateService,
       twoFactorService,
+      billingAccountProfileStateService,
     );
     this.cache = new BehaviorSubject(data);
   }
@@ -104,9 +108,21 @@ export class UserApiLoginStrategy extends LoginStrategy {
   protected async saveAccountInformation(tokenResponse: IdentityTokenResponse) {
     await super.saveAccountInformation(tokenResponse);
 
+    const vaultTimeout = await this.stateService.getVaultTimeout();
+    const vaultTimeoutAction = await this.stateService.getVaultTimeoutAction();
+
     const tokenRequest = this.cache.value.tokenRequest;
-    await this.stateService.setApiKeyClientId(tokenRequest.clientId);
-    await this.stateService.setApiKeyClientSecret(tokenRequest.clientSecret);
+
+    await this.tokenService.setClientId(
+      tokenRequest.clientId,
+      vaultTimeoutAction as VaultTimeoutAction,
+      vaultTimeout,
+    );
+    await this.tokenService.setClientSecret(
+      tokenRequest.clientSecret,
+      vaultTimeoutAction as VaultTimeoutAction,
+      vaultTimeout,
+    );
   }
 
   exportCache(): CacheData {
