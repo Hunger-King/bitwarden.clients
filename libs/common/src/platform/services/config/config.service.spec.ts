@@ -10,6 +10,7 @@ import {
   FakeGlobalState,
   FakeSingleUserState,
   FakeStateProvider,
+  awaitAsync,
   mockAccountServiceWith,
 } from "../../../../spec";
 import { subscribeTo } from "../../../../spec/observable-tracker";
@@ -174,6 +175,14 @@ describe("ConfigService", () => {
         it("uses stored value", async () => {
           const actual = await firstValueFrom(sut.serverConfig$);
           expect(actual).toEqual(activeUserId ? userStored : globalStored[activeApiUrl]);
+        });
+
+        it("does not complete after emit", async () => {
+          const emissions = [];
+          const subscription = sut.serverConfig$.subscribe((v) => emissions.push(v));
+          await awaitAsync();
+          expect(emissions.length).toBe(1);
+          expect(subscription.closed).toBe(false);
         });
       });
     });
