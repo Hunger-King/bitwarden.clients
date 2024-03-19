@@ -148,7 +148,7 @@ export class VaultHeaderComponent implements OnInit {
       .map((treeNode) => treeNode.node);
   }
 
-  async canEditCollection() {
+  get canEditCollection(): boolean {
     // Only edit collections if not editing "Unassigned"
     if (this.collection == null) {
       return false;

@@ -208,7 +208,7 @@ export class Organization {
   canEditAllCiphers(flexibleCollectionsV1Enabled: boolean) {
     // Before Flexible Collections, anyone with editAnyCollection permission could edit all ciphers
     if (!flexibleCollectionsV1Enabled) {
-      return this.canEditAnyCollection(flexibleCollectionsV1Enabled);
+      return this.canEditAnyCollection(false);
     }
     // Post Flexible Collections V1, the allowAdminAccessToAllCollectionItems flag can restrict admins
     // Providers and custom users with canEditAnyCollection are not affected by allowAdminAccessToAllCollectionItems flag

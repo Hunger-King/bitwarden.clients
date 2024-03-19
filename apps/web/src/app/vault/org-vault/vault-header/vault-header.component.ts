@@ -157,7 +157,7 @@ export class VaultHeaderComponent implements OnInit {
     });
   }
 
-  get canEditCollection() {
+  get canEditCollection(): boolean {
     // Only edit collections if not editing "Unassigned"
     if (this.collection === undefined) {
       return false;

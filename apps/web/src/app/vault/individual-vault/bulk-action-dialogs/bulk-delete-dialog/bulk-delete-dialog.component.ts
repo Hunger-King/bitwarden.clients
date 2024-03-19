@@ -52,8 +52,9 @@ export class BulkDeleteDialogComponent {
   organizations: Organization[];
   collections: CollectionView[];
 
-  private flexibleCollectionsV1Enabled = this.configService.getFeatureFlag$<boolean>(
+  private flexibleCollectionsV1Enabled$ = this.configService.getFeatureFlag$(
     FeatureFlag.FlexibleCollectionsV1,
+    false,
   );
 
   constructor(
@@ -80,7 +81,7 @@ export class BulkDeleteDialogComponent {
   protected submit = async () => {
     const deletePromises: Promise<void>[] = [];
     if (this.cipherIds.length) {
-      const flexibleCollectionsV1Enabled = await firstValueFrom(this.flexibleCollectionsV1Enabled);
+      const flexibleCollectionsV1Enabled = await firstValueFrom(this.flexibleCollectionsV1Enabled$);
 
       if (
         !this.organization ||
@@ -117,7 +118,7 @@ export class BulkDeleteDialogComponent {
   };
 
   private async deleteCiphers(): Promise<any> {
-    const flexibleCollectionsV1Enabled = await firstValueFrom(this.flexibleCollectionsV1Enabled);
+    const flexibleCollectionsV1Enabled = await firstValueFrom(this.flexibleCollectionsV1Enabled$);
     const asAdmin = this.organization?.canEditAnyCollection(flexibleCollectionsV1Enabled);
     if (this.permanent) {
       await this.cipherService.deleteManyWithServer(this.cipherIds, asAdmin);

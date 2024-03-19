@@ -60,7 +60,7 @@ export class AttachmentsComponent extends BaseAttachmentsComponent implements On
   async ngOnInit() {
     await super.ngOnInit();
     this.flexibleCollectionsV1Enabled = await firstValueFrom(
-      this.configService.getFeatureFlag$<boolean>(FeatureFlag.FlexibleCollectionsV1),
+      this.configService.getFeatureFlag$(FeatureFlag.FlexibleCollectionsV1, false),
     );
   }
 
@@ -78,7 +78,7 @@ export class AttachmentsComponent extends BaseAttachmentsComponent implements On
     return new Cipher(new CipherData(response));
   }
 
-  protected async saveCipherAttachment(file: File) {
+  protected saveCipherAttachment(file: File) {
     return this.cipherService.saveAttachmentWithServer(
       this.cipherDomain,
       file,
