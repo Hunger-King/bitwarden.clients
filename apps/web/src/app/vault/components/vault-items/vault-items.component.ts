@@ -44,6 +44,7 @@ export class VaultItemsComponent {
   @Input() showBulkEditCollectionAccess = false;
   @Input() showPermissionsColumn = false;
   @Input() viewingOrgVault: boolean;
+  @Input({ required: true }) flexibleCollectionsV1Enabled = false;
 
   private _ciphers?: CipherView[] = [];
   @Input() get ciphers(): CipherView[] {
@@ -96,7 +97,7 @@ export class VaultItemsComponent {
     }
 
     const organization = this.allOrganizations.find((o) => o.id === collection.organizationId);
-    return collection.canEdit(organization);
+    return collection.canEdit(organization, this.flexibleCollectionsV1Enabled);
   }
 
   protected canDeleteCollection(collection: CollectionView): boolean {

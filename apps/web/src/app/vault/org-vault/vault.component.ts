@@ -141,6 +141,11 @@ export class VaultComponent implements OnInit, OnDestroy {
     FeatureFlag.BulkCollectionAccess,
     false,
   );
+  protected flexibleCollectionsV1Enabled$ = this.configService.getFeatureFlag$(
+    FeatureFlag.FlexibleCollectionsV1,
+    false,
+  );
+
   private _flexibleCollectionsV1FlagEnabled: boolean;
 
   protected get flexibleCollectionsV1Enabled(): boolean {
@@ -475,7 +480,7 @@ export class VaultComponent implements OnInit, OnDestroy {
               (await firstValueFrom(allCipherMap$))[cipherId] != undefined;
           } else {
             canEditCipher =
-              organization.canUseAdminCollections ||
+              organization.canUseAdminCollections(this.flexibleCollectionsV1Enabled) ||
               (await this.cipherService.get(cipherId)) != null;
           }
 
@@ -830,7 +835,7 @@ export class VaultComponent implements OnInit, OnDestroy {
     }
 
     try {
-      const asAdmin = this.organization?.canEditAnyCollection;
+      const asAdmin = this.organization?.canEditAnyCollection(this.flexibleCollectionsV1Enabled);
       await this.cipherService.restoreWithServer(c.id, asAdmin);
       this.platformUtilsService.showToast("success", null, this.i18nService.t("restoredItem"));
       this.refresh();
@@ -1082,7 +1087,7 @@ export class VaultComponent implements OnInit, OnDestroy {
   }
 
   protected deleteCipherWithServer(id: string, permanent: boolean) {
-    const asAdmin = this.organization?.canEditAnyCollection;
+    const asAdmin = this.organization?.canEditAnyCollection(this.flexibleCollectionsV1Enabled);
     return permanent
       ? this.cipherService.deleteWithServer(id, asAdmin)
       : this.cipherService.softDeleteWithServer(id, asAdmin);

@@ -34,7 +34,7 @@ export class CollectionView implements View, ITreeNodeObject {
   }
 
   // For editing collection details, not the items within it.
-  canEdit(org: Organization): boolean {
+  canEdit(org: Organization, flexibleCollectionsV1Enabled: boolean): boolean {
     if (org != null && org.id !== this.organizationId) {
       throw new Error(
         "Id of the organization provided does not match the org id of the collection.",
@@ -42,8 +42,8 @@ export class CollectionView implements View, ITreeNodeObject {
     }
 
     return org?.flexibleCollections
-      ? org?.canEditAnyCollection || this.manage
-      : org?.canEditAnyCollection || org?.canEditAssignedCollections;
+      ? org?.canEditAnyCollection(flexibleCollectionsV1Enabled) || this.manage
+      : org?.canEditAnyCollection(flexibleCollectionsV1Enabled) || org?.canEditAssignedCollections;
   }
 
   // For deleting a collection, not the items within it.

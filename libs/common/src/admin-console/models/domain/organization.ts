@@ -188,18 +188,27 @@ export class Organization {
     return this.isManager || this.permissions.createNewCollections;
   }
 
-  get canEditAnyCollection() {
+  canEditAnyCollection(flexibleCollectionsV1Enabled: boolean) {
+    if (this.flexibleCollections && flexibleCollectionsV1Enabled) {
+      // New v1 logic
+      return (
+        (this.allowAdminAccessToAllCollectionItems && this.isAdmin) ||
+        this.permissions.editAnyCollection
+      );
+    }
+
+    // Old logic
     return this.isAdmin || this.permissions.editAnyCollection;
   }
 
-  get canUseAdminCollections() {
-    return this.canEditAnyCollection;
+  canUseAdminCollections(flexibleCollectionsV1Enabled: boolean) {
+    return this.canEditAnyCollection(flexibleCollectionsV1Enabled);
   }
 
   canEditAllCiphers(flexibleCollectionsV1Enabled: boolean) {
     // Before Flexible Collections, anyone with editAnyCollection permission could edit all ciphers
     if (!flexibleCollectionsV1Enabled) {
-      return this.canEditAnyCollection;
+      return this.canEditAnyCollection(flexibleCollectionsV1Enabled);
     }
     // Post Flexible Collections V1, the allowAdminAccessToAllCollectionItems flag can restrict admins
     // Providers and custom users with canEditAnyCollection are not affected by allowAdminAccessToAllCollectionItems flag
@@ -214,8 +223,13 @@ export class Organization {
     return this.isAdmin || this.permissions.deleteAnyCollection;
   }
 
+  /**
+   * Whether the user can view all collection information, such as collection name and access.
+   * This does not indicate that the user can view items inside any collection - for that, see {@link canEditAllCiphers}
+   */
   get canViewAllCollections() {
-    return this.canEditAnyCollection || this.canDeleteAnyCollection;
+    // Admins can always see all collections even if collection management settings prevent them from editing them or seeing items
+    return this.isAdmin || this.permissions.editAnyCollection || this.canDeleteAnyCollection;
   }
 
   /**
