@@ -42,3 +42,6 @@ Interested in contributing in a big way? Consider joining our team! We're hiring
 Code contributions are welcome! Please commit any pull requests against the `master` branch. Learn more about how to contribute by reading the [Contributing Guidelines](https://contributing.bitwarden.com/contributing/). Check out the [Contributing Documentation](https://contributing.bitwarden.com/) for how to get started with your first contribution.
 
 Security audits and feedback are welcome. Please open an issue or email us privately if the report is sensitive in nature. You can read our security policy in the [`SECURITY.md`](SECURITY.md) file.
+
+軟體中文化
+本專案為數位部開放原始碼軟體中文化專案項目之一，其中文化與專案應用可參考 Wiki。
