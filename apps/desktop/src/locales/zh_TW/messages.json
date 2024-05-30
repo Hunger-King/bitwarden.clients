@@ -630,7 +630,7 @@
         "message": "將您的安全金鑰插入電腦的 USB 連接埠，若有按鈕，請按下。"
     },
     "recoveryCodeDesc": {
-        "message": "無法使用任何雙因素驗證程式嗎？請使用您的復原碼以停用您帳戶的所有雙因素驗證程式。"
+        "message": "無法使用任何雙因子驗證程式嗎？請使用您的復原碼以停用您帳戶的所有雙因子驗證程式。"
     },
     "recoveryCodeTitle": {
         "message": "復原代碼"
@@ -1843,7 +1843,7 @@
         "message": "需要驗證電子郵件地址"
     },
     "emailVerificationRequiredDesc": {
-        "message": "必須驗證您的電子郵件地址，才能使用此功能。"
+        "message": "您必須驗證您的電子郵件地址，才能使用此功能。"
     },
     "passwordPrompt": {
         "message": "重新要求主密碼"
