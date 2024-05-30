@@ -627,7 +627,7 @@
         "message": "密碼金鑰無效，請再試一次。"
     },
     "twoFactorForPasskeysNotSupportedOnClientUpdateToLogIn": {
-        "message": "不支援密碼金鑰雙因素驗證。請先更新應用程式再登入。"
+        "message": "不支援密碼金鑰雙因子驗證。請先更新應用程式再登入。"
     },
     "loginWithPasskeyInfo": {
         "message": "產生密碼金鑰後，無需密碼即可自動登入。可透過生物特徵辨識（例如臉部識別或指紋）或其他 FIDO2 安全方式將確認您的身分。"
@@ -923,7 +923,7 @@
         "message": "此帳戶已設定兩步驟登入，但是本瀏覽器不支援已設定的任一兩步驟提供程式。"
     },
     "noTwoStepProviders2": {
-        "message": "請使用支援的瀏覽器（例如 Chrome），及/或新增可以更好地支援跨瀏覽器的提供程式（例如驗證器）。"
+        "message": "請使用支援的瀏覽器（例如 Chrome），及/或新增可以更好地支援跨瀏覽器的提供程式（例如驗證器應用程式）。"
     },
     "twoStepOptions": {
         "message": "兩步驟登入選項"
@@ -3279,7 +3279,7 @@
         "message": "需要驗證電子郵件地址"
     },
     "emailVerificationRequiredDesc": {
-        "message": "必須驗證您的電子郵件地址，才能使用此功能。"
+        "message": "您必須驗證您的電子郵件地址，才能使用此功能。"
     },
     "updateBrowser": {
         "message": "更新瀏覽器"
@@ -5129,7 +5129,7 @@
         "message": "客戶機密"
     },
     "metadataAddress": {
-        "message": "中繼資料位址"
+        "message": "中介資料位址"
     },
     "oidcRedirectBehavior": {
         "message": "OIDC 重新導向行為"
@@ -5159,7 +5159,7 @@
         "message": "SP 實體 ID"
     },
     "spMetadataUrl": {
-        "message": "SAML 2.0 中繼資料 URL"
+        "message": "SAML 2.0 中介資料 URL"
     },
     "spAcsUrl": {
         "message": "判斷提示取用者服務（ACS）URL"
@@ -5234,7 +5234,7 @@
         "message": "連結已失效。請讓贊助者重新傳送邀請。"
     },
     "reclaimedFreePlan": {
-        "message": "已回收免費方案"
+        "message": "恢復免費方案"
     },
     "redeem": {
         "message": "兌換"
