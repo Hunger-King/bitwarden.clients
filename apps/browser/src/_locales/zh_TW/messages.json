@@ -814,7 +814,7 @@
         "message": "功能不可用"
     },
     "encryptionKeyMigrationRequired": {
-        "message": "需要移轉加密金鑰。請透過網頁版密碼庫登入以更新您的加密金鑰。"
+        "message": "需要遷移加密金鑰。請透過網頁版登入密碼庫以更新您的加密金鑰。"
     },
     "premiumMembership": {
         "message": "進階會員"
