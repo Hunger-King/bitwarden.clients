@@ -476,7 +476,7 @@
         "message": "檔案最大為 500MB。"
     },
     "encryptionKeyMigrationRequired": {
-        "message": "需要移轉加密金鑰。請透過網頁版密碼庫登入以更新您的加密金鑰。"
+        "message": "需要遷移加密金鑰。請透過網頁版登入密碼庫以更新您的加密金鑰。"
     },
     "editedFolder": {
         "message": "資料夾已儲存"
