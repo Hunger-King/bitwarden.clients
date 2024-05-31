@@ -814,7 +814,7 @@
         "message": "功能不可用"
     },
     "encryptionKeyMigrationRequired": {
-        "message": "需要移轉加密金鑰。請透過網頁版密碼庫登入以更新您的加密金鑰。"
+        "message": "需要遷移加密金鑰。請透過網頁版登入密碼庫以更新您的加密金鑰。"
     },
     "premiumMembership": {
         "message": "進階會員"
@@ -943,13 +943,13 @@
         "message": "此帳戶已設定兩步驟登入，但是本瀏覽器不支援已設定的任一兩步驟提供程式。"
     },
     "noTwoStepProviders2": {
-        "message": "請使用支援的瀏覽器（例如 Chrome），及/或新增可以更好地支援跨瀏覽器的提供程式（例如驗證器）。"
+        "message": "請使用支援的瀏覽器（例如 Chrome），及/或新增可以更好地支援跨瀏覽器的提供程式（例如驗證器應用程式）。"
     },
     "twoStepOptions": {
         "message": "兩步驟登入選項"
     },
     "recoveryCodeDesc": {
-        "message": "無法使用任何雙因素驗證程式嗎？請使用您的復原碼以停用您帳戶的所有雙因素驗證程式。"
+        "message": "無法使用任何雙因子驗證程式嗎？請使用您的復原碼以停用您帳戶的所有雙因子驗證程式。"
     },
     "recoveryCodeTitle": {
         "message": "復原代碼"
